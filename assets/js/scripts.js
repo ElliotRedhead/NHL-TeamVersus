@@ -11,6 +11,9 @@ fetch(url)
         console.log(statistics)
         document.getElementById("teamname").innerHTML = `Team: ${statistics.team.name}`
         document.getElementById("wins").innerHTML = `Wins: ${statistics.stat.wins}`
+            if (statistics.stats.wins > 30) {
+                document.getElementById("wins").style.color="green";
+            }
         document.getElementById("losses").innerHTML = `Losses: ${statistics.stat.losses}`
     })
 
