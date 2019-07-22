@@ -1,5 +1,5 @@
 # NHL-TeamVersus
-View the live deployment [here](link)
+View the live deployment [here](https://elliotredhead.github.io/NHL-TeamVersus/)
 -----
 
 Page Summary
