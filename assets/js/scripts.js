@@ -1,6 +1,6 @@
 const url = 'https://statsapi.web.nhl.com/api/v1/teams/';
 
-function getTeamNumber {
+function getTeamNumber() {
     var teamNumber = document.getElementById("teamSelect");
 }
 
