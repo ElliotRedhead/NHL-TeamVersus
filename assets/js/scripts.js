@@ -1,6 +1,13 @@
 const url = 'https://statsapi.web.nhl.com/api/v1/teams/';
 
-function getTeamNumber() {
+//function Team (name, number){
+//    this.teamName = name;
+//    this.teamNumber = number;
+//}
+
+//Retrieve the team number from the API to convert from teamname instead of doing locally.
+
+function getTeamName() {
     var teamNumber = document.getElementById("teamSelect");
 }
 
