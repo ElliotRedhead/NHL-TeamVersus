@@ -1,5 +1,9 @@
 const url = 'https://statsapi.web.nhl.com/api/v1/teams/';
 
+function getTeamNumber {
+    var teamNumber = document.getElementById("teamSelect");
+}
+
 function dataRequest(nhlUrl, teamNumber) {
   fetch(nhlUrl + teamNumber + '/stats')
     .then(res => res.json())
