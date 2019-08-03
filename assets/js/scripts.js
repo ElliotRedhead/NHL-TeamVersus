@@ -1,5 +1,16 @@
 const fetchUrl = 'https://statsapi.web.nhl.com/api/v1/teams/';
 
+function nameRequest() {
+    fetch(fetchUrl)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
+            for (var i = 0; i< data.teams.length ; i++) {
+                console.log (data.teams[i].name)
+                }
+        });
+}
+
 function getTeamName() {
     const teamName1 = document.getElementById("teamSelect1").value;
     const teamName2 = document.getElementById("teamSelect2").value;
@@ -31,12 +42,26 @@ function statsRequest(teamID1, teamID2) {
         .then(res => res.json())
         .then(statSet1 => {
             const teamStat1 = (statSet1.stats[0].splits[0].stat)
+            var teamSelect = 1
+            writeStats(teamStat1, teamSelect)
         });
+        
     fetch(fetchUrl + teamID2 + '/stats')
         .then(res => res.json())
         .then(statSet2 => {
-            const teamStat2 = (statSet1.stats[0].splits[0].stat)
+            const teamStat2 = (statSet2.stats[0].splits[0].stat)
+            var teamSelect = 2
+            writeStats(teamStat2, teamSelect)
         });
 }
 
+function writeStats(teamStat, teamSelect) {
+    console.log(teamStat);
+    document.getElementById("wins"+teamSelect).textContent = teamStat.wins;
+    document.getElementById("losses"+teamSelect).textContent = teamStat.losses;
+    document.getElementById("pts"+teamSelect).textContent = teamStat.pts;
+    document.getElementById("faceOffWinPercentage"+teamSelect).textContent = teamStat.faceOffWinPercentage;
+    document.getElementById("savePctg"+teamSelect).textContent = teamStat.savePctg;
+    document.getElementById("goalsPerGame"+teamSelect).textContent = teamStat.goalsPerGame;
+}
 
