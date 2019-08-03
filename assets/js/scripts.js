@@ -1,29 +1,30 @@
-const url = 'https://statsapi.web.nhl.com/api/v1/teams/';
-var teamName1
-var teamName2
+const fetchUrl = 'https://statsapi.web.nhl.com/api/v1/teams/';
 
 function getTeamName() {
-    teamName1 = document.getElementById("teamSelect1");
-    teamName2 = document.getElementById("teamSelect2");
+    const teamName1 = document.getElementById("teamSelect1").value;
+    const teamName2 = document.getElementById("teamSelect2").value;
+    dataRequest(teamName1,teamName2)
 }
 
 
-function dataRequest(fetchUrl){
+function dataRequest(teamName1,teamName2){
+    const fetchUrl = 'https://statsapi.web.nhl.com/api/v1/teams/';
     fetch(fetchUrl)
     .then(res => res.json())
     .then(data => {
-        printTeamID(data, "New Jersey Devils", "Ottawa Senators")
-//        console.log(data);
+    getTeamID(data, teamName1, teamName2)
     });
 }
 
-function printTeamID(dataset,teamName1, teamName2) {
+function getTeamID(dataset,teamName1, teamName2) {
     var targetTeam1;
     var targetTeam2;
     targetTeam1 = dataset.teams.find(team1 => team1.name==teamName1);
     targetTeam2 = dataset.teams.find(team2 => team2.name==teamName2);
     var teamID1 = targetTeam1.id;
     var teamID2 = targetTeam2.id;
+    console.log(teamID1);
+    console.log(teamID2);
 }
 
 
@@ -43,7 +44,6 @@ function printStats(dataset) {
 }
 
 
-
-dataRequest(url)
+getTeamName()
 //statsRequest(url, 1);
 //statsRequest(url, 2);
