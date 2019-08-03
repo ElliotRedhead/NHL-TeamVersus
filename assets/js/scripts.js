@@ -1,20 +1,23 @@
 const url = 'https://statsapi.web.nhl.com/api/v1/teams/';
 
-//function Team (name, number){
-//    this.teamName = name;
-//    this.teamNumber = number;
-//}
-
-//Retrieve the team number from the API to convert from teamname instead of doing locally.
-
 function dataRequest(fetchUrl){
     fetch(fetchUrl)
     .then(res => res.json())
     .then(data => {
+        printTeamID(data, "New Jersey Devils", "Ottawa Senators")
 //        console.log(data);
-        printData(data);
     });
 }
+
+function printTeamID(dataset,targetTeamName1, targetTeamName2) {
+    var targetTeam1
+    var targetTeam2
+    targetTeam1 = dataset.teams.find(team1 => team1.name==targetTeamName1);
+    targetTeam2 = dataset.teams.find(team2 => team2.name==targetTeamName2);
+    console.log(targetTeam1.id);
+    console.log(targetTeam2.id);
+}
+
 
 function getTeamID(arrayTeams, propertyName, propertyValue) {
     var teamName = document.getElementById("teamSelect");
@@ -35,15 +38,7 @@ function printStats(dataset) {
     console.log(wins);
 }
 
-function printData(dataset) {
-    var datasetAnalysis = dataset.teams;
-    console.log(datasetAnalysis);
-    console.log(datasetAnalysis.length);
-    for (var i=0; i < datasetAnalysis.length; i++)
-        if (datasetAnalysis[i][name] == "New Jersey Devils")
-            console.log (datasetAnalysis[i]);
-        else console.log ("No dice.")
-}
+
 
 dataRequest(url)
 //statsRequest(url, 1);
