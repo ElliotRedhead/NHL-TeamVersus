@@ -40,9 +40,3 @@ function statsRequest(teamID1, teamID2) {
 }
 
 
-function printStats(dataset) {
-    const statistics = dataset.stats[0].splits[0].stat;
-    const wins = statistics.wins;
-    console.log(wins);
-}
-
