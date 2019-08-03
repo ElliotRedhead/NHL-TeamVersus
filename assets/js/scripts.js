@@ -7,24 +7,44 @@ const url = 'https://statsapi.web.nhl.com/api/v1/teams/';
 
 //Retrieve the team number from the API to convert from teamname instead of doing locally.
 
-function getTeamName() {
-    var teamNumber = document.getElementById("teamSelect");
-}
-
-function dataRequest(nhlUrl, teamNumber) {
-  fetch(nhlUrl + teamNumber + '/stats')
+function dataRequest(fetchUrl){
+    fetch(fetchUrl)
     .then(res => res.json())
     .then(data => {
+//        console.log(data);
         printData(data);
     });
 }
 
+function getTeamID(arrayTeams, propertyName, propertyValue) {
+    var teamName = document.getElementById("teamSelect");
+}
 
-function printData(dataset) {
+function statsRequest(fetchUrl, teamNumber) {
+  fetch(fetchUrl + teamNumber + '/stats')
+    .then(res => res.json())
+    .then(data => {
+        printStats(data);
+    });
+}
+
+
+function printStats(dataset) {
     const statistics = dataset.stats[0].splits[0].stat;
     const wins = statistics.wins;
     console.log(wins);
 }
 
-dataRequest(url, 1);
-dataRequest(url, 2);
+function printData(dataset) {
+    var datasetAnalysis = dataset.teams;
+    console.log(datasetAnalysis);
+    console.log(datasetAnalysis.length);
+    for (var i=0; i < datasetAnalysis.length; i++)
+        if (datasetAnalysis[i][name] == "New Jersey Devils")
+            console.log (datasetAnalysis[i]);
+        else console.log ("No dice.")
+}
+
+dataRequest(url)
+//statsRequest(url, 1);
+//statsRequest(url, 2);
