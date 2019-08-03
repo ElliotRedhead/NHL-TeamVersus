@@ -1,4 +1,12 @@
 const url = 'https://statsapi.web.nhl.com/api/v1/teams/';
+var teamName1
+var teamName2
+
+function getTeamName() {
+    teamName1 = document.getElementById("teamSelect1");
+    teamName2 = document.getElementById("teamSelect2");
+}
+
 
 function dataRequest(fetchUrl){
     fetch(fetchUrl)
@@ -9,19 +17,15 @@ function dataRequest(fetchUrl){
     });
 }
 
-function printTeamID(dataset,targetTeamName1, targetTeamName2) {
-    var targetTeam1
-    var targetTeam2
-    targetTeam1 = dataset.teams.find(team1 => team1.name==targetTeamName1);
-    targetTeam2 = dataset.teams.find(team2 => team2.name==targetTeamName2);
-    console.log(targetTeam1.id);
-    console.log(targetTeam2.id);
+function printTeamID(dataset,teamName1, teamName2) {
+    var targetTeam1;
+    var targetTeam2;
+    targetTeam1 = dataset.teams.find(team1 => team1.name==teamName1);
+    targetTeam2 = dataset.teams.find(team2 => team2.name==teamName2);
+    var teamID1 = targetTeam1.id;
+    var teamID2 = targetTeam2.id;
 }
 
-
-function getTeamID(arrayTeams, propertyName, propertyValue) {
-    var teamName = document.getElementById("teamSelect");
-}
 
 function statsRequest(fetchUrl, teamNumber) {
   fetch(fetchUrl + teamNumber + '/stats')
