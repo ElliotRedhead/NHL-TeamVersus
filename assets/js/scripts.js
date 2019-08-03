@@ -1,14 +1,25 @@
 const fetchUrl = 'https://statsapi.web.nhl.com/api/v1/teams/';
 
+//            for (var i = 0; i< data.teams.length ; i++) {
+//                console.log (data.teams[i].name)
+
 function nameRequest() {
     fetch(fetchUrl)
         .then(res => res.json())
         .then(data => {
-            console.log(data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
-            for (var i = 0; i< data.teams.length ; i++) {
-                console.log (data.teams[i].name)
-                }
-        });
+            const sortedNames = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
+            appendTeamNames(sortedNames);
+        })
+}
+
+function appendTeamNames(sortedNames) {
+    var teamSelectorId = ["teamSelect1", "teamSelect2"];
+    teamSelectorId.forEach(teamSelectorId => {
+        sortedNames.forEach(sortedNames => {
+            document.getElementById(teamSelectorId).innerHTML +=
+                `<option>${sortedNames.name}</option>`
+        })
+    })
 }
 
 function getTeamName() {
@@ -45,7 +56,7 @@ function statsRequest(teamID1, teamID2) {
             var teamSelect = 1
             writeStats(teamStat1, teamSelect)
         });
-        
+
     fetch(fetchUrl + teamID2 + '/stats')
         .then(res => res.json())
         .then(statSet2 => {
@@ -56,12 +67,11 @@ function statsRequest(teamID1, teamID2) {
 }
 
 function writeStats(teamStat, teamSelect) {
-    console.log(teamStat);
-    document.getElementById("wins"+teamSelect).textContent = teamStat.wins;
-    document.getElementById("losses"+teamSelect).textContent = teamStat.losses;
-    document.getElementById("pts"+teamSelect).textContent = teamStat.pts;
-    document.getElementById("faceOffWinPercentage"+teamSelect).textContent = teamStat.faceOffWinPercentage;
-    document.getElementById("savePctg"+teamSelect).textContent = teamStat.savePctg;
-    document.getElementById("goalsPerGame"+teamSelect).textContent = teamStat.goalsPerGame;
+    document.getElementById("wins" + teamSelect).textContent = teamStat.wins;
+    document.getElementById("losses" + teamSelect).textContent = teamStat.losses;
+    document.getElementById("pts" + teamSelect).textContent = teamStat.pts;
+    document.getElementById("faceOffWinPercentage" + teamSelect).textContent = teamStat.faceOffWinPercentage;
+    document.getElementById("savePctg" + teamSelect).textContent = teamStat.savePctg;
+    document.getElementById("goalsPerGame" + teamSelect).textContent = teamStat.goalsPerGame;
 }
 
