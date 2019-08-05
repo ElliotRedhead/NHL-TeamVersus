@@ -22,12 +22,30 @@ function appendTeamNames(sortedNames) {
     })
 }
 
-function getTeamName() {
+function changeTeamSelect1() {   
     const teamName1 = document.getElementById("teamSelect1").value;
-    const teamName2 = document.getElementById("teamSelect2").value;
-    dataRequest(teamName1, teamName2)
-}
+    var teamName = teamName1.replace(/\s/g, '');
+    console.log(teamName)
+    document.getElementById("teamLogo1").src = `./assets/images/teamlogos/${teamName}.png`;
+    return teamName1;
+    }
 
+
+function changeTeamSelect2() {   
+    const teamName1 = document.getElementById("teamSelect2").value;
+    var teamName = teamName1.replace(/\s/g, '');
+    console.log(teamName)
+    document.getElementById("teamLogo2").src = `./assets/images/teamlogos/${teamName}.png`;
+    return teamName2;
+    }
+    
+
+function getTeamName() {
+
+    const teamName2 = document.getElementById("teamSelect2").value;
+    return teamName1,teamName2
+    
+}
 
 function dataRequest(teamName1, teamName2) {
     fetch(fetchUrl)
