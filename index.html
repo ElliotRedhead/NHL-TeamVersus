@@ -16,19 +16,19 @@
 		<div class="container-fluid">
 			<div class="row">
 				<img id="teamLogo1" src="assets/images/teamlogos/AnaheimDucks.png" class="col-5 col-sm-4 offset-sm-1">
-				<div class="col-2 col-sm-2 test">
-					vsssssssssssssssssssssssss
+				<div class="col-2 col-sm-2">
+					VS text placeholder
 				</div>
 				<img id="teamLogo2" src="assets/images/teamlogos/AnaheimDucks.png" class="col-5 col-sm-4">
 			</div>
 			<div class="row">
-				<div class="col-6 col-md-3 offset-md-2 test2">
+				<div class="col-6 col-md-3 offset-md-2">
 					<form>
 						<select id="teamSelect1" onchange=changeTeamSelect1()>
 						</select>
 					</form>
 				</div>
-				<div class="col-6 col-md-3 offset-md-2 test2">
+				<div class="col-6 col-md-3 offset-md-2">
 					<form>
 						<select id="teamSelect2" onchange=changeTeamSelect2()>
 						</select>
@@ -36,24 +36,18 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="mx-auto test">
-					<button type="button" class="btn btn-light" onclick="dataRequest(teamName1,teamName2)">
+				<div class="mx-auto ">
+					<button type="button" class="btn btn-light" onclick="dataRequest(teamName1,teamName2); visibleStatistics()">
 						Compare!
 					</button>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-12 col-md-4 offset-md-4 test2">
-					statwinner
-				</div>
-			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div ID="statistics" class="row">
 		<div class="container-fluid">
 			<div class="row">
-				<ul class="col-4 test">
-					Team 1
+				<ul class="col-4">
 					<li ID="wins1"></li>
 					<li ID="losses1"></li>
 					<li ID="pts1"></li>
@@ -61,8 +55,7 @@
 					<li ID="savePctg1"></li>
 					<li ID="goalsPerGame1"></li>
 				</ul>
-				<ul class="col-4 test2">
-					Statistic
+				<ul class="col-4">
 					<li>Wins</li>
 					<li>Losses</li>
 					<li>Points</li>
@@ -70,8 +63,7 @@
 					<li>Save Percentage</li>
 					<li>Goals Per Game</li>
 				</ul>
-				<ul class="col-4 test">
-					Team 2
+				<ul class="col-4">
 					<li ID="wins2"></li>
 					<li ID="losses2"></li>
 					<li ID="pts2"></li>

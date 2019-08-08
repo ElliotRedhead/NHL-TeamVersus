@@ -84,3 +84,6 @@ function writeStats(teamStat, teamSelect) {
     document.getElementById("goalsPerGame" + teamSelect).textContent = teamStat.goalsPerGame;
 }
 
+function visibleStatistics() {
+    document.getElementById("statistics").style.visibility = "visible";
+}

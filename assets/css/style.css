@@ -8,10 +8,13 @@ html {
     background-size: cover;
 }*/
 
-.test {
-    background-color:blue;
+li {
+/*border: 5px solid blue;
+border-radius: 3px;*/
+list-style:none;
+text-align: center;
 }
 
-.test2 {
-    background-color: green;
+#statistics {
+    visibility: hidden;
 }
