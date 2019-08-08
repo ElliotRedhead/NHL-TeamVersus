@@ -2,15 +2,16 @@ html {
     font-size: 16px;
 }
 
-/*body {
+body {
     background-image: url("./../images/HockeyPost.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-}*/
+}
 
 li {
 /*border: 5px solid blue;
 border-radius: 3px;*/
+background-color: rgba(255, 255, 255, 0.425);
 list-style:none;
 text-align: center;
 }
