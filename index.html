@@ -25,19 +25,22 @@
 				<div class="col-6 col-md-3 offset-md-2">
 					<form>
 						<select id="teamSelect1" onchange=changeTeamSelect1()>
+							<option>---Select Team---</option>
 						</select>
 					</form>
 				</div>
 				<div class="col-6 col-md-3 offset-md-2">
 					<form>
 						<select id="teamSelect2" onchange=changeTeamSelect2()>
+							<option>---Select Team---</option>
 						</select>
 					</form>
 				</div>
 			</div>
 			<div class="row">
 				<div class="mx-auto ">
-					<button type="button" class="btn btn-light" onclick="dataRequest(teamName1,teamName2); visibleStatistics()">
+					<button type="button" class="btn btn-light"
+						onclick="dataRequest(teamName1,teamName2); visibleStatistics()">
 						Compare!
 					</button>
 				</div>

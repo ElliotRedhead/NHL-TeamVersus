@@ -1,8 +1,6 @@
 const fetchUrl = 'https://statsapi.web.nhl.com/api/v1/teams/';
 var teamName1
 var teamName2
-//            for (var i = 0; i< data.teams.length ; i++) {
-//                console.log (data.teams[i].name)
 
 function nameRequest() {
     fetch(fetchUrl)
@@ -23,20 +21,20 @@ function appendTeamNames(sortedNames) {
     })
 }
 
-function changeTeamSelect1() {   
+function changeTeamSelect1() {
     teamName1 = document.getElementById("teamSelect1").value;
     var teamName = teamName1.replace(/\s/g, '');
     document.getElementById("teamLogo1").src = `./assets/images/teamlogos/${teamName}.png`;
     return teamName1;
-    }
+}
 
 
-function changeTeamSelect2() {   
+function changeTeamSelect2() {
     teamName2 = document.getElementById("teamSelect2").value;
     var teamName = teamName2.replace(/\s/g, '');
     document.getElementById("teamLogo2").src = `./assets/images/teamlogos/${teamName}.png`;
     return teamName2;
-    }
+}
 
 function dataRequest(teamName1, teamName2) {
     fetch(fetchUrl)
