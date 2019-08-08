@@ -26,7 +26,7 @@ function appendTeamNames(sortedNames) {
 function changeTeamSelect1() {   
     teamName1 = document.getElementById("teamSelect1").value;
     var teamName = teamName1.replace(/\s/g, '');
-    document.getElementById("teamLogo1").src = `/assets/images/teamlogos/${teamName}.png`;
+    document.getElementById("teamLogo1").src = `./assets/images/teamlogos/${teamName}.png`;
     return teamName1;
     }
 
@@ -34,7 +34,7 @@ function changeTeamSelect1() {
 function changeTeamSelect2() {   
     teamName2 = document.getElementById("teamSelect2").value;
     var teamName = teamName2.replace(/\s/g, '');
-    document.getElementById("teamLogo2").src = `/assets/images/teamlogos/${teamName}.png`;
+    document.getElementById("teamLogo2").src = `./assets/images/teamlogos/${teamName}.png`;
     return teamName2;
     }
 
