@@ -39,7 +39,6 @@ $("#secondTeamSelect").change(function(){
 //}
 
 function getTeamSelection(order,teamName){
-//    teamName = document.getElementById(`${order}TeamSelect`).value;
     var shortenedTeamName = teamName.replace(/\s/g, '');
     document.getElementById(`${order}TeamLogo`).src = `assets/images/teamlogos/${shortenedTeamName}.png`;
     }
