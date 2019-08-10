@@ -19,3 +19,7 @@ text-align: center;
 #statistics {
     visibility: hidden;
 }
+
+#compareButton {
+    visibility: hidden;
+}

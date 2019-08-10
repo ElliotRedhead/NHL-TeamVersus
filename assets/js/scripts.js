@@ -40,13 +40,26 @@ function appendTeamNames(sortedNames) {
 //}
 
 $(".dropdownSelector").change(function () {
-    var dropdownOrder = ($(this).attr("id")).replace("TeamSelect", '');
+    var dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     var teamName = $(this).val();
+    compareButtonVisibility();
     getTeamSelection(dropdownOrder, teamName);
 })
 
+function compareButtonVisibility() {
+    var defaultSelect = "---Select Team---";
+    var firstSelection = document.getElementById("firstTeamSelect").value;
+    var secondSelection = document.getElementById("secondTeamSelect").value;
+    if (firstSelection != defaultSelect && secondSelection != defaultSelect && firstSelection != secondSelection) {
+        document.getElementById("compareButton").style.visibility = "visible"
+    }
+    else {
+        document.getElementById("compareButton").style.visibility = "hidden"
+    }
+}
+
 function getTeamSelection(order, teamName) {
-    var shortenedTeamName = teamName.replace(/\s/g, '');
+    var shortenedTeamName = teamName.replace(/\s/g, "");
     document.getElementById(`${order}TeamLogo`).src = `assets/images/teamlogos/${shortenedTeamName}.png`;
 }
 
