@@ -23,22 +23,6 @@ function appendTeamNames(sortedNames) {
     })
 }
 
-
-//$("#firstTeamSelect").change(function(){
-//   getTeamSelection("first",$(this).val())
-//});
-
-//$("#secondTeamSelect").change(function(){
-//    getTeamSelection("second",$(this).val())
-//});
-
-
-// WORK-IN-PROGRESS, IGNORE AT THIS POINT.
-//if (document.getElementById("firstTeamSelect").value || document.getElementById("secondTeamSelect").value == "Anaheim Ducks"){
-//    alert("QUACK QUACK QUACK");
-//    console.log("QUACK QUACK QUACK");
-//}
-
 $(".dropdownSelector").change(function () {
     var dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     var teamName = $(this).val();
