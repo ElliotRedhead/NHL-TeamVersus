@@ -1,7 +1,7 @@
 const fetchUrl = 'https://statsapi.web.nhl.com/api/v1/teams/';
 
 var options = {
-statistics:false,
+    statistics: false,
 }
 
 function nameRequest() {
@@ -39,15 +39,16 @@ function appendTeamNames(sortedNames) {
 //    console.log("QUACK QUACK QUACK");
 //}
 
-$(".dropdownSelector").change(function(){
-//    alert(`Turn and face the strange. ${$(this).val()}`)
-    console.log($(this).attr("id"))
+$(".dropdownSelector").change(function () {
+    var dropdownOrder = ($(this).attr("id")).replace("TeamSelect", '');
+    var teamName = $(this).val();
+    getTeamSelection(dropdownOrder, teamName);
 })
 
-function getTeamSelection(order,teamName){
+function getTeamSelection(order, teamName) {
     var shortenedTeamName = teamName.replace(/\s/g, '');
     document.getElementById(`${order}TeamLogo`).src = `assets/images/teamlogos/${shortenedTeamName}.png`;
-    }
+}
 
 function dataRequest(teamName1, teamName2) {
     fetch(fetchUrl)
