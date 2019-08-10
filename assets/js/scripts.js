@@ -2,6 +2,10 @@ const fetchUrl = 'https://statsapi.web.nhl.com/api/v1/teams/';
 var teamName1
 var teamName2
 
+var options = {
+statistics:false,
+}
+
 function nameRequest() {
     fetch(fetchUrl)
         .then(res => res.json())
@@ -21,20 +25,12 @@ function appendTeamNames(sortedNames) {
     })
 }
 
-function changeTeamSelect1() {
-    teamName1 = document.getElementById("teamSelect1").value;
-    var teamName = teamName1.replace(/\s/g, '');
-    document.getElementById("teamLogo1").src = `./assets/images/teamlogos/${teamName}.png`;
-    return teamName1;
-}
-
-
-function changeTeamSelect2() {
-    teamName2 = document.getElementById("teamSelect2").value;
-    var teamName = teamName2.replace(/\s/g, '');
-    document.getElementById("teamLogo2").src = `./assets/images/teamlogos/${teamName}.png`;
-    return teamName2;
-}
+var number = 1
+$("#teamSelect"+ number).change(function(){
+    teamName = document.getElementById("teamSelect"+ number).value;
+    var teamName = teamName.replace(/\s/g, '');
+    document.getElementById("teamLogo"+number).src = `./assets/images/teamlogos/${teamName}.png`;
+      });
 
 function dataRequest(teamName1, teamName2) {
     fetch(fetchUrl)
@@ -55,21 +51,13 @@ function getTeamID(dataset, teamName1, teamName2) {
 }
 
 
-function statsRequest(teamID1, teamID2) {
+function statsRequest(teamID) {
     fetch(fetchUrl + teamID1 + '/stats')
         .then(res => res.json())
-        .then(statSet1 => {
-            const teamStat1 = (statSet1.stats[0].splits[0].stat)
+        .then(statSet => {
+            const teamStat = (statSet.stats[0].splits[0].stat)
             var teamSelect = 1
             writeStats(teamStat1, teamSelect)
-        });
-
-    fetch(fetchUrl + teamID2 + '/stats')
-        .then(res => res.json())
-        .then(statSet2 => {
-            const teamStat2 = (statSet2.stats[0].splits[0].stat)
-            var teamSelect = 2
-            writeStats(teamStat2, teamSelect)
         });
 }
 
