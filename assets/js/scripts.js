@@ -40,7 +40,8 @@ function appendTeamNames(sortedNames) {
 //}
 
 $(".dropdownSelector").change(function(){
-    alert(`Turn and face the strange. ${$(this).val()}`)
+//    alert(`Turn and face the strange. ${$(this).val()}`)
+    console.log($(this).attr("id"))
 })
 
 function getTeamSelection(order,teamName){
