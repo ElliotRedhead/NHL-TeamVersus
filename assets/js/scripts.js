@@ -16,7 +16,7 @@ function nameRequest() {
 }
 
 function appendTeamNames(sortedNames) {
-    var teamSelectorId = ["teamSelect1", "teamSelect2"];
+    var teamSelectorId = ["firstTeamSelect", "secondTeamSelect"];
     teamSelectorId.forEach(teamSelectorId => {
         sortedNames.forEach(sortedNames => {
             document.getElementById(teamSelectorId).innerHTML +=
@@ -25,12 +25,20 @@ function appendTeamNames(sortedNames) {
     })
 }
 
-var number = 1
-$("#teamSelect"+ number).change(function(){
-    teamName = document.getElementById("teamSelect"+ number).value;
-    var teamName = teamName.replace(/\s/g, '');
-    document.getElementById("teamLogo"+number).src = `./assets/images/teamlogos/${teamName}.png`;
-      });
+$("#firstTeamSelect").change(jQuery())
+
+function jQuery(){
+    console.log("Event triggered.")
+}
+/*$("#secondTeamSelect").change(getTeamSelection("second"))
+*/
+/*function getTeamSelection(){
+    alert("New option selected.");
+    teamName = document.getElementById("firstTeamSelect").value;
+    console.log(teamName);
+    var teamNameShortened = teamName.replace(/\s/g, '');
+    document.getElementById(`firstTeamLogo`).src = `assets/images/teamlogos/${teamNameShortened}.png`;
+      }*/
 
 function dataRequest(teamName1, teamName2) {
     fetch(fetchUrl)
