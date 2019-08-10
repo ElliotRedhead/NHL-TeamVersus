@@ -24,19 +24,24 @@ function appendTeamNames(sortedNames) {
 }
 
 
-$("#firstTeamSelect").change(function(){
-    getTeamSelection("first",$(this).val())
-});
+//$("#firstTeamSelect").change(function(){
+//   getTeamSelection("first",$(this).val())
+//});
 
-$("#secondTeamSelect").change(function(){
-    getTeamSelection("second",$(this).val())
-});
+//$("#secondTeamSelect").change(function(){
+//    getTeamSelection("second",$(this).val())
+//});
 
-// WoORK-IN-PROGRESS, IGNORE AT THIS POINT.
+
+// WORK-IN-PROGRESS, IGNORE AT THIS POINT.
 //if (document.getElementById("firstTeamSelect").value || document.getElementById("secondTeamSelect").value == "Anaheim Ducks"){
 //    alert("QUACK QUACK QUACK");
 //    console.log("QUACK QUACK QUACK");
 //}
+
+$(".dropdownSelector").change(function(){
+    alert(`Turn and face the strange. ${$(this).val()}`)
+})
 
 function getTeamSelection(order,teamName){
     var shortenedTeamName = teamName.replace(/\s/g, '');
