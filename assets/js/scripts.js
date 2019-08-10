@@ -25,20 +25,20 @@ function appendTeamNames(sortedNames) {
     })
 }
 
-$("#firstTeamSelect").change(jQuery())
 
-function jQuery(){
-    console.log("Event triggered.")
-}
-/*$("#secondTeamSelect").change(getTeamSelection("second"))
-*/
-/*function getTeamSelection(){
-    alert("New option selected.");
-    teamName = document.getElementById("firstTeamSelect").value;
-    console.log(teamName);
-    var teamNameShortened = teamName.replace(/\s/g, '');
-    document.getElementById(`firstTeamLogo`).src = `assets/images/teamlogos/${teamNameShortened}.png`;
-      }*/
+$("#firstTeamSelect").change(function(){
+    getTeamSelection("first")
+});
+
+$("#secondTeamSelect").change(function(){
+    getTeamSelection("second")
+});
+
+function getTeamSelection(order){
+    teamName = document.getElementById(`${order}TeamSelect`).value;
+    shortenedTeamName = teamName.replace(/\s/g, '');
+    document.getElementById(`${order}TeamLogo`).src = `assets/images/teamlogos/${shortenedTeamName}.png`;
+      }
 
 function dataRequest(teamName1, teamName2) {
     fetch(fetchUrl)
