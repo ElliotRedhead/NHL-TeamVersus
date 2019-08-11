@@ -10,51 +10,56 @@ var fetchOptions = {
 
 function dataFetch(fetchOptions) {
     console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
+//    console.log(fetchOptions.getId);
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
         .then(res => res.json())
         .then(data => {
-
-            var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
-
             if (fetchOptions.sort) {
+                var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
                 appendTeamNames(data);
                 fetchOptions.sort = false;
+                return data;
             }
-            else if (fetchOptions.getId) {
+            if (fetchOptions.getId) {
                 fetchOptions.getId = false;
                 var firstTeamName = document.getElementById("firstTeamSelect").value;
                 var secondTeamName = document.getElementById("secondTeamSelect").value;
                 fetchOptions.teamIdArray.push(getTeamId(data, firstTeamName));
                 fetchOptions.teamIdArray.push(getTeamId(data, secondTeamName));
+                console.log(fetchOptions.teamIdArray);
             }
-            else if (fetchOptions.getStatistics) {
+            if (fetchOptions.getStatistics) {
                 fetchOptions.statsUrl = "/stats";
                 fetchOptions.getStatistics = false;
                 fetchOptions.teamIdArray.forEach(element => {
                     fetchOptions.teamId = element;
                     dataFetch(fetchOptions);
-                })
-            }
+                });
+                defaultOptions(fetchOptions);
+            } 
         })
 }
 
+//const teamStat = (statSet.stats[0].splits[0].stat)
+//var teamSelect = 1
+//writeStats(teamStat1, teamSelect)
+
 function getTeamId(data, teamName) {
-    return (data.find(team => team.name == teamName).id);
+    console.log(data);
+    return (data.teams.find(team => team.name == teamName).id);
 }
 
-function getStats(teamID) {
-    fetch(fetchUrl + teamID1 + '/stats')
-        .then(res => res.json())
-        .then(statSet => {
-            const teamStat = (statSet.stats[0].splits[0].stat)
-            var teamSelect = 1
-            writeStats(teamStat1, teamSelect)
-        });
-}
-
-function optionsEnableStats(options) {
+function optionsEnableStats(fetchOptions) {
+    fetchOptions.getId = true;
+    console.log(fetchOptions);
     fetchOptions.getStatistics = true;
     dataFetch(fetchOptions);
+}
+
+function defaultOptions(fetchOptions) {
+    fetchOptions.teamIdArray= [];
+    fetchOptions.statsUrl = "";
+    fetchOptions.teamId = "";
 }
 
 function appendTeamNames(sortedData) {
@@ -71,10 +76,10 @@ $(".dropdownSelector").change(function () {
     var dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     var teamName = $(this).val();
     compareButtonVisibility();
-    getTeamSelection(dropdownOrder, teamName);
+    getTeamLogo(dropdownOrder, teamName);
 })
 
-function getTeamSelection(order, teamName) {
+function getTeamLogo(order, teamName) {
     var shortenedTeamName = teamName.replace(/\s/g, "");
     document.getElementById(`${order}TeamLogo`).src = `assets/images/teamlogos/${shortenedTeamName}.png`;
 }
