@@ -38,29 +38,28 @@ function dataFetch(fetchOptions) {
 
             }
             else if (fetchOptions.handleStatistics) {
-                var order = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
+                var teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
                 var teamStat = data.stats[0].splits[0].stat;
-                console.log(order, teamStat);
+                console.log(teamOrder, teamStat);
+                writeStats(teamOrder, teamStat);
             }
 
-            //if (fetchOptions.optionsReset) {
+            //else if (fetchOptions.optionsReset) {
             //    defaultOptions(fetchOptions);
             //}
             //fetchOptions.optionsReset = true;
         })
 }
 
-//const teamStat = (statSet.stats[0].splits[0].stat)
-//var teamSelect = 1
-//writeStats(teamStat1, teamSelect)
-
-function writeStats(teamStat, teamOrder) {
-    document.getElementById(teamOrder + "Wins").textContent = teamStat.wins;
-    document.getElementById(teamOrder + "Losses").textContent = teamStat.losses;
-    document.getElementById(teamOrder + "Points").textContent = teamStat.pts;
-    document.getElementById(teamOrder + "FaceOffWinPercentage").textContent = teamStat.faceOffWinPercentage;
-    document.getElementById(teamOrder + "SavePercentage").textContent = teamStat.savePctg;
-    document.getElementById(teamOrder + "GoalsPerGame").textContent = teamStat.goalsPerGame;
+function writeStats(teamOrder,teamStat) {
+    if (teamOrder == 0) {var teamDivSelect = "firstTeam"};
+    if (teamOrder == 1) {var teamDivSelect = "secondTeam"};
+    document.getElementById(teamDivSelect + "Wins").textContent = teamStat.wins;
+    document.getElementById(teamDivSelect + "Losses").textContent = teamStat.losses;
+    document.getElementById(teamDivSelect + "Points").textContent = teamStat.pts;
+    document.getElementById(teamDivSelect + "FaceOffWinPercentage").textContent = teamStat.faceOffWinPercentage;
+    document.getElementById(teamDivSelect + "SavePercentage").textContent = teamStat.savePctg;
+    document.getElementById(teamDivSelect + "GoalsPerGame").textContent = teamStat.goalsPerGame;
 }
 
 function getTeamId(data, teamName) {
