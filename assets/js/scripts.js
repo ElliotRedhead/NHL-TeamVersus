@@ -1,38 +1,40 @@
-var options = {
+var fetchOptions = {
     fetchUrl: "https://statsapi.web.nhl.com/api/v1/teams/",
-    statsUrl: "/stats",
+    statsUrl: "",
+    teamIdArray: [],
     sort: true,
-    getId : false,
-    getStats: false,
+    getStatistics: false,
 }
 
-function dataFetch(options) {
-    fetch(options.fetchUrl)
+function dataFetch(fetchOptions) {
+    fetch(fetchOptions.fetchUrl + fetchOptions.teamIdArray + fetchOptions.statsUrl)
         .then(res => res.json())
         .then(data => {
             var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
-            if (options.sort == true) {
+            if (fetchOptions.sort == true) {
                 nameAppend(data)
             }
-            else if (options.getId == true && options.getStats == true) {
+            else if (fetchOptions.getStatistics == true) {
                 var firstTeamName = document.getElementById("firstTeamSelect").value;
                 var secondTeamName = document.getElementById("secondTeamSelect").value;
-                console.log(data);
-                getTeamId(data, firstTeamName, secondTeamName);
+                fetchOptions.teamIdArray.push(getTeamId(data, firstTeamName));
+                fetchOptions.teamIdArray.push(getTeamId(data, secondTeamName));
+                fetchOptions.getId = false;
+                fetchOptions.statsUrl = "/stats";
+                fetchOptions.getStatistics = false;
+            //    fetchOptions.teamIdArray.forEach(dataFetch(fetchOptions))
+                fetchOptions.teamIdArray.forEach(function(index){dataFetch(fetchOptions.teamIdArray[index])});
             }
-        })
+
+            }
+    )
 }
 
-function getTeamId(data, firstTeamName, secondTeamName) {
-    var firstTargetTeam = data.find(firstTeam => firstTeam.name == firstTeamName);
-    var secondTargetTeam = data.find(secondTeam => secondTeam.name == secondTeamName);
-    firstTeamId = firstTargetTeam.id;
-    secondTeamId = secondTargetTeam.id;
-    console.log(firstTargetTeam);
-    statsRequest(firstTeamId, secondTeamId)
+function getTeamId(data, teamName) {
+    return data.find(Team => Team.name == teamName);
 }
 
-function statsRequest(teamID) {
+function getStats(teamID) {
     fetch(fetchUrl + teamID1 + '/stats')
         .then(res => res.json())
         .then(statSet => {
@@ -44,14 +46,13 @@ function statsRequest(teamID) {
 
 //These two variables can be combined later on.
 function optionsEnableStats(options) {
-    options.getId = true;
-    options.getStats = true;
-    dataFetch(options);
+    fetchOptions.getStatistics = true;
+    dataFetch(fetchOptions);
 }
 
 function nameAppend(data) {
     appendTeamNames(data);
-    options.sort = false;
+    fetchOptions.sort = false;
 }
 
 function appendTeamNames(sortedData) {

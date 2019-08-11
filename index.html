@@ -11,7 +11,7 @@
 	<title>NHL Team Showdown</title>
 </head>
 
-<body class="container-fluid" onload="dataFetch(options)">
+<body class="container-fluid" onload="dataFetch(fetchOptions)">
 	<!-- TEAM VS TEAM LOGOS SECTION & TRIGGER BUTTONS -->
 	<div class="row">
 		<div class="container-fluid">
@@ -42,7 +42,7 @@
 			<div class="row">
 				<div class="mx-auto ">
 					<button id="compareButton" type="button" class="btn btn-light"
-						onclick="optionsEnableStats(options); visibleStatistics()">
+						onclick="optionsEnableStats(fetchOptions); visibleStatistics()">
 						Compare!
 					</button>
 				</div>
