@@ -4,6 +4,7 @@ var fetchOptions = {
     teamIdArray: [],
     teamId: "",
     sort: true,
+    getId: false,
     getStatistics: false,
 }
 
@@ -12,32 +13,36 @@ function dataFetch(fetchOptions) {
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
         .then(res => res.json())
         .then(data => {
-            if (fetchOptions.sort == true) {
+        //    if (fetchOptions.sort == true) Shorthand notation follows:
+            if (fetchOptions.sort) {
                 var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
                 appendTeamNames(data);
                 fetchOptions.sort = false;
+                fetchOptions.getId = true;
             }
-            else if (fetchOptions.getStatistics == true) {
+            if (fetchOptions.getId == true) {
                 var firstTeamName = document.getElementById("firstTeamSelect").value;
                 var secondTeamName = document.getElementById("secondTeamSelect").value;
                 fetchOptions.teamIdArray.push(getTeamId(data.teams, firstTeamName));
                 fetchOptions.teamIdArray.push(getTeamId(data.teams, secondTeamName));
                 fetchOptions.getId = false;
-                fetchOptions.statsUrl = "/stats";
+                fetchOptions.getStatistics = true;
+            //    dataFetch(fetchOptions);
+            }
+            if (fetchOptions.getStatistics == true) {
+            fetchOptions.statsUrl = "/stats";
                 fetchOptions.getStatistics = false;
                 fetchOptions.teamIdArray.forEach(element => {
                     fetchOptions.teamId = element;
                     dataFetch(fetchOptions);
-                });
+                })
             }
-
-        }
-        )
+        })
 }
 
+
 function getTeamId(data, teamName) {
-    
-    return(data.find(Team => Team.name == teamName).id);
+    return (data.find(Team => Team.name == teamName).id);
 }
 
 function getStats(teamID) {
