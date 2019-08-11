@@ -5,18 +5,18 @@ var fetchOptions = {
     teamId: "",
     sortData: true,
     getId: true,
-    getStatistics: true,
+    getStatistics: false,
     handleStatistics: false,
     optionsReset: false,
 }
-
+//Do not require sortData on a reset, fetchID and getStatistics are required.
 function dataFetch(fetchOptions) {
+    console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
         .then(res => res.json())
         .then(data => {
             if (fetchOptions.sortData) {
                 var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
-                console.log(data);
                 appendTeamNames(data);
                 fetchOptions.sortData = false;
                 return data;
@@ -27,6 +27,8 @@ function dataFetch(fetchOptions) {
                 var secondTeamName = document.getElementById("secondTeamSelect").value;
                 fetchOptions.teamIdArray.push(getTeamId(data, firstTeamName));
                 fetchOptions.teamIdArray.push(getTeamId(data, secondTeamName));
+                fetchOptions.getStatistics = true;
+                
             }
             if (fetchOptions.getStatistics) {
                 fetchOptions.statsUrl = "/stats";
@@ -40,9 +42,8 @@ function dataFetch(fetchOptions) {
             }
             else if (fetchOptions.handleStatistics) {
                 var teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
-                console.log(teamOrder);
                 var teamStat = data.stats[0].splits[0].stat;
-                writeStats(teamOrder, teamStat);
+                writeStats(teamOrder, teamStat, data);
             }
 
             if (fetchOptions.optionsReset) {
@@ -53,39 +54,42 @@ function dataFetch(fetchOptions) {
         })
 }
 
-function writeStats(teamOrder, teamStat) {
+function writeStats(teamOrder, teamStat, data) {
     if (teamOrder == 0) {
         var teamDivSelect = "firstTeam";
     }
-    else if(teamOrder == 1) {
+    if(teamOrder == 1) {
         var teamDivSelect = "secondTeam";
-        fetchOptions.optionsReset = true; //REDEFINE WHEN THE RESET OCCURS, SOMETIMES THE SECOND TEAM IS LOADING BEFORE THE FIRST.
     };
-    console.log(teamOrder);
     document.getElementById(teamDivSelect + "Wins").textContent = teamStat.wins;
     document.getElementById(teamDivSelect + "Losses").textContent = teamStat.losses;
     document.getElementById(teamDivSelect + "Points").textContent = teamStat.pts;
     document.getElementById(teamDivSelect + "FaceOffWinPercentage").textContent = teamStat.faceOffWinPercentage;
     document.getElementById(teamDivSelect + "SavePercentage").textContent = teamStat.savePctg;
     document.getElementById(teamDivSelect + "GoalsPerGame").textContent = teamStat.goalsPerGame;
+    if ((document.getElementById("firstTeamWins").textContent) !== "" && (document.getElementById("secondTeamWins").textContent !== "")){
+        fetchOptions.optionsReset = true;
+    // THIS TEST NEEDS TO BE REVISED, THE VALUES OF A PREVIOUS COMPARISON WILL FORCE A RESET.
+    }
 }
 
 function getTeamId(data, teamName) {
+    console.log(data);
     return (data.teams.find(team => team.name == teamName).id);
 }
 
 function optionsEnableStats(fetchOptions) {
     fetchOptions.getId = true;
-    fetchOptions.getStatistics = true;
     dataFetch(fetchOptions);
 }
 
 function defaultOptions(fetchOptions) {
     fetchOptions.statsUrl = "";
     fetchOptions.teamIdArray = [];
-    fetchOptions.sortData = true;
+    fetchOptions.teamId = "";
+    fetchOptions.sortData = false;
     fetchOptions.getId = true;
-    fetchOptions.getStatistics = true;
+    fetchOptions.getStatistics = false;
     fetchOptions.handleStatistics = false;
 }
 
