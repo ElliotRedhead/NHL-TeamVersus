@@ -16,6 +16,7 @@ function dataFetch(fetchOptions) {
         .then(data => {
             if (fetchOptions.sortData) {
                 var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
+                console.log(data);
                 appendTeamNames(data);
                 fetchOptions.sortData = false;
                 return data;
@@ -39,21 +40,28 @@ function dataFetch(fetchOptions) {
             }
             else if (fetchOptions.handleStatistics) {
                 var teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
+                console.log(teamOrder);
                 var teamStat = data.stats[0].splits[0].stat;
-                console.log(teamOrder, teamStat);
                 writeStats(teamOrder, teamStat);
             }
 
-            //else if (fetchOptions.optionsReset) {
-            //    defaultOptions(fetchOptions);
-            //}
-            //fetchOptions.optionsReset = true;
+            if (fetchOptions.optionsReset) {
+                console.log("Reset.")
+                defaultOptions(fetchOptions);
+            }
+            
         })
 }
 
-function writeStats(teamOrder,teamStat) {
-    if (teamOrder == 0) {var teamDivSelect = "firstTeam"};
-    if (teamOrder == 1) {var teamDivSelect = "secondTeam"};
+function writeStats(teamOrder, teamStat) {
+    if (teamOrder == 0) {
+        var teamDivSelect = "firstTeam";
+    }
+    else if(teamOrder == 1) {
+        var teamDivSelect = "secondTeam";
+        fetchOptions.optionsReset = true; //REDEFINE WHEN THE RESET OCCURS, SOMETIMES THE SECOND TEAM IS LOADING BEFORE THE FIRST.
+    };
+    console.log(teamOrder);
     document.getElementById(teamDivSelect + "Wins").textContent = teamStat.wins;
     document.getElementById(teamDivSelect + "Losses").textContent = teamStat.losses;
     document.getElementById(teamDivSelect + "Points").textContent = teamStat.pts;
@@ -73,9 +81,11 @@ function optionsEnableStats(fetchOptions) {
 }
 
 function defaultOptions(fetchOptions) {
-    fetchOptions.teamIdArray = [];
     fetchOptions.statsUrl = "";
-    fetchOptions.teamId = "";
+    fetchOptions.teamIdArray = [];
+    fetchOptions.sortData = true;
+    fetchOptions.getId = true;
+    fetchOptions.getStatistics = true;
     fetchOptions.handleStatistics = false;
 }
 
