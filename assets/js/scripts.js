@@ -3,21 +3,21 @@ var fetchOptions = {
     statsUrl: "",
     teamIdArray: [],
     teamId: "",
-    sort: true,
+    sortData: true,
     getId: true,
     getStatistics: true,
+    handleStatistics: false,
+    optionsReset: false,
 }
 
 function dataFetch(fetchOptions) {
-    console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
-//    console.log(fetchOptions.getId);
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
         .then(res => res.json())
         .then(data => {
-            if (fetchOptions.sort) {
+            if (fetchOptions.sortData) {
                 var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
                 appendTeamNames(data);
-                fetchOptions.sort = false;
+                fetchOptions.sortData = false;
                 return data;
             }
             if (fetchOptions.getId) {
@@ -26,17 +26,27 @@ function dataFetch(fetchOptions) {
                 var secondTeamName = document.getElementById("secondTeamSelect").value;
                 fetchOptions.teamIdArray.push(getTeamId(data, firstTeamName));
                 fetchOptions.teamIdArray.push(getTeamId(data, secondTeamName));
-                console.log(fetchOptions.teamIdArray);
             }
             if (fetchOptions.getStatistics) {
                 fetchOptions.statsUrl = "/stats";
                 fetchOptions.getStatistics = false;
                 fetchOptions.teamIdArray.forEach(element => {
                     fetchOptions.teamId = element;
+                    fetchOptions.handleStatistics = true;
                     dataFetch(fetchOptions);
                 });
-                defaultOptions(fetchOptions);
-            } 
+
+            }
+            else if (fetchOptions.handleStatistics) {
+                var order = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
+                var teamStat = data.stats[0].splits[0].stat;
+                console.log(order, teamStat);
+            }
+
+            //if (fetchOptions.optionsReset) {
+            //    defaultOptions(fetchOptions);
+            //}
+            //fetchOptions.optionsReset = true;
         })
 }
 
@@ -44,22 +54,30 @@ function dataFetch(fetchOptions) {
 //var teamSelect = 1
 //writeStats(teamStat1, teamSelect)
 
+function writeStats(teamStat, teamOrder) {
+    document.getElementById(teamOrder + "Wins").textContent = teamStat.wins;
+    document.getElementById(teamOrder + "Losses").textContent = teamStat.losses;
+    document.getElementById(teamOrder + "Points").textContent = teamStat.pts;
+    document.getElementById(teamOrder + "FaceOffWinPercentage").textContent = teamStat.faceOffWinPercentage;
+    document.getElementById(teamOrder + "SavePercentage").textContent = teamStat.savePctg;
+    document.getElementById(teamOrder + "GoalsPerGame").textContent = teamStat.goalsPerGame;
+}
+
 function getTeamId(data, teamName) {
-    console.log(data);
     return (data.teams.find(team => team.name == teamName).id);
 }
 
 function optionsEnableStats(fetchOptions) {
     fetchOptions.getId = true;
-    console.log(fetchOptions);
     fetchOptions.getStatistics = true;
     dataFetch(fetchOptions);
 }
 
 function defaultOptions(fetchOptions) {
-    fetchOptions.teamIdArray= [];
+    fetchOptions.teamIdArray = [];
     fetchOptions.statsUrl = "";
     fetchOptions.teamId = "";
+    fetchOptions.handleStatistics = false;
 }
 
 function appendTeamNames(sortedData) {
@@ -96,14 +114,6 @@ function compareButtonVisibility() {
     }
 }
 
-function writeStats(teamStat, teamSelect) {
-    document.getElementById("wins" + teamSelect).textContent = teamStat.wins;
-    document.getElementById("losses" + teamSelect).textContent = teamStat.losses;
-    document.getElementById("pts" + teamSelect).textContent = teamStat.pts;
-    document.getElementById("faceOffWinPercentage" + teamSelect).textContent = teamStat.faceOffWinPercentage;
-    document.getElementById("savePctg" + teamSelect).textContent = teamStat.savePctg;
-    document.getElementById("goalsPerGame" + teamSelect).textContent = teamStat.goalsPerGame;
-}
 
 function visibleStatistics() {
     document.getElementById("statistics").style.visibility = "visible";
