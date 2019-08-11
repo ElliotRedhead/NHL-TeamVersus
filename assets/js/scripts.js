@@ -1,24 +1,47 @@
-const fetchUrl = 'https://statsapi.web.nhl.com/api/v1/teams/';
-
 var options = {
-    statistics: false,
+    fetchUrl: "https://statsapi.web.nhl.com/api/v1/teams/",
+    statsUrl: "/stats",
+    sort: true,
+    getId : false,
+    getStats: false,
 }
 
-function nameRequest() {
-    fetch(fetchUrl)
+function dataFetch(options) {
+    fetch(options.fetchUrl)
         .then(res => res.json())
         .then(data => {
-            const sortedNames = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
-            appendTeamNames(sortedNames);
-        })
+            if (options.sort = true) {
+                nameRequest(data)
+            }
+            else if (options.getId = true){
+                getTeamId(data)
+            }
+            else if (options.getStats = true){
+                statsRequest(data)
+            }
+        }
+        )
 }
 
-function appendTeamNames(sortedNames) {
+//These two variables can be combined later on.
+function optionsUpdate() {
+    options.getId = true;
+    options.getStats = true;
+}
+
+function nameRequest(data) {
+    const sortedData = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
+    appendTeamNames(sortedData);
+    options.sort = false;
+    return (sortedData);
+}
+
+function appendTeamNames(sortedData) {
     var teamSelectorId = ["firstTeamSelect", "secondTeamSelect"];
     teamSelectorId.forEach(teamSelectorId => {
-        sortedNames.forEach(sortedNames => {
+        sortedData.forEach(sortedData => {
             document.getElementById(teamSelectorId).innerHTML +=
-                `<option>${sortedNames.name}</option>`
+                `<option>${sortedData.name}</option>`
         })
     })
 }
@@ -29,6 +52,11 @@ $(".dropdownSelector").change(function () {
     compareButtonVisibility();
     getTeamSelection(dropdownOrder, teamName);
 })
+
+function getTeamSelection(order, teamName) {
+    var shortenedTeamName = teamName.replace(/\s/g, "");
+    document.getElementById(`${order}TeamLogo`).src = `assets/images/teamlogos/${shortenedTeamName}.png`;
+}
 
 function compareButtonVisibility() {
     var defaultSelect = "---Select Team---";
@@ -42,27 +70,20 @@ function compareButtonVisibility() {
     }
 }
 
-function getTeamSelection(order, teamName) {
-    var shortenedTeamName = teamName.replace(/\s/g, "");
-    document.getElementById(`${order}TeamLogo`).src = `assets/images/teamlogos/${shortenedTeamName}.png`;
-}
-
 function dataRequest(teamName1, teamName2) {
     fetch(fetchUrl)
         .then(res => res.json())
         .then(data => {
-            getTeamID(data.teams, teamName1, teamName2)
+            getTeamId(data.teams, teamName1, teamName2)
         });
 }
 
-function getTeamID(dataset, teamName1, teamName2) {
-    var targetTeam1;
-    var targetTeam2;
-    targetTeam1 = dataset.find(team1 => team1.name == teamName1);
-    targetTeam2 = dataset.find(team2 => team2.name == teamName2);
-    var teamID1 = targetTeam1.id;
-    var teamID2 = targetTeam2.id;
-    statsRequest(teamID1, teamID2)
+function getTeamId(dataset, teamName1, teamName2) {
+    var firstTargetTeam = dataset.find(team1 => team1.name == teamName1);
+    var secondTargetTeam = dataset.find(team2 => team2.name == teamName2);
+    firstTargetTeam = firstTargetTeam.id;
+    secondTargetTeam = secondTargetTeam.id;
+    statsRequest(firstTargetTeam, secondTargetTeam)
 }
 
 
