@@ -23,12 +23,13 @@ function dataFetch(fetchOptions) {
                 fetchOptions.getId = false;
                 fetchOptions.statsUrl = "/stats";
                 fetchOptions.getStatistics = false;
-            //    fetchOptions.teamIdArray.forEach(dataFetch(fetchOptions))
-                fetchOptions.teamIdArray.forEach(function(index){dataFetch(fetchOptions.teamIdArray[index])});
+                fetchOptions.teamIdArray.forEach(element => {
+                    (console.log(element));
+                });
             }
 
-            }
-    )
+        }
+        )
 }
 
 function getTeamId(data, teamName) {
