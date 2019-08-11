@@ -2,29 +2,32 @@ var fetchOptions = {
     fetchUrl: "https://statsapi.web.nhl.com/api/v1/teams/",
     statsUrl: "",
     teamIdArray: [],
+    teamId: "",
     sort: true,
     getStatistics: false,
 }
 
 function dataFetch(fetchOptions) {
-    fetch(fetchOptions.fetchUrl + fetchOptions.teamIdArray + fetchOptions.statsUrl)
+    console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
+    fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
         .then(res => res.json())
         .then(data => {
-            var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
             if (fetchOptions.sort == true) {
-                appendTeamNames(data)
+                var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
+                appendTeamNames(data);
                 fetchOptions.sort = false;
             }
             else if (fetchOptions.getStatistics == true) {
                 var firstTeamName = document.getElementById("firstTeamSelect").value;
                 var secondTeamName = document.getElementById("secondTeamSelect").value;
-                fetchOptions.teamIdArray.push(getTeamId(data, firstTeamName));
-                fetchOptions.teamIdArray.push(getTeamId(data, secondTeamName));
+                fetchOptions.teamIdArray.push(getTeamId(data.teams, firstTeamName));
+                fetchOptions.teamIdArray.push(getTeamId(data.teams, secondTeamName));
                 fetchOptions.getId = false;
                 fetchOptions.statsUrl = "/stats";
                 fetchOptions.getStatistics = false;
                 fetchOptions.teamIdArray.forEach(element => {
-                    (console.log(element));
+                    fetchOptions.teamId = element;
+                    dataFetch(fetchOptions);
                 });
             }
 
@@ -33,7 +36,8 @@ function dataFetch(fetchOptions) {
 }
 
 function getTeamId(data, teamName) {
-    return data.find(Team => Team.name == teamName);
+    
+    return(data.find(Team => Team.name == teamName).id);
 }
 
 function getStats(teamID) {
