@@ -12,7 +12,8 @@ function dataFetch(fetchOptions) {
         .then(data => {
             var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
             if (fetchOptions.sort == true) {
-                nameAppend(data)
+                appendTeamNames(data)
+                fetchOptions.sort = false;
             }
             else if (fetchOptions.getStatistics == true) {
                 var firstTeamName = document.getElementById("firstTeamSelect").value;
@@ -48,11 +49,6 @@ function getStats(teamID) {
 function optionsEnableStats(options) {
     fetchOptions.getStatistics = true;
     dataFetch(fetchOptions);
-}
-
-function nameAppend(data) {
-    appendTeamNames(data);
-    fetchOptions.sort = false;
 }
 
 function appendTeamNames(sortedData) {
