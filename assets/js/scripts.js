@@ -10,30 +10,48 @@ function dataFetch(options) {
     fetch(options.fetchUrl)
         .then(res => res.json())
         .then(data => {
-            if (options.sort = true) {
-                nameRequest(data)
+            var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
+            if (options.sort == true) {
+                nameAppend(data)
             }
-            else if (options.getId = true){
-                getTeamId(data)
+            else if (options.getId == true && options.getStats == true) {
+                var firstTeamName = document.getElementById("firstTeamSelect").value;
+                var secondTeamName = document.getElementById("secondTeamSelect").value;
+                console.log(data);
+                getTeamId(data, firstTeamName, secondTeamName);
             }
-            else if (options.getStats = true){
-                statsRequest(data)
-            }
-        }
-        )
+        })
+}
+
+function getTeamId(data, firstTeamName, secondTeamName) {
+    var firstTargetTeam = data.find(firstTeam => firstTeam.name == firstTeamName);
+    var secondTargetTeam = data.find(secondTeam => secondTeam.name == secondTeamName);
+    firstTeamId = firstTargetTeam.id;
+    secondTeamId = secondTargetTeam.id;
+    console.log(firstTargetTeam);
+    statsRequest(firstTeamId, secondTeamId)
+}
+
+function statsRequest(teamID) {
+    fetch(fetchUrl + teamID1 + '/stats')
+        .then(res => res.json())
+        .then(statSet => {
+            const teamStat = (statSet.stats[0].splits[0].stat)
+            var teamSelect = 1
+            writeStats(teamStat1, teamSelect)
+        });
 }
 
 //These two variables can be combined later on.
-function optionsUpdate() {
+function optionsEnableStats(options) {
     options.getId = true;
     options.getStats = true;
+    dataFetch(options);
 }
 
-function nameRequest(data) {
-    const sortedData = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
-    appendTeamNames(sortedData);
+function nameAppend(data) {
+    appendTeamNames(data);
     options.sort = false;
-    return (sortedData);
 }
 
 function appendTeamNames(sortedData) {
@@ -70,32 +88,17 @@ function compareButtonVisibility() {
     }
 }
 
-function dataRequest(teamName1, teamName2) {
-    fetch(fetchUrl)
-        .then(res => res.json())
-        .then(data => {
-            getTeamId(data.teams, teamName1, teamName2)
-        });
-}
-
-function getTeamId(dataset, teamName1, teamName2) {
-    var firstTargetTeam = dataset.find(team1 => team1.name == teamName1);
-    var secondTargetTeam = dataset.find(team2 => team2.name == teamName2);
-    firstTargetTeam = firstTargetTeam.id;
-    secondTargetTeam = secondTargetTeam.id;
-    statsRequest(firstTargetTeam, secondTargetTeam)
-}
+//function dataRequest(teamName1, teamName2) {
+//    fetch(fetchUrl)
+//        .then(res => res.json())
+//        .then(data => {
+//            getTeamId(data.teams, teamName1, teamName2)
+//        });
+//}
 
 
-function statsRequest(teamID) {
-    fetch(fetchUrl + teamID1 + '/stats')
-        .then(res => res.json())
-        .then(statSet => {
-            const teamStat = (statSet.stats[0].splits[0].stat)
-            var teamSelect = 1
-            writeStats(teamStat1, teamSelect)
-        });
-}
+
+
 
 function writeStats(teamStat, teamSelect) {
     document.getElementById("wins" + teamSelect).textContent = teamStat.wins;
