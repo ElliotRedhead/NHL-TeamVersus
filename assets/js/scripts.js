@@ -7,9 +7,9 @@ var fetchOptions = {
     getId: true,
     getStatistics: false,
     handleStatistics: false,
-    optionsReset: false,
+    firstWriteCompletion: false,
+    secondWriteCompletion: false,
 }
-//Do not require sortData on a reset, fetchID and getStatistics are required.
 function dataFetch(fetchOptions) {
     console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
@@ -28,7 +28,7 @@ function dataFetch(fetchOptions) {
                 fetchOptions.teamIdArray.push(getTeamId(data, firstTeamName));
                 fetchOptions.teamIdArray.push(getTeamId(data, secondTeamName));
                 fetchOptions.getStatistics = true;
-                
+
             }
             if (fetchOptions.getStatistics) {
                 fetchOptions.statsUrl = "/stats";
@@ -46,11 +46,6 @@ function dataFetch(fetchOptions) {
                 writeStats(teamOrder, teamStat, data);
             }
 
-            if (fetchOptions.optionsReset) {
-                console.log("Reset.")
-                defaultOptions(fetchOptions);
-            }
-            
         })
 }
 
@@ -58,7 +53,7 @@ function writeStats(teamOrder, teamStat, data) {
     if (teamOrder == 0) {
         var teamDivSelect = "firstTeam";
     }
-    if(teamOrder == 1) {
+    if (teamOrder == 1) {
         var teamDivSelect = "secondTeam";
     };
     document.getElementById(teamDivSelect + "Wins").textContent = teamStat.wins;
@@ -67,11 +62,13 @@ function writeStats(teamOrder, teamStat, data) {
     document.getElementById(teamDivSelect + "FaceOffWinPercentage").textContent = teamStat.faceOffWinPercentage;
     document.getElementById(teamDivSelect + "SavePercentage").textContent = teamStat.savePctg;
     document.getElementById(teamDivSelect + "GoalsPerGame").textContent = teamStat.goalsPerGame;
-    if ((document.getElementById("firstTeamWins").textContent) !== "" && (document.getElementById("secondTeamWins").textContent !== "")){
-        fetchOptions.optionsReset = true;
-    // THIS TEST NEEDS TO BE REVISED, THE VALUES OF A PREVIOUS COMPARISON WILL FORCE A RESET.
+    if (teamOrder == 0) { fetchOptions.firstWriteCompletion = true; }
+    if (teamOrder == 1) { fetchOptions.secondWriteCompletion = true; }
+    if (fetchOptions.firstWriteCompletion && fetchOptions.secondWriteCompletion) {
+        defaultOptions(fetchOptions);
     }
 }
+
 
 function getTeamId(data, teamName) {
     console.log(data);
@@ -91,6 +88,8 @@ function defaultOptions(fetchOptions) {
     fetchOptions.getId = true;
     fetchOptions.getStatistics = false;
     fetchOptions.handleStatistics = false;
+    fetchOptions.firstWriteCompletion = false;
+    fetchOptions.secondWriteCompletion = false;
 }
 
 function appendTeamNames(sortedData) {
