@@ -10,6 +10,17 @@ var fetchOptions = {
     firstWriteCompletion: false,
     secondWriteCompletion: false,
 }
+
+function testFetch(){
+//    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster&season=20142015")
+//    fetch("https://statsapi.web.nhl.com/api/v1/teams?teamId=4,3,2")
+//    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.stats") SHOULD THIS BE USED INSTEAD TO MINIMISE FETCH REQUESTS?
+//    fetch("https://statsapi.web.nhl.com/api/v1/people/ID/stats")
+//    POTENTIAL TO SHOW LAST MATCH SCORES BETWEEN TWO TEAMS? NEXT MATCH FOR EACH TEAM AND NEXT MATCH FOR BOTH?
+//        .then(res => res.json())
+//        .then(data => console.log(data))
+}
+
 function dataFetch(fetchOptions) {
     console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
@@ -43,13 +54,13 @@ function dataFetch(fetchOptions) {
             else if (fetchOptions.handleStatistics) {
                 var teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
                 var teamStat = data.stats[0].splits[0].stat;
-                writeStats(teamOrder, teamStat, data);
+                writeStats(teamOrder, teamStat);
             }
 
         })
 }
 
-function writeStats(teamOrder, teamStat, data) {
+function writeStats(teamOrder, teamStat) {
     if (teamOrder == 0) {
         var teamDivSelect = "firstTeam";
     }
