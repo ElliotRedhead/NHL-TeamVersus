@@ -2,35 +2,54 @@
 
 html {
     font-size: 16px;
+    scroll-behavior: smooth;
 }
-/* Extra small devices (portrait phones, less than 576px)
-/* No media query for `xs` since this is the default in Bootstrap
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-    html{font-size:20px;}
+    html{font-size:18px;}
  }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    html{font-size:25px;}
+    html{font-size:22px;}
 }
 
 /* Large devices (desktops, 992px and up */
 @media (min-width: 992px) {
-    html{font-size:30px;}
+    html{font-size:28px;}
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    html{font-size:40px;}
+    html{font-size:35px;}
 }
 
+@media (min-width: 2000px) {
+    html{font-size:80px;}
+}
+
+
+
 body {
+    font-size: 1rem;
     font-family: 'Teko', sans-serif;
     background-image: url("./../images/HockeyPost.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.teamLogo {
+    width:100%;
+    height:auto;
+    max-height:100%;
+}
+.statList > ul {
+    padding:0.25rem;
+}
+
+.statList > ul > li {
+    padding:0.5rem 0rem;
 }
 
 li {
@@ -50,12 +69,14 @@ text-align: center;
 }
 
 .dropdownSelector {
-    font-size:1.5rem;
+    text-align: center;
+    font-size:1rem;
+    width:100%;
     -moz-appearance: none;
 	-webkit-appearance: none;
     appearance: none;
     color: rgb(15, 36, 65);
-    padding: 0.2rem 1rem 0.2rem 1rem;
+    padding: 0.2rem 1.5rem 0.2rem 1rem;
     font-weight:500;
     border:1px solid rgb(118, 165, 209);
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);

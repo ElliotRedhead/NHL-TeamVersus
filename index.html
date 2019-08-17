@@ -16,23 +16,26 @@
 	<div class="row">
 		<div class="container-fluid">
 			<div class="row">
-				<img id="firstTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png"
-					class="col-5 col-sm-4 offset-sm-1">
+				<div class="col-5 col-sm-4 offset-sm-1">
+				<img class="teamLogo" id="firstTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
+				</div>
 				<div class="col-2">
 				<!-- VS text placeholder -->
 				</div>
-				<img id="secondTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png" class="col-5 col-sm-4">
+				<div class="col-5 col-sm-4">
+				<img class="teamLogo" id="secondTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
+				</div>
 			</div>
 			<div class="row">
-				<div class="col-6 col-md-3 offset-md-2">
-					<form class="mx-auto">
+				<div class="col-6 col-md-3 offset-md-1">
+					<form>
 						<select class="dropdownSelector" id="firstTeamSelect">
 							<option>---Select Team---</option>
 						</select>
 					</form>
 				</div>
-				<div class="col-6 col-md-3 offset-md-3">
-					<form class="mx-auto">
+				<div class="col-6 col-md-3 offset-md-4">
+					<form>
 						<select class="dropdownSelector" id="secondTeamSelect">
 							<option>---Select Team---</option>
 						</select>
@@ -51,7 +54,7 @@
 	</div>
 	<div ID="statistics" class="row">
 		<div class="container-fluid">
-			<div class="row">
+			<div class="row statList">
 				<ul class="col-4">
 					<li ID="firstTeamWins"></li>
 					<li ID="firstTeamLosses"></li>
@@ -68,7 +71,7 @@
 					<li>Save Percentage</li>
 					<li>Goals Per Game</li>
 				</ul>
-				<ul class="col-4">
+				<ul class="col-4 statList">
 					<li ID="secondTeamWins"></li>
 					<li ID="secondTeamLosses"></li>
 					<li ID="secondTeamPoints"></li>
