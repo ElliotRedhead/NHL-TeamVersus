@@ -3,6 +3,28 @@
 html {
     font-size: 16px;
 }
+/* Extra small devices (portrait phones, less than 576px)
+/* No media query for `xs` since this is the default in Bootstrap
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    html{font-size:20px;}
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    html{font-size:25px;}
+}
+
+/* Large devices (desktops, 992px and up */
+@media (min-width: 992px) {
+    html{font-size:30px;}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    html{font-size:40px;}
+}
 
 body {
     font-family: 'Teko', sans-serif;
@@ -28,12 +50,12 @@ text-align: center;
 }
 
 .dropdownSelector {
-    font-size:2rem;
+    font-size:1.5rem;
     -moz-appearance: none;
 	-webkit-appearance: none;
     appearance: none;
     color: rgb(15, 36, 65);
-    padding: 0.25rem 2rem 0.25rem 1rem;
+    padding: 0.2rem 1rem 0.2rem 1rem;
     font-weight:500;
     border:1px solid rgb(118, 165, 209);
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
