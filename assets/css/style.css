@@ -33,19 +33,19 @@ html {
 
 body {
     font-family: 'Teko', sans-serif;
+    background-image: url("./../images/HockeyPost.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 #selectTeams {
-    background-image: url("./../images/HockeyPost.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    margin:0rem;
-    padding:0.5rem 2rem 2rem 2rem;
+    padding:0.1rem 0.5rem 2rem 0.5rem;
 }
 
 .teamLogo {
     width:100%;
-    height:auto;
+    height:100%;
     max-height:100%;
 }
 .statList > ul {
@@ -65,7 +65,8 @@ text-align: center;
 }
 
 #statistics {
-    visibility: hidden;
+    display:none;
+    /* visibility: hidden; */
 }
 
 .dropdownSelector {
@@ -93,7 +94,6 @@ text-align: center;
 }
 
 #compareButton {
-    visibility: hidden;
-    padding: 1.5rem 2rem;
+    visibility:hidden;
     font-size:1.5rem;
 }

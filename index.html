@@ -16,34 +16,36 @@
 	<!-- TEAM VS TEAM LOGOS SECTION & TRIGGER BUTTONS -->
 	<div class="row">
 		<section id="selectTeams" class="container-fluid">
-			<div class="row">
-				<div class="col-5">
-					<img class="teamLogo" id="firstTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
+			<div class="row justify-content-between">
+				<div class="col-6 col-md-5">
+					<img class="teamLogo align-self-center" id="firstTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
 				</div>
-				<div class="col-2">
-					<!-- VS text placeholder -->
-				</div>
-				<div class="col-5">
-					<img class="teamLogo" id="secondTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
+
+				<div class="col-6 col-md-5">
+					<img class="teamLogo align-self-center" id="secondTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
 				</div>
 			</div>
 			<div class="row">
-				<form class="mx-auto">
-					<select class="dropdownSelector" id="firstTeamSelect">
-						<option>---Select Team---</option>
-					</select>
-				</form>
-				<button id="compareButton" type="button" class="btn btn-light"
-					onclick="optionsEnableStats(fetchOptions), visibleStatistics()">
-					Compare!
-				</button>
-				<form class="mx-auto">
+				<div class="col-6 col-md-4 order-md-1 align-self-start">
+					<form align="center">
+						<select class="dropdownSelector" id="firstTeamSelect">
+							<option>---Select Team---</option>
+						</select>
+					</form>
+				</div>
+
+			<div class="col-6 col-md-4 order-md-3">
+				<form align="center">
 					<select class="dropdownSelector" id="secondTeamSelect">
 						<option>---Select Team---</option>
 					</select>
 				</form>
 			</div>
-		</section>
+			<button id="compareButton" type="button" class="btn btn-light col-md-4 order-md-2" onclick="optionsEnableStats(fetchOptions), visibleStatistics()">
+				Compare!
+			</button>
+		</div>
+	</section>
 	</div>
 
 

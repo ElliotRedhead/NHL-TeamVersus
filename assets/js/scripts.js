@@ -140,11 +140,11 @@ function compareButtonVisibility() {
         document.getElementById("compareButton").style.visibility = "visible"
     }
     else {
-        document.getElementById("compareButton").style.visibility = "hidden"
+        document.getElementById("compareButton").style.visiblity = "hidden"
     }
 }
 
 
 function visibleStatistics() {
-    document.getElementById("statistics").style.visibility = "visible";
+    document.getElementById("statistics").style.display = "block";
 }
