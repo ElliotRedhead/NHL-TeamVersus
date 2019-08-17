@@ -15,45 +15,39 @@
 <body class="container-fluid" onload="dataFetch(fetchOptions)">
 	<!-- TEAM VS TEAM LOGOS SECTION & TRIGGER BUTTONS -->
 	<div class="row">
-		<div class="container-fluid">
+		<section id="selectTeams" class="container-fluid">
 			<div class="row">
-				<div class="col-5 col-sm-4 offset-sm-1">
-				<img class="teamLogo" id="firstTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
+				<div class="col-5">
+					<img class="teamLogo" id="firstTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
 				</div>
 				<div class="col-2">
-				<!-- VS text placeholder -->
+					<!-- VS text placeholder -->
 				</div>
-				<div class="col-5 col-sm-4">
-				<img class="teamLogo" id="secondTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-6 col-md-3 offset-md-1">
-					<form>
-						<select class="dropdownSelector" id="firstTeamSelect">
-							<option>---Select Team---</option>
-						</select>
-					</form>
-				</div>
-				<div class="col-6 col-md-3 offset-md-4">
-					<form>
-						<select class="dropdownSelector" id="secondTeamSelect">
-							<option>---Select Team---</option>
-						</select>
-					</form>
+				<div class="col-5">
+					<img class="teamLogo" id="secondTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
 				</div>
 			</div>
 			<div class="row">
-				<div class="mx-auto ">
-					<button id="compareButton" type="button" class="btn btn-light"
-						onclick="optionsEnableStats(fetchOptions), visibleStatistics()">
-						Compare!
-					</button>
-				</div>
+				<form class="mx-auto">
+					<select class="dropdownSelector" id="firstTeamSelect">
+						<option>---Select Team---</option>
+					</select>
+				</form>
+				<button id="compareButton" type="button" class="btn btn-light"
+					onclick="optionsEnableStats(fetchOptions), visibleStatistics()">
+					Compare!
+				</button>
+				<form class="mx-auto">
+					<select class="dropdownSelector" id="secondTeamSelect">
+						<option>---Select Team---</option>
+					</select>
+				</form>
 			</div>
-		</div>
+		</section>
 	</div>
-	<div ID="statistics" class="row">
+
+
+	<section ID="statistics" class="row">
 		<div class="container-fluid">
 			<div class="row statList">
 				<ul class="col-4">
@@ -82,7 +76,7 @@
 				</ul>
 			</div>
 		</div>
-	</div>
+	</section>
 	</div>
 	<!-- STATISTICS, WITH HIGHLIGHTED "WINNING" ATTRIBUTES -->
 
