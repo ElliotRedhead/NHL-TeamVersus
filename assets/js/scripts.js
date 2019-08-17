@@ -78,6 +78,7 @@ function writeStats(teamOrder, teamStat) {
     if (fetchOptions.firstWriteCompletion && fetchOptions.secondWriteCompletion) {
         defaultOptions(fetchOptions);
     }
+    scrollToResults()
 }
 
 
@@ -147,4 +148,8 @@ function compareButtonVisibility() {
 
 function visibleStatistics() {
     document.getElementById("statistics").style.display = "block";
+}
+
+function scrollToResults(){
+    document.getElementById("statistics").scrollIntoView(true);
 }
