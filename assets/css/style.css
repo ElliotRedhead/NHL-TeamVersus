@@ -59,7 +59,7 @@ body {
 }
 
 #selectTeams {
-    height:100vh;
+    /* height:100vh; */
     align-items:center;
     /* padding:0.5rem 0.5rem 1rem 0.5rem; */
 }
@@ -77,6 +77,12 @@ body {
     padding:0.5rem 0rem;
 }
 
+.vertical-center {
+    height:100vh;
+    display:flex;
+    align-items:center;
+}
+
 li {
 /*border: 5px solid blue;
 border-radius: 3px;*/
@@ -87,7 +93,6 @@ text-align: center;
 
 #statistics {
     display:none;
-    height:100vh;
 }
 
 .dropdownSelector {
