@@ -5,14 +5,30 @@ html {
     scroll-behavior: smooth;
 }
 
+@media (max-width: 425px) {
+    body{
+    background-color: black;
+    background-image: url("./../images/HockeyPostSmallest.jpg");    
+    background-position: left -30rem top 0rem;
+    }
+ }
+
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+@media (min-width:426px) and (max-width: 767px) {
     html{font-size:18px;}
+    body{
+    background-color: black;
+    background-image: url("./../images/HockeyPostSmaller.jpg");    
+    background-position: left -20rem top 0rem;
+    }
  }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     html{font-size:22px;}
+    body{
+    background-image:url("./../images/HockeyPost.jpg");
+}
 }
 
 /* Large devices (desktops, 992px and up */
@@ -23,6 +39,7 @@ html {
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     html{font-size:35px;}
+    
 }
 
 @media (min-width: 2000px) {
@@ -33,7 +50,6 @@ html {
 
 body {
     font-family: 'Teko', sans-serif;
-    background-image: url("./../images/HockeyPost.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     -webkit-background-size: cover;

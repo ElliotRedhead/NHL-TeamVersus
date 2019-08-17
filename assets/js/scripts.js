@@ -11,14 +11,14 @@ var fetchOptions = {
     secondWriteCompletion: false,
 }
 
-function testFetch(){
-//    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster&season=20142015")
-//    fetch("https://statsapi.web.nhl.com/api/v1/teams?teamId=4,3,2")
-//    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.stats") SHOULD THIS BE USED INSTEAD TO MINIMISE FETCH REQUESTS?
-//    fetch("https://statsapi.web.nhl.com/api/v1/people/ID/stats")
-//    POTENTIAL TO SHOW LAST MATCH SCORES BETWEEN TWO TEAMS? NEXT MATCH FOR EACH TEAM AND NEXT MATCH FOR BOTH?
-//        .then(res => res.json())
-//        .then(data => console.log(data))
+function testFetch() {
+    //    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster&season=20142015")
+    //    fetch("https://statsapi.web.nhl.com/api/v1/teams?teamId=4,3,2")
+    //    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.stats") SHOULD THIS BE USED INSTEAD TO MINIMISE FETCH REQUESTS?
+    //    fetch("https://statsapi.web.nhl.com/api/v1/people/ID/stats")
+    //    POTENTIAL TO SHOW LAST MATCH SCORES BETWEEN TWO TEAMS? NEXT MATCH FOR EACH TEAM AND NEXT MATCH FOR BOTH?
+    //        .then(res => res.json())
+    //        .then(data => console.log(data))
 }
 
 function dataFetch(fetchOptions) {
@@ -124,12 +124,12 @@ $(".dropdownSelector").change(function () {
 function getTeamLogo(order, teamName) {
     var shortenedTeamName = teamName.replace(/\s/g, "");
     var teamLogo = document.getElementById(`${order}TeamLogo`);
-    teamLogo.classList.add("animated","bounceInDown");
+    teamLogo.classList.add("animated", "bounceInDown");
     teamLogo.style.animation = 'none';
     teamLogo.offsetLeft; /* Only used to trigger reflow. */
-    teamLogo.style.animation = null; 
+    teamLogo.style.animation = null;
     document.getElementById(`${order}TeamLogo`).src = `assets/images/teamlogos/${shortenedTeamName}.png`;
-    
+
 }
 
 function compareButtonVisibility() {
