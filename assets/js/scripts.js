@@ -138,7 +138,7 @@ function animationHandler(teamLogo){
 }
 
 function compareButtonVisibility() {
-    var defaultSelect = "---Select Team---";
+    const defaultSelect = "---Select Team---";
     var firstSelection = document.getElementById("firstTeamSelect").value;
     var secondSelection = document.getElementById("secondTeamSelect").value;
     if (firstSelection != defaultSelect && secondSelection != defaultSelect && firstSelection != secondSelection) {
