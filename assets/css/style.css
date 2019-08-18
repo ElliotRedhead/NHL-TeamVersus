@@ -69,26 +69,22 @@ body {
     height:100%;
     max-height:100%;
 }
-.statList > ul {
+.statList {
     padding:0.25rem;
 }
 
-.statList > ul > li {
+.statList > li {
+    font-size:1.5rem;
     padding:0.5rem 0rem;
+    background-color: rgba(255, 255, 255, 0.425);
+    list-style:none;
+    text-align: center;
 }
 
 .vertical-center {
     height:100vh;
     display:flex;
     align-items:center;
-}
-
-li {
-/*border: 5px solid blue;
-border-radius: 3px;*/
-background-color: rgba(255, 255, 255, 0.425);
-list-style:none;
-text-align: center;
 }
 
 #statistics {
