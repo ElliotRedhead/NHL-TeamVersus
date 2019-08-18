@@ -125,12 +125,16 @@ $(".dropdownSelector").change(function () {
 function getTeamLogo(order, teamName) {
     var shortenedTeamName = teamName.replace(/\s/g, "");
     var teamLogo = document.getElementById(`${order}TeamLogo`);
+    teamLogo.src = `assets/images/teamlogos/${shortenedTeamName}.png`;
+    animationHandler(teamLogo);
+
+}
+
+function animationHandler(teamLogo){
     teamLogo.classList.add("animated", "bounceInDown");
     teamLogo.style.animation = 'none';
     teamLogo.offsetLeft; /* Only used to trigger reflow. */
     teamLogo.style.animation = null;
-    document.getElementById(`${order}TeamLogo`).src = `assets/images/teamlogos/${shortenedTeamName}.png`;
-
 }
 
 function compareButtonVisibility() {
