@@ -56,6 +56,10 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    scroll-snap-type: y mandatory;
+}
+.scroll-snap {
+    scroll-snap-align:start;
 }
 
 #selectTeams {
