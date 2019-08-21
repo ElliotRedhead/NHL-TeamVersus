@@ -7,12 +7,10 @@ Page Summary
 ## User Experience
  
 #### The target audience for this website is: 
-* 
-* 
-* 
+* NHL fans that want to compare team statistics.
 
 #### This project is the best way to deliver the content because:
-*
+* It is interactive, with the aim of delivering the statistics in an animated way.
 *
 *
 *
