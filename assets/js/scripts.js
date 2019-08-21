@@ -97,10 +97,23 @@ function highlightWins() {
     var savePctgValues = [];
     var goalsPerGameValues = [];
 // CAN I USE A DICTIONARY SYSTEM HERE?
-    winValues.push(document.getElementById("firstTeamWins").textContent,document.getElementById("secondTeamWins").textContent);
-    lossValues.push(document.getElementById("firstTeamLosses").textContent,document.getElementById("secondTeamLosses").textContent);
-    console.log(winValues, lossValues);
-    console.log(Math.max((document.getElementById("firstTeamWins").textContent),(document.getElementById("secondTeamWins").textContent)));
+
+    var firstStatDict = [];
+    requiredStatistics.forEach(function(requiredStat) {
+        console.log(`firstTeam${requiredStat}`);
+        firstStatDict.push({
+        statName: requiredStat, statValue: document.getElementById(`firstTeam${requiredStat}`).textContent})
+    })
+    console.log(firstStatDict);
+
+    var secondStatDict = {
+        statName: requiredStatistics, statValue: document.getElementById(`secondTeam${requiredStatistics}`)
+    }
+
+    // winValues.push(document.getElementById("firstTeamWins").textContent,document.getElementById("secondTeamWins").textContent);
+    // lossValues.push(document.getElementById("firstTeamLosses").textContent,document.getElementById("secondTeamLosses").textContent);
+    // console.log(winValues, lossValues);
+    // console.log(Math.max((document.getElementById("firstTeamWins").textContent),(document.getElementById("secondTeamWins").textContent)));
 
 }
 
