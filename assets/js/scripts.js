@@ -1,5 +1,5 @@
 var fetchOptions = {
-    fetchUrl: "https://statsapi.web.nhl.com/api/v1/teams/",
+    fetchUrl: "https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster,team.stats",
     statsUrl: "",
     teamIdArray: [],
     teamId: "",
@@ -11,14 +11,15 @@ var fetchOptions = {
     secondWriteCompletion: false,
 }
 
-function testFetch() {
+function testFetch(fetchOptions) {
     //    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster&season=20142015")
     //    fetch("https://statsapi.web.nhl.com/api/v1/teams?teamId=4,3,2")
-    //    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.stats") SHOULD THIS BE USED INSTEAD TO MINIMISE FETCH REQUESTS?
-    //    fetch("https://statsapi.web.nhl.com/api/v1/people/ID/stats")
-    //    POTENTIAL TO SHOW LAST MATCH SCORES BETWEEN TWO TEAMS? NEXT MATCH FOR EACH TEAM AND NEXT MATCH FOR BOTH?
-    //        .then(res => res.json())
-    //        .then(data => console.log(data))
+    //   fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.stats") //SHOULD THIS BE USED INSTEAD TO MINIMISE FETCH REQUESTS?
+     //  fetch("https://statsapi.web.nhl.com/api/v1/people/ID/stats")
+     //  POTENTIAL TO SHOW LAST MATCH SCORES BETWEEN TWO TEAMS? NEXT MATCH FOR EACH TEAM AND NEXT MATCH FOR BOTH?
+     fetch(fetchOptions.fetchUrl)
+        .then(res => res.json())
+        .then(data => console.log(data))
 }
 
 function dataFetch(fetchOptions) {
