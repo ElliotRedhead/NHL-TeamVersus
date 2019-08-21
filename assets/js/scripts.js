@@ -82,6 +82,27 @@ function writeStats(teamOrder, teamStat) {
     scrollToResults()
 }
 
+function highlightWins() {
+
+    //IS THERE A WAY TO MAKE VARIABLE NAMES FROM AN ARRAY OF STRINGS?
+    //const requiredStatisticValues = ["winValues", "lossValues", "pointsValues", "faceOffWinPercentageValues", "savePctgValues", "goalsPerGameValues"];
+    const requiredStatistics = ["Wins","Losses","Points","FaceOffWinPercentage","SavePercentage","GoalsPerGame"]
+    // requiredVariableNames.forEach(function(element){
+    //     var element = [];
+    // })
+    var winValues = [];
+    var lossValues = [];
+    var pointsValues = [];
+    var faceOffWinPercentageValues = [];
+    var savePctgValues = [];
+    var goalsPerGameValues = [];
+// CAN I USE A DICTIONARY SYSTEM HERE?
+    winValues.push(document.getElementById("firstTeamWins").textContent,document.getElementById("secondTeamWins").textContent);
+    lossValues.push(document.getElementById("firstTeamLosses").textContent,document.getElementById("secondTeamLosses").textContent);
+    console.log(winValues, lossValues);
+    console.log(Math.max((document.getElementById("firstTeamWins").textContent),(document.getElementById("secondTeamWins").textContent)));
+
+}
 
 function getTeamId(data, teamName) {
     console.log(data);
