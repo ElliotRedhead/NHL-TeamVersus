@@ -27,6 +27,7 @@ function dataFetch(fetchOptions) {
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             if (fetchOptions.sortData) {
                 var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
                 appendTeamNames(data);
@@ -97,18 +98,19 @@ function highlightWins() {
     var savePctgValues = [];
     var goalsPerGameValues = [];
 // CAN I USE A DICTIONARY SYSTEM HERE?
-
     var firstStatDict = [];
     requiredStatistics.forEach(function(requiredStat) {
-        console.log(`firstTeam${requiredStat}`);
         firstStatDict.push({
         statName: requiredStat, statValue: document.getElementById(`firstTeam${requiredStat}`).textContent})
     })
     console.log(firstStatDict);
+    var secondStatDict = [];
+    requiredStatistics.forEach(function(requiredStat) {
+        secondStatDict.push({
+        statName: requiredStat, statValue: document.getElementById(`secondTeam${requiredStat}`).textContent})
+    })
+    console.log(secondStatDict);
 
-    var secondStatDict = {
-        statName: requiredStatistics, statValue: document.getElementById(`secondTeam${requiredStatistics}`)
-    }
 
     // winValues.push(document.getElementById("firstTeamWins").textContent,document.getElementById("secondTeamWins").textContent);
     // lossValues.push(document.getElementById("firstTeamLosses").textContent,document.getElementById("secondTeamLosses").textContent);
