@@ -27,7 +27,6 @@ function dataFetch(fetchOptions) {
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             if (fetchOptions.sortData) {
                 var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
                 appendTeamNames(data);
@@ -57,6 +56,7 @@ function dataFetch(fetchOptions) {
                 var teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
                 var teamStat = data.stats[0].splits[0].stat;
                 writeStats(teamOrder, teamStat);
+                console.log(data);
             }
 
         })
@@ -152,6 +152,7 @@ function appendTeamNames(sortedData) {
 }
 
 $(".dropdownSelector").change(function () {
+    hiddenStatistics();
     var dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     var teamName = $(this).val();
     compareButtonVisibility();
@@ -186,6 +187,9 @@ function compareButtonVisibility() {
     }
 }
 
+function hiddenStatistics() {
+    document.getElementById("statistics").style.display = "none";
+}
 
 function visibleStatistics() {
     document.getElementById("statistics").style.display = "block";
