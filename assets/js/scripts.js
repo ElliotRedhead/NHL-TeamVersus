@@ -84,13 +84,7 @@ function writeStats(teamOrder, teamStat) {
 }
 
 function highlightWins() {
-
-    //IS THERE A WAY TO MAKE VARIABLE NAMES FROM AN ARRAY OF STRINGS?
-    //const requiredStatisticValues = ["winValues", "lossValues", "pointsValues", "faceOffWinPercentageValues", "savePctgValues", "goalsPerGameValues"];
     const requiredStatistics = ["Wins","Losses","Points","FaceOffWinPercentage","SavePercentage","GoalsPerGame"]
-    // requiredVariableNames.forEach(function(element){
-    //     var element = [];
-    // })
     var winValues = [];
     var lossValues = [];
     var pointsValues = [];
