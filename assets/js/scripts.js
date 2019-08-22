@@ -97,7 +97,7 @@ function highlightWins() {
     var faceOffWinPercentageValues = [];
     var savePctgValues = [];
     var goalsPerGameValues = [];
-// CAN I USE A DICTIONARY SYSTEM HERE?
+// CAN I USE A DICTIONARY SYSTEM HERE? IS THIS PART NECESSARY, CAN I WORK WITH THE DATA FROM AN EARLIER STAGE?
     var firstStatDict = [];
     requiredStatistics.forEach(function(requiredStat) {
         firstStatDict.push({
