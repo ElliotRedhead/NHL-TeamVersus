@@ -11,13 +11,18 @@ var fetchOptions = {
     secondWriteCompletion: false,
 }
 
+var teamStatistics = {
+    firstTeam: "",
+    secondTeam: "",
+}
+
 function testFetch(fetchOptions) {
     //    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster&season=20142015")
     //    fetch("https://statsapi.web.nhl.com/api/v1/teams?teamId=4,3,2")
     //   fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.stats") //SHOULD THIS BE USED INSTEAD TO MINIMISE FETCH REQUESTS?
-     //  fetch("https://statsapi.web.nhl.com/api/v1/people/ID/stats")
-     //  POTENTIAL TO SHOW LAST MATCH SCORES BETWEEN TWO TEAMS? NEXT MATCH FOR EACH TEAM AND NEXT MATCH FOR BOTH?
-     fetch(fetchOptions.fetchUrl)
+    //  fetch("https://statsapi.web.nhl.com/api/v1/people/ID/stats")
+    //  POTENTIAL TO SHOW LAST MATCH SCORES BETWEEN TWO TEAMS? NEXT MATCH FOR EACH TEAM AND NEXT MATCH FOR BOTH?
+    fetch(fetchOptions.fetchUrl)
         .then(res => res.json())
         .then(data => console.log(data))
 }
@@ -56,7 +61,6 @@ function dataFetch(fetchOptions) {
                 var teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
                 var teamStat = data.stats[0].splits[0].stat;
                 writeStats(teamOrder, teamStat);
-                console.log(data);
             }
 
         })
@@ -65,9 +69,11 @@ function dataFetch(fetchOptions) {
 function writeStats(teamOrder, teamStat) {
     if (teamOrder == 0) {
         var teamDivSelect = "firstTeam";
+        teamStatistics.firstTeam = teamStat;
     }
     if (teamOrder == 1) {
         var teamDivSelect = "secondTeam";
+        teamStatistics.secondTeam = teamStat;
     };
     document.getElementById(teamDivSelect + "Wins").textContent = teamStat.wins;
     document.getElementById(teamDivSelect + "Losses").textContent = teamStat.losses;
@@ -84,34 +90,28 @@ function writeStats(teamOrder, teamStat) {
 }
 
 function highlightWins() {
-    const requiredStatistics = ["Wins","Losses","Points","FaceOffWinPercentage","SavePercentage","GoalsPerGame"]
-    var winValues = [];
-    var lossValues = [];
-    var pointsValues = [];
-    var faceOffWinPercentageValues = [];
-    var savePctgValues = [];
-    var goalsPerGameValues = [];
-// CAN I USE A DICTIONARY SYSTEM HERE? IS THIS PART NECESSARY, CAN I WORK WITH THE DATA FROM AN EARLIER STAGE?
-    var firstStatDict = [];
-    requiredStatistics.forEach(function(requiredStat) {
-        firstStatDict.push({
-        statName: requiredStat, statValue: document.getElementById(`firstTeam${requiredStat}`).textContent})
+    const requiredStatistics = ["wins", "losses", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"]
+    const valueRankingArray = ["lesser", "greater"]
+    var greaterArray = [];
+    var lesserArray = [];
+    // // BRACKET NOTATION IS REQUIRED WHEN USING A VARIABLE OBJECT PROPERTY.
+    // THE ATTEMPTED METHOD BELOW SHOULD BE APPLIED TO THE WRITESTATS FUNCTION ONCE ACCOMPLISHED TO REFACTOR.
+    requiredStatistics.forEach(function (requiredStat) {
+        var greaterValues = Math.max(...[teamStatistics["firstTeam"][requiredStat], teamStatistics["secondTeam"][requiredStat]])
+        var lesserValues = Math.min(...[teamStatistics["firstTeam"][requiredStat], teamStatistics["secondTeam"][requiredStat]])
+        valueRankingArray.forEach(function (element) {
+            `${element}Array`.push(
+                ...[`${element}Values`]
+            )
+
+        })
+
+        console.log(greaterArray);
+        console.log(lesserArray);
+
     })
-    console.log(firstStatDict);
-    var secondStatDict = [];
-    requiredStatistics.forEach(function(requiredStat) {
-        secondStatDict.push({
-        statName: requiredStat, statValue: document.getElementById(`secondTeam${requiredStat}`).textContent})
-    })
-    console.log(secondStatDict);
-
-
-    // winValues.push(document.getElementById("firstTeamWins").textContent,document.getElementById("secondTeamWins").textContent);
-    // lossValues.push(document.getElementById("firstTeamLosses").textContent,document.getElementById("secondTeamLosses").textContent);
-    // console.log(winValues, lossValues);
-    // console.log(Math.max((document.getElementById("firstTeamWins").textContent),(document.getElementById("secondTeamWins").textContent)));
-
 }
+
 
 function getTeamId(data, teamName) {
     console.log(data);
@@ -162,7 +162,7 @@ function getTeamLogo(order, teamName) {
 
 }
 
-function animationHandler(teamLogo){
+function animationHandler(teamLogo) {
     teamLogo.classList.add("animated", "bounceInDown");
     teamLogo.style.animation = 'none';
     teamLogo.offsetLeft; /* Only used to trigger reflow. */
@@ -189,6 +189,6 @@ function visibleStatistics() {
     document.getElementById("statistics").style.display = "block";
 }
 
-function scrollToResults(){
+function scrollToResults() {
     document.getElementById("statistics").scrollIntoView(true);
 }
