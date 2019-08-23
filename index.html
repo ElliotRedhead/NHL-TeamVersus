@@ -12,49 +12,48 @@
 	<title>NHL Team Showdown</title>
 </head>
 
-<body class="container-fluid" onload="dataFetch(fetchOptions)">
+<body onload="dataFetch(fetchOptions)" class="container-fluid">
 	<!-- TEAM VS TEAM LOGOS SECTION & TRIGGER BUTTONS -->
-	<div class="row scroll-snap vertical-center">
-		<section id="selectTeams" class="container-fluid">
+	<section id="selectTeams" class="scroll-snap">
 			<div class="row justify-content-around">
-				<div class="col-6 col-md-5">
-					<img class="teamLogo" id="firstTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
-				</div>
-
-				<div class="col-6 col-md-5">
-					<img class="teamLogo" id="secondTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
-				</div>
+			<div class="col-6 col-md-4">
+				<img class="teamLogo" id="firstTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
 			</div>
-			<div class="row">
-				<div class="col-6 col-md-4 order-md-1 align-self-start">
-					<form align="center">
-						<select class="dropdownSelector" id="firstTeamSelect">
-							<option>---Select Team---</option>
-						</select>
-					</form>
-				</div>
 
-				<div class="col-6 col-md-4 order-md-3">
-					<form align="center">
-						<select class="dropdownSelector" id="secondTeamSelect">
-							<option>---Select Team---</option>
-						</select>
-					</form>
-				</div>
-				<button id="compareButton" type="button" class="btn btn-light col-md-4 order-md-2"
-					onclick="optionsEnableStats(fetchOptions), visibleStatistics()">
-					Compare!
-				</button>
+			<div class="col-6 col-md-4">
+				<img class="teamLogo" id="secondTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
 			</div>
-		</section>
-	</div>
+		</div>
+		<div class="row mx-auto">
+			<div class="col-6 col-md-4 order-md-1 align-self-start">
+				<form align="center">
+					<select class="dropdownSelector" id="firstTeamSelect">
+						<option>---Select Team---</option>
+					</select>
+				</form>
+			</div>
+
+			<div class="col-6 col-md-4 order-md-3">
+				<form align="center">
+					<select class="dropdownSelector" id="secondTeamSelect">
+						<option>---Select Team---</option>
+					</select>
+				</form>
+			</div>
+			<button id="compareButton" type="button" class="btn btn-light col-md-4 order-md-2"
+				onclick="optionsEnableStats(fetchOptions), visibleStatistics()">
+				Compare!
+			</button>
+		</div>
+	</section>
+
+
 
 	<!-- STATISTICS, WITH HIGHLIGHTED "WINNING" ATTRIBUTES -->
-	<section ID="statistics" class="row scroll-snap">
-		<div class="vertical-center">
-			<div class="container-fluid">
+	<section ID="statistics" class="scroll-snap row">
+		<div>
 				<div class="row justify-content-around">
-					<ul class="statList">
+					<ul class="statList col-2">
 						<li ID="firstTeamWins"></li>
 						<li ID="firstTeamLosses"></li>
 						<li ID="firstTeamPoints"></li>
@@ -62,7 +61,7 @@
 						<li ID="firstTeamSavePercentage"></li>
 						<li ID="firstTeamGoalsPerGame"></li>
 					</ul>
-					<ul class="statList">
+					<ul class="statList col-8">
 						<li>Wins</li>
 						<li>Losses</li>
 						<li>Points</li>
@@ -70,7 +69,7 @@
 						<li>Save Percentage</li>
 						<li>Goals Per Game</li>
 					</ul>
-					<ul class="statList">
+					<ul class="statList col-2">
 						<li ID="secondTeamWins"></li>
 						<li ID="secondTeamLosses"></li>
 						<li ID="secondTeamPoints"></li>
@@ -81,8 +80,6 @@
 				</div>
 			</div>
 	</section>
-	</div>
-	</div>
 
 
 
