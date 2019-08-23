@@ -72,12 +72,12 @@ body {
     max-height:100%;
 }
 .statList {
-    padding:0.25rem;
+    padding:0.5rem;
 }
 
 .statList > li {
     font-size:1.5rem;
-    padding:0.5rem 0rem;
+    padding:0.25rem 0rem;
     background-color: rgba(255, 255, 255, 0.425);
     list-style:none;
     text-align: center;
