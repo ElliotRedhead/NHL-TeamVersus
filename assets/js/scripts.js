@@ -18,8 +18,6 @@ var teamStatistics = {
 
 function testFetch(fetchOptions) {
     //    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster&season=20142015")
-    //    fetch("https://statsapi.web.nhl.com/api/v1/teams?teamId=4,3,2")
-    //   fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.stats") //SHOULD THIS BE USED INSTEAD TO MINIMISE FETCH REQUESTS?
     //  fetch("https://statsapi.web.nhl.com/api/v1/people/ID/stats")
     //  POTENTIAL TO SHOW LAST MATCH SCORES BETWEEN TWO TEAMS? NEXT MATCH FOR EACH TEAM AND NEXT MATCH FOR BOTH?
     fetch(fetchOptions.fetchUrl)
@@ -87,31 +85,37 @@ function writeStats(teamOrder, teamStat) {
     if (fetchOptions.firstWriteCompletion && fetchOptions.secondWriteCompletion) {
         defaultOptions(fetchOptions);
     }
+    highlightWins()
     scrollToResults()
 }
 
 function highlightWins() {
-    const requiredStatistics = ["wins", "losses", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"]
-
+    const positiveStatistic = ["wins", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"];
+    const positiveElementId = ["Wins", "Points", "FaceOffWinPercentage", "SavePercentage", "GoalsPerGame"];
+    var i = 0;
     // BRACKET NOTATION IS REQUIRED WHEN USING A VARIABLE OBJECT PROPERTY.
     // THE ATTEMPTED METHOD BELOW SHOULD BE APPLIED TO THE WRITESTATS FUNCTION ONCE ACCOMPLISHED TO REFACTOR.
-    requiredStatistics.forEach(function (requiredStat) {
-        if (teamStatistics["firstTeam"][requiredStat] > teamStatistics["secondTeam"][requiredStat]){
-            console.log("firstTeamPlusOne")
+    // CHANGE ALL COLOUR REFERENCES TO HEX VALUES.
+    positiveStatistic.forEach(function (positiveStatistic) {
+        if (teamStatistics["firstTeam"][positiveStatistic] > teamStatistics["secondTeam"][positiveStatistic]) {
+            document.getElementById("firstTeam" + positiveElementId[i]).style.color = "green";
+            document.getElementById("secondTeam" + positiveElementId[i]).style.color = "red";
+        }
+        else if (teamStatistics["firstTeam"][positiveStatistic] < teamStatistics["secondTeam"][positiveStatistic]) {
+            document.getElementById("firstTeam" + positiveElementId[i]).style.color = "red";
+            document.getElementById("secondTeam" + positiveElementId[i]).style.color = "green";
+        }
+        else if (teamStatistics["firstTeam"][positiveStatistic] == teamStatistics["secondTeam"][positiveStatistic]) {
+            document.getElementById("firstTeam" + positiveElementId[i]).style.color = "yellow";
+            document.getElementById("secondTeam" + positiveElementId[i]).style.color = "yellow";
+        }
+        i = i + 1;
 
-        }
-        else if (teamStatistics["firstTeam"][requiredStat] < teamStatistics["secondTeam"][requiredStat]){
-            console.log("secondTeamPlusOne");
-        }
-        else {
-            console.log("Stalemate!");
-        }
-        
-    })}
+    })
+}
 
 
 function getTeamId(data, teamName) {
-    console.log(data);
     return (data.teams.find(team => team.name == teamName).id);
 }
 
