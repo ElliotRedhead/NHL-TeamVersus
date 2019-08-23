@@ -91,26 +91,21 @@ function writeStats(teamOrder, teamStat) {
 
 function highlightWins() {
     const requiredStatistics = ["wins", "losses", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"]
-    const valueRankingArray = ["lesser", "greater"]
+    var statArray = [...[requiredStatistics]];
+    var statObject = {};
     var greaterArray = [];
     var lesserArray = [];
     // // BRACKET NOTATION IS REQUIRED WHEN USING A VARIABLE OBJECT PROPERTY.
     // THE ATTEMPTED METHOD BELOW SHOULD BE APPLIED TO THE WRITESTATS FUNCTION ONCE ACCOMPLISHED TO REFACTOR.
     requiredStatistics.forEach(function (requiredStat) {
-        var greaterValues = Math.max(...[teamStatistics["firstTeam"][requiredStat], teamStatistics["secondTeam"][requiredStat]])
-        var lesserValues = Math.min(...[teamStatistics["firstTeam"][requiredStat], teamStatistics["secondTeam"][requiredStat]])
-        valueRankingArray.forEach(function (element) {
-            `${element}Array`.push(
-                ...[`${element}Values`]
-            )
-
+        // ALTHOUGH A VIABLE IDEA, AN IF/ELSE STATEMENT WILL WORK HERE JUST AS READILY.
+        statArray.push([teamStatistics["firstTeam"][requiredStat], teamStatistics["secondTeam"][requiredStat]])
+        statObject[requiredStat] = teamStatistics["firstTeam"][requiredStat];
+        statObject[requiredStat] += teamStatistics["secondTeam"][requiredStat];
+        greaterArray.push(Math.max(...[teamStatistics["firstTeam"][requiredStat], teamStatistics["secondTeam"][requiredStat]]))
+        lesserArray.push(Math.min(...[teamStatistics["firstTeam"][requiredStat], teamStatistics["secondTeam"][requiredStat]]))
         })
-
-        console.log(greaterArray);
-        console.log(lesserArray);
-
-    })
-}
+    }
 
 
 function getTeamId(data, teamName) {
