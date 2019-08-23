@@ -75,6 +75,7 @@ function writeStats(teamOrder, teamStat) {
         var teamDivSelect = "secondTeam";
         teamStatistics.secondTeam = teamStat;
     };
+    // USE BRACKET NOTATION HERE TO ENFORCE "DRY"!
     document.getElementById(teamDivSelect + "Wins").textContent = teamStat.wins;
     document.getElementById(teamDivSelect + "Losses").textContent = teamStat.losses;
     document.getElementById(teamDivSelect + "Points").textContent = teamStat.pts;
@@ -91,21 +92,22 @@ function writeStats(teamOrder, teamStat) {
 
 function highlightWins() {
     const requiredStatistics = ["wins", "losses", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"]
-    var statArray = [...[requiredStatistics]];
-    var statObject = {};
-    var greaterArray = [];
-    var lesserArray = [];
-    // // BRACKET NOTATION IS REQUIRED WHEN USING A VARIABLE OBJECT PROPERTY.
+
+    // BRACKET NOTATION IS REQUIRED WHEN USING A VARIABLE OBJECT PROPERTY.
     // THE ATTEMPTED METHOD BELOW SHOULD BE APPLIED TO THE WRITESTATS FUNCTION ONCE ACCOMPLISHED TO REFACTOR.
     requiredStatistics.forEach(function (requiredStat) {
-        // ALTHOUGH A VIABLE IDEA, AN IF/ELSE STATEMENT WILL WORK HERE JUST AS READILY.
-        statArray.push([teamStatistics["firstTeam"][requiredStat], teamStatistics["secondTeam"][requiredStat]])
-        statObject[requiredStat] = teamStatistics["firstTeam"][requiredStat];
-        statObject[requiredStat] += teamStatistics["secondTeam"][requiredStat];
-        greaterArray.push(Math.max(...[teamStatistics["firstTeam"][requiredStat], teamStatistics["secondTeam"][requiredStat]]))
-        lesserArray.push(Math.min(...[teamStatistics["firstTeam"][requiredStat], teamStatistics["secondTeam"][requiredStat]]))
-        })
-    }
+        if (teamStatistics["firstTeam"][requiredStat] > teamStatistics["secondTeam"][requiredStat]){
+            console.log("firstTeamPlusOne")
+
+        }
+        else if (teamStatistics["firstTeam"][requiredStat] < teamStatistics["secondTeam"][requiredStat]){
+            console.log("secondTeamPlusOne");
+        }
+        else {
+            console.log("Stalemate!");
+        }
+        
+    })}
 
 
 function getTeamId(data, teamName) {
