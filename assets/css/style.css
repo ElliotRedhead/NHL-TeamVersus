@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
 
 html {
-    font-size: 16px;
+    font-size: 20px;
     scroll-behavior: smooth;
 }
 
@@ -9,7 +9,9 @@ html {
     body{
     background-color: black;
     background-image: url("./../images/HockeyPostSmallest.jpg");    
-    background-position: left -20rem top 0rem;
+    }
+    .dropdownSelector{
+        font-size:1.5rem;
     }
  }
 
@@ -18,14 +20,17 @@ html {
     html{font-size:18px;}
     body{
     background-color: black;
-    background-image: url("./../images/HockeyPostSmaller.jpg");    
-    background-position: left -20rem top 0rem;
+    background-image: url("./../images/HockeyPostSmaller.jpg");
+    background-position: left -10rem top 0rem; 
+    }
+    .dropdownSelector{
+        font-size:1.5rem;
     }
  }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    html{font-size:22px;}
+    html{font-size:20px;}
     body{
     background-image:url("./../images/HockeyPost.jpg");
 }
@@ -38,12 +43,12 @@ html {
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    html{font-size:35px;}
+    html{font-size:30px;}
     
 }
 
 @media (min-width: 2000px) {
-    html{font-size:80px;}
+    html{font-size:40px;}
 }
 
 body {
@@ -62,25 +67,16 @@ body {
 }
 
 #selectTeams {
-    height:100vh;
-    align-items:center;
     padding:0.5rem 0.5rem 1rem 0.5rem;
 }
 
-.teamLogo {
-    width:100%;
-    max-height:100%;
-}
-.statList {
-    padding:0.5rem;
+#selectTeams .row {
+    text-align:center;
 }
 
-.statList > li {
-    font-size:1.5rem;
-    padding:0.25rem 0rem;
-    background-color: rgba(255, 255, 255, 0.425);
-    list-style:none;
-    text-align: center;
+ .teamLogo {
+    max-width:100%;
+    max-height:40vh;
 }
 
 .vertical-center {
@@ -94,13 +90,15 @@ body {
 }
 
 .dropdownSelector {
+    width:100%;
     margin: 1rem 0rem 1rem 0rem;
-    font-size: 1rem;
+    text-align-last: center;
+    justify-content: center;
     -moz-appearance: none;
 	-webkit-appearance: none;
     appearance: none;
     color: rgb(15, 36, 65);
-    padding: 0.2rem 1.2rem 0.2rem 0.3rem;
+    padding: 0.5rem 1.2rem 0.5rem 0.3rem;
     font-weight: 500;
     border: 1px solid rgb(118, 165, 209);
     box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
@@ -113,11 +111,19 @@ body {
     /*CREDIT: https://www.filamentgroup.com/lab/select-css.html */
   }
 
-.dropdownSelector option {
-    text-align: center;
-}
-
 #compareButton {
     visibility:hidden;
+    font-size:1.7rem;
+}
+
+.statList {
+    padding:0.5rem;
+}
+
+.statList > li {
     font-size:1.5rem;
+    padding:0.25rem 0rem;
+    background-color: rgba(255, 255, 255, 0.425);
+    list-style:none;
+    text-align: center;
 }
