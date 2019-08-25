@@ -14,7 +14,10 @@ const fetchOptions = {
 const teamStatistics = {
     firstTeam: "",
     secondTeam: "",
+    elementId: ["WinsLosses", "Points", "FaceOffWinPercentage", "SavePercentage", "GoalsPerGame"],
+    statisticShorthand: ["pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"],
 }
+
 
 function dataFetch(fetchOptions) {
     console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
@@ -65,12 +68,20 @@ function writeStats(teamOrder, teamStat) {
         teamStatistics.secondTeam = teamStat;
     };
     // USE BRACKET NOTATION HERE TO ENFORCE "DRY"!
-    document.getElementById(teamDivSelect + "Wins").textContent = teamStat.wins;
-    document.getElementById(teamDivSelect + "Losses").textContent = teamStat.losses;
-    document.getElementById(teamDivSelect + "Points").textContent = teamStat.pts;
-    document.getElementById(teamDivSelect + "FaceOffWinPercentage").textContent = teamStat.faceOffWinPercentage;
-    document.getElementById(teamDivSelect + "SavePercentage").textContent = teamStat.savePctg;
-    document.getElementById(teamDivSelect + "GoalsPerGame").textContent = teamStat.goalsPerGame;
+    // document.getElementById(teamDivSelect + teamStatistics.positiveElementId[i]).textContent = teamstat.
+    let i = 0;
+    teamStatistics.elementId.forEach(function (elementId) {
+        console.log(teamStat);
+        if (elementId == "WinsLosses") {
+            document.getElementById(teamDivSelect + "WinsLosses").textContent = (teamStat.wins / teamStat.losses).toFixed(2)
+        }
+        else {
+            document.getElementById(teamDivSelect + elementId).textContent = Number(teamStat[teamStatistics["statisticShorthand"][i]]).toPrecision(3);
+            i = i + 1;
+        }
+
+    })
+
     if (teamOrder == 0) { fetchOptions.firstWriteCompletion = true; }
     if (teamOrder == 1) { fetchOptions.secondWriteCompletion = true; }
     if (fetchOptions.firstWriteCompletion && fetchOptions.secondWriteCompletion) {
@@ -81,24 +92,23 @@ function writeStats(teamOrder, teamStat) {
 }
 
 function highlightWins() {
-    const positiveStatistic = ["wins", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"];
-    const positiveElementId = ["Wins", "Points", "FaceOffWinPercentage", "SavePercentage", "GoalsPerGame"];
+
     let i = 0;
     // BRACKET NOTATION IS REQUIRED WHEN USING A VARIABLE OBJECT PROPERTY.
-    // THE ATTEMPTED METHOD BELOW SHOULD BE APPLIED TO THE WRITESTATS FUNCTION ONCE ACCOMPLISHED TO REFACTOR.
     // CHANGE ALL COLOUR REFERENCES TO HEX VALUES.
-    positiveStatistic.forEach(function (positiveStatistic) {
-        if (teamStatistics["firstTeam"][positiveStatistic] > teamStatistics["secondTeam"][positiveStatistic]) {
-            document.getElementById("firstTeam" + positiveElementId[i]).style.color = "green";
-            document.getElementById("secondTeam" + positiveElementId[i]).style.color = "red";
+    // Make correction for lack of "wins:losses" in shorthand.
+    teamStatistics.statisticShorthand.forEach(function (statisticName) {
+        if (teamStatistics["firstTeam"][statisticName] > teamStatistics["secondTeam"][statisticName]) {
+            document.getElementById("firstTeam" + teamStatistics.elementId[i]).style.color = "green";
+            document.getElementById("secondTeam" + teamStatistics.elementId[i]).style.color = "red";
         }
-        else if (teamStatistics["firstTeam"][positiveStatistic] < teamStatistics["secondTeam"][positiveStatistic]) {
-            document.getElementById("firstTeam" + positiveElementId[i]).style.color = "red";
-            document.getElementById("secondTeam" + positiveElementId[i]).style.color = "green";
+        else if (teamStatistics["firstTeam"][statisticName] < teamStatistics["secondTeam"][statisticName]) {
+            document.getElementById("firstTeam" + teamStatistics.elementId[i]).style.color = "red";
+            document.getElementById("secondTeam" + teamStatistics.elementId[i]).style.color = "green";
         }
-        else if (teamStatistics["firstTeam"][positiveStatistic] == teamStatistics["secondTeam"][positiveStatistic]) {
-            document.getElementById("firstTeam" + positiveElementId[i]).style.color = "yellow";
-            document.getElementById("secondTeam" + positiveElementId[i]).style.color = "yellow";
+        else if (teamStatistics["firstTeam"][statisticName] == teamStatistics["secondTeam"][statisticName]) {
+            document.getElementById("firstTeam" + teamStatistics.elementId[i]).style.color = "yellow";
+            document.getElementById("secondTeam" + teamStatistics.elementId[i]).style.color = "yellow";
         }
         i = i + 1;
 
