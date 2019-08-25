@@ -1,4 +1,4 @@
-var fetchOptions = {
+const fetchOptions = {
     fetchUrl: "https://statsapi.web.nhl.com/api/v1/teams/",
     statsUrl: "",
     teamIdArray: [],
@@ -11,7 +11,7 @@ var fetchOptions = {
     secondWriteCompletion: false,
 }
 
-var teamStatistics = {
+const teamStatistics = {
     firstTeam: "",
     secondTeam: "",
 }
@@ -31,15 +31,15 @@ function dataFetch(fetchOptions) {
         .then(res => res.json())
         .then(data => {
             if (fetchOptions.sortData) {
-                var data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
+                data = (data.teams.sort((a, b) => (a.name > b.name) ? 1 : -1));
                 appendTeamNames(data);
                 fetchOptions.sortData = false;
                 return data;
             }
             if (fetchOptions.getId) {
                 fetchOptions.getId = false;
-                var firstTeamName = document.getElementById("firstTeamSelect").value;
-                var secondTeamName = document.getElementById("secondTeamSelect").value;
+                let firstTeamName = document.getElementById("firstTeamSelect").value;
+                let secondTeamName = document.getElementById("secondTeamSelect").value;
                 fetchOptions.teamIdArray.push(getTeamId(data, firstTeamName));
                 fetchOptions.teamIdArray.push(getTeamId(data, secondTeamName));
                 fetchOptions.getStatistics = true;
@@ -56,8 +56,8 @@ function dataFetch(fetchOptions) {
 
             }
             else if (fetchOptions.handleStatistics) {
-                var teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
-                var teamStat = data.stats[0].splits[0].stat;
+                const teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
+                const teamStat = data.stats[0].splits[0].stat;
                 writeStats(teamOrder, teamStat);
             }
 
@@ -66,11 +66,11 @@ function dataFetch(fetchOptions) {
 
 function writeStats(teamOrder, teamStat) {
     if (teamOrder == 0) {
-        var teamDivSelect = "firstTeam";
+        teamDivSelect = "firstTeam";
         teamStatistics.firstTeam = teamStat;
     }
     if (teamOrder == 1) {
-        var teamDivSelect = "secondTeam";
+        teamDivSelect = "secondTeam";
         teamStatistics.secondTeam = teamStat;
     };
     // USE BRACKET NOTATION HERE TO ENFORCE "DRY"!
@@ -92,7 +92,7 @@ function writeStats(teamOrder, teamStat) {
 function highlightWins() {
     const positiveStatistic = ["wins", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"];
     const positiveElementId = ["Wins", "Points", "FaceOffWinPercentage", "SavePercentage", "GoalsPerGame"];
-    var i = 0;
+    let i = 0;
     // BRACKET NOTATION IS REQUIRED WHEN USING A VARIABLE OBJECT PROPERTY.
     // THE ATTEMPTED METHOD BELOW SHOULD BE APPLIED TO THE WRITESTATS FUNCTION ONCE ACCOMPLISHED TO REFACTOR.
     // CHANGE ALL COLOUR REFERENCES TO HEX VALUES.
@@ -137,7 +137,7 @@ function defaultOptions(fetchOptions) {
 }
 
 function appendTeamNames(sortedData) {
-    var teamSelectorId = ["firstTeamSelect", "secondTeamSelect"];
+    const teamSelectorId = ["firstTeamSelect", "secondTeamSelect"];
     teamSelectorId.forEach(teamSelectorId => {
         sortedData.forEach(sortedData => {
             document.getElementById(teamSelectorId).innerHTML +=
@@ -148,16 +148,16 @@ function appendTeamNames(sortedData) {
 
 $(".dropdownSelector").change(function () {
     hiddenStatistics();
-    var dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
-    var teamName = $(this).val();
+    const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
+    const teamName = $(this).val();
     compareButtonVisibility();
 
     getTeamLogo(dropdownOrder, teamName);
 })
 
 function getTeamLogo(order, teamName) {
-    var shortenedTeamName = teamName.replace(/\s/g, "");
-    var teamLogo = document.getElementById(`${order}TeamLogo`);
+    const shortenedTeamName = teamName.replace(/\s/g, "");
+    const teamLogo = document.getElementById(`${order}TeamLogo`);
     teamLogo.src = `assets/images/teamlogos/${shortenedTeamName}.png`;
     animationHandler(teamLogo);
 
@@ -172,8 +172,8 @@ function animationHandler(teamLogo) {
 
 function compareButtonVisibility() {
     const defaultSelect = "---Select Team---";
-    var firstSelection = document.getElementById("firstTeamSelect").value;
-    var secondSelection = document.getElementById("secondTeamSelect").value;
+    const firstSelection = document.getElementById("firstTeamSelect").value;
+    const secondSelection = document.getElementById("secondTeamSelect").value;
     if (firstSelection != defaultSelect && secondSelection != defaultSelect && firstSelection != secondSelection) {
         document.getElementById("compareButton").style.visibility = "visible"
     }
