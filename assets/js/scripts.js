@@ -16,15 +16,6 @@ const teamStatistics = {
     secondTeam: "",
 }
 
-function testFetch(fetchOptions) {
-    //    fetch("https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster&season=20142015")
-    //  fetch("https://statsapi.web.nhl.com/api/v1/people/ID/stats")
-    //  POTENTIAL TO SHOW LAST MATCH SCORES BETWEEN TWO TEAMS? NEXT MATCH FOR EACH TEAM AND NEXT MATCH FOR BOTH?
-    fetch(fetchOptions.fetchUrl)
-        .then(res => res.json())
-        .then(data => console.log(data))
-}
-
 function dataFetch(fetchOptions) {
     console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
