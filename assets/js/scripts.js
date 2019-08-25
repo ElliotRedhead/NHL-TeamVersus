@@ -18,7 +18,6 @@ const teamStatistics = {
     statisticShorthand: ["winLossRatio", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"],
 }
 
-
 function dataFetch(fetchOptions) {
     console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
@@ -45,7 +44,7 @@ function dataFetch(fetchOptions) {
                     fetchOptions.teamId = element;
                     fetchOptions.handleStatistics = true;
                     dataFetch(fetchOptions);
-                    
+
                 });
 
             }
@@ -80,16 +79,15 @@ function writeStats(teamOrder, teamStat) {
     if (fetchOptions.firstWriteCompletion && fetchOptions.secondWriteCompletion) {
         defaultOptions(fetchOptions);
     }
-    highlightWins()
-    scrollToResults()
+    highlightWins();
+    statisticsToggle("block");
+    scrollToResults();
 }
 
 function highlightWins() {
-
     let i = 0;
     // BRACKET NOTATION IS REQUIRED WHEN USING A VARIABLE OBJECT PROPERTY.
     // CHANGE ALL COLOUR REFERENCES TO HEX VALUES.
-    // Make correction for lack of "wins:losses" in shorthand.
     teamStatistics.statisticShorthand.forEach(function (statisticName) {
         if (teamStatistics["firstTeam"][statisticName] > teamStatistics["secondTeam"][statisticName]) {
             document.getElementById("firstTeam" + teamStatistics.elementId[i]).style.color = "green";
@@ -141,7 +139,7 @@ function appendTeamNames(sortedData) {
 }
 
 $(".dropdownSelector").change(function () {
-    hiddenStatistics();
+    statisticsToggle("none");
     const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     const teamName = $(this).val();
     compareButtonVisibility();
@@ -176,12 +174,8 @@ function compareButtonVisibility() {
     }
 }
 
-function hiddenStatistics() {
-    document.getElementById("statistics").style.display = "none";
-}
-
-function visibleStatistics() {
-    document.getElementById("statistics").style.display = "block";
+function statisticsToggle(displayValue) {
+    document.getElementById("statistics").style.display = displayValue;
 }
 
 function scrollToResults() {
