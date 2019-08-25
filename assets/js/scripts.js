@@ -14,8 +14,8 @@ const fetchOptions = {
 const teamStatistics = {
     firstTeam: "",
     secondTeam: "",
-    elementId: ["WinsLosses", "Points", "FaceOffWinPercentage", "SavePercentage", "GoalsPerGame"],
-    statisticShorthand: ["pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"],
+    elementId: ["WinLossRatio", "Points", "FaceOffWinPercentage", "SavePercentage", "GoalsPerGame"],
+    statisticShorthand: ["winLossRatio", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"],
 }
 
 
@@ -37,7 +37,6 @@ function dataFetch(fetchOptions) {
                 fetchOptions.teamIdArray.push(getTeamId(data, firstTeamName));
                 fetchOptions.teamIdArray.push(getTeamId(data, secondTeamName));
                 fetchOptions.getStatistics = true;
-
             }
             if (fetchOptions.getStatistics) {
                 fetchOptions.statsUrl = "/stats";
@@ -46,12 +45,15 @@ function dataFetch(fetchOptions) {
                     fetchOptions.teamId = element;
                     fetchOptions.handleStatistics = true;
                     dataFetch(fetchOptions);
+                    
                 });
 
             }
             else if (fetchOptions.handleStatistics) {
                 const teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
                 const teamStat = data.stats[0].splits[0].stat;
+                teamStat.winLossRatio = teamStat.wins / teamStat.losses;
+                console.log(teamStat);
                 writeStats(teamOrder, teamStat);
             }
 
@@ -71,15 +73,8 @@ function writeStats(teamOrder, teamStat) {
     // document.getElementById(teamDivSelect + teamStatistics.positiveElementId[i]).textContent = teamstat.
     let i = 0;
     teamStatistics.elementId.forEach(function (elementId) {
-        console.log(teamStat);
-        if (elementId == "WinsLosses") {
-            document.getElementById(teamDivSelect + "WinsLosses").textContent = (teamStat.wins / teamStat.losses).toFixed(2)
-        }
-        else {
-            document.getElementById(teamDivSelect + elementId).textContent = Number(teamStat[teamStatistics["statisticShorthand"][i]]).toPrecision(3);
-            i = i + 1;
-        }
-
+        document.getElementById(teamDivSelect + elementId).textContent = Number(teamStat[teamStatistics["statisticShorthand"][i]]).toPrecision(3);
+        i = i + 1;
     })
 
     if (teamOrder == 0) { fetchOptions.firstWriteCompletion = true; }
