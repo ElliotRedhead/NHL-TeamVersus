@@ -69,16 +69,14 @@ function writeStats(teamOrder, teamStat) {
         teamDivSelect = "secondTeam";
         teamStatistics.secondTeam = teamStat;
     };
-    // USE BRACKET NOTATION HERE TO ENFORCE "DRY"!
-    // document.getElementById(teamDivSelect + teamStatistics.positiveElementId[i]).textContent = teamstat.
+
     let i = 0;
     teamStatistics.elementId.forEach(function (elementId) {
         document.getElementById(teamDivSelect + elementId).textContent = Number(teamStat[teamStatistics["statisticShorthand"][i]]).toPrecision(3);
         i = i + 1;
     })
 
-    if (teamOrder == 0) { fetchOptions.firstWriteCompletion = true; }
-    if (teamOrder == 1) { fetchOptions.secondWriteCompletion = true; }
+    teamOrder === 0 ? fetchOptions.firstWriteCompletion = true : fetchOptions.secondWriteCompletion = true;
     if (fetchOptions.firstWriteCompletion && fetchOptions.secondWriteCompletion) {
         defaultOptions(fetchOptions);
     }
