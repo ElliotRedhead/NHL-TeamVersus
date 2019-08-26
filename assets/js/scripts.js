@@ -58,7 +58,6 @@ function dataFetch(fetchOptions) {
                 const teamStat = data.stats[0].splits[0].stat;
                 teamStat.winLossRatio = teamStat.wins / teamStat.losses;
                 teamStat.savePctg = teamStat.savePctg * 100;
-                console.log(teamStat);
                 writeStats(teamOrder, teamStat);
             }
 
@@ -218,7 +217,7 @@ function declareWinner() {
     if (teamStatistics.scoreCounter > 0){
         alert(`${teamStatistics.firstTeamName} win!`);
     }
-    else if (teamStatistics.scoreCounter > 0){
+    else if (teamStatistics.scoreCounter < 0){
         alert(`${teamStatistics.secondTeamName} win!`);
     }
     else if (teamStatistics.scoreCounter == 0){
