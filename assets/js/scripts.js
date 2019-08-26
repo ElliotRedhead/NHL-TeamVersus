@@ -131,7 +131,7 @@ function defaultOptions(fetchOptions) {
 }
 
 function appendTeamNames(sortedData) {
-    
+
     teamSelectorId.forEach(teamSelectorId => {
         sortedData.forEach(sortedData => {
             document.getElementById(teamSelectorId).innerHTML +=
@@ -153,13 +153,12 @@ function randomiseSelection() {
     $(".dropdownSelector").change()
 }
 
-$(".dropdownSelector").change (function() {
+$(".dropdownSelector").change(function () {
     statisticsToggle("none");
     console.log("Change detected.")
     const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     const teamName = $(this).val();
     compareButtonVisibility();
-
     getTeamLogo(dropdownOrder, teamName);
 })
 
