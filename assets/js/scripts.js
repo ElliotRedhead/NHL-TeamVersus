@@ -74,7 +74,11 @@ function writeStats(teamOrder, teamStat) {
 
     let i = 0;
     teamStatistics.elementId.forEach(function (elementId) {
-        document.getElementById(teamDivSelect + elementId).textContent = Number(teamStat[teamStatistics["statisticShorthand"][i]]).toPrecision(3);
+        let statisticValue = Number(teamStat[teamStatistics["statisticShorthand"][i]]).toPrecision(3);
+        if (elementId == "Points") {
+            statisticValue = parseInt(statisticValue);
+        }
+        document.getElementById(teamDivSelect + elementId).textContent = statisticValue;
         i = i + 1;
     })
 
