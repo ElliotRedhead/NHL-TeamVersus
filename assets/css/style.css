@@ -85,10 +85,6 @@ body {
     align-items:center;
 }
 
-#statistics {
-    display:none;
-}
-
 .dropdownSelector {
     width:100%;
     margin: 1rem 0rem 1rem 0rem;
@@ -112,8 +108,12 @@ body {
   }
 
 #compareButton {
-    visibility:hidden;
     font-size:1.7rem;
+    visibility:hidden;
+}
+
+#statistics {
+    display:none;
 }
 
 .statList {
