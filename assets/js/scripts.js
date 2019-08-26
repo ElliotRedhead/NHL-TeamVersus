@@ -18,6 +18,8 @@ const teamStatistics = {
     statisticShorthand: ["winLossRatio", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"],
 }
 
+const teamSelectorId = ["firstTeamSelect", "secondTeamSelect"];
+
 function dataFetch(fetchOptions) {
     console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
@@ -129,7 +131,7 @@ function defaultOptions(fetchOptions) {
 }
 
 function appendTeamNames(sortedData) {
-    const teamSelectorId = ["firstTeamSelect", "secondTeamSelect"];
+    
     teamSelectorId.forEach(teamSelectorId => {
         sortedData.forEach(sortedData => {
             document.getElementById(teamSelectorId).innerHTML +=
@@ -138,8 +140,22 @@ function appendTeamNames(sortedData) {
     })
 }
 
-$(".dropdownSelector").change(function () {
+function randomiseSelection() {
+    const dropdownOptions = document.getElementById([teamSelectorId[0]]).children;
+    let randomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    const secondRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    if (randomOption == secondRandomOption) {
+        console.log("switcheroo");
+        randomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    }
+    document.getElementById([teamSelectorId[0]]).value = dropdownOptions[randomOption].value;
+    document.getElementById([teamSelectorId[1]]).value = dropdownOptions[secondRandomOption].value;
+    $(".dropdownSelector").change()
+}
+
+$(".dropdownSelector").change (function() {
     statisticsToggle("none");
+    console.log("Change detected.")
     const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     const teamName = $(this).val();
     compareButtonVisibility();
@@ -152,7 +168,6 @@ function getTeamLogo(order, teamName) {
     const teamLogo = document.getElementById(`${order}TeamLogo`);
     teamLogo.src = `assets/images/teamlogos/${shortenedTeamName}.png`;
     animationHandler(teamLogo);
-
 }
 
 function animationHandler(teamLogo) {
