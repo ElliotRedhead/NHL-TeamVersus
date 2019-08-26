@@ -12,6 +12,9 @@ const fetchOptions = {
 }
 
 const teamStatistics = {
+    scoreCounter: 0,
+    firstTeamName: "",
+    secondTeamName: "",
     firstTeam: "",
     secondTeam: "",
     elementId: ["WinLossRatio", "Points", "FaceOffWinPercentage", "SavePercentage", "GoalsPerGame"],
@@ -33,10 +36,10 @@ function dataFetch(fetchOptions) {
             }
             if (fetchOptions.getId) {
                 fetchOptions.getId = false;
-                let firstTeamName = document.getElementById(`${teamDescriptorId[0]}Select`).value;
-                let secondTeamName = document.getElementById(`${teamDescriptorId[1]}Select`).value;
-                fetchOptions.teamIdArray.push(getTeamId(data, firstTeamName));
-                fetchOptions.teamIdArray.push(getTeamId(data, secondTeamName));
+                teamStatistics.firstTeamName = document.getElementById(`${teamDescriptorId[0]}Select`).value;
+                teamStatistics.secondTeamName = document.getElementById(`${teamDescriptorId[1]}Select`).value;
+                fetchOptions.teamIdArray.push(getTeamId(data, teamStatistics.firstTeamName));
+                fetchOptions.teamIdArray.push(getTeamId(data, teamStatistics.secondTeamName));
                 fetchOptions.getStatistics = true;
             }
             if (fetchOptions.getStatistics) {
@@ -97,10 +100,12 @@ function highlightWins() {
     // CHANGE ALL COLOUR REFERENCES TO HEX VALUES.
     teamStatistics.statisticShorthand.forEach(function (statisticName) {
         if (teamStatistics["firstTeam"][statisticName] > teamStatistics["secondTeam"][statisticName]) {
+            teamStatistics.scoreCounter = teamStatistics.scoreCounter + 1;
             document.getElementById("firstTeam" + teamStatistics.elementId[i]).style.color = "green";
             document.getElementById("secondTeam" + teamStatistics.elementId[i]).style.color = "red";
         }
         else if (teamStatistics["firstTeam"][statisticName] < teamStatistics["secondTeam"][statisticName]) {
+            teamStatistics.scoreCounter = teamStatistics.scoreCounter - 1;
             document.getElementById("firstTeam" + teamStatistics.elementId[i]).style.color = "red";
             document.getElementById("secondTeam" + teamStatistics.elementId[i]).style.color = "green";
         }
@@ -206,4 +211,18 @@ function statisticsToggle(displayValue) {
 
 function scrollToResults() {
     document.getElementById("statistics").scrollIntoView(true);
+    declareWinner();
 }
+
+function declareWinner() {
+    if (teamStatistics.scoreCounter > 0){
+        alert(`${teamStatistics.firstTeamName} win!`);
+    }
+    else if (teamStatistics.scoreCounter > 0){
+        alert(`${teamStatistics.secondTeamName} win!`);
+    }
+    else if (teamStatistics.scoreCounter == 0){
+        alert("It's a draw!"); //Example: Winnipeg Jets vs Boston Bruins.
+    }
+}
+
