@@ -54,6 +54,7 @@ function dataFetch(fetchOptions) {
                 const teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
                 const teamStat = data.stats[0].splits[0].stat;
                 teamStat.winLossRatio = teamStat.wins / teamStat.losses;
+                teamStat.savePctg = teamStat.savePctg * 100;
                 console.log(teamStat);
                 writeStats(teamOrder, teamStat);
             }
