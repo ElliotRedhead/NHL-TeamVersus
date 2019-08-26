@@ -25,6 +25,7 @@ html {
     }
     .dropdownSelector{
         font-size:1.5rem;
+        left:1.25rem;
     }
  }
 
@@ -44,6 +45,9 @@ html {
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     html{font-size:30px;}
+    #randomButton {
+        left:2rem;
+    }
     
 }
 
@@ -109,9 +113,15 @@ body {
   }
 
 #randomButton {
-    font-size:3rem;
-    text-align:center;
+    font-size:2rem;
     background-color:white;
+    border-radius: 1rem;
+    padding:0.5rem;
+    margin-bottom: 1rem;
+    z-index:2;
+    position: fixed;
+    top:1rem;
+    border: grey solid 0.1rem;
 }
 
 #compareButton {
