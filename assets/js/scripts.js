@@ -165,9 +165,7 @@ function animationHandler(teamLogo) {
 function compareButtonVisibility() {
     const defaultSelect = "---Select Team---";
     const firstSelection = document.getElementById("firstTeamSelect").value;
-    console.log(firstSelection);
     const secondSelection = document.getElementById("secondTeamSelect").value;
-    console.log(secondSelection);
     if (firstSelection == defaultSelect || secondSelection == defaultSelect || firstSelection == secondSelection) {
         document.getElementById("compareButton").style.visibility = "hidden";
     } else {
