@@ -12,7 +12,7 @@
 	<title>NHL Team Showdown</title>
 </head>
 
-<body onload="dataFetch(fetchOptions)" class="container-fluid">
+<body onload="dataFetch(fetchOptions);appendStatisticsList()" class="container-fluid">
 	<!-- TEAM VS TEAM LOGOS SECTION & TRIGGER BUTTONS -->
 	<i id="randomButton" class="fas fa-random" onclick="randomiseSelection()"></i>
 	<section id="selectTeams" class="scroll-snap">
@@ -51,12 +51,7 @@
 	<section ID="statistics" class="scroll-snap">
 		<div>
 			<div class="row">
-				<ul class="statList col-2 offset-1">
-					<li ID="firstTeamWinLossRatio"></li>
-					<li ID="firstTeamPoints"></li>
-					<li ID="firstTeamFaceOffWinPercentage"></li>
-					<li ID="firstTeamSavePercentage"></li>
-					<li ID="firstTeamGoalsPerGame"></li>
+				<ul id="firstTeamStatList" class="statList col-2 offset-1">
 				</ul>
 				<ul class="statList col-6">
 					<li>Wins:Losses</li>
@@ -65,12 +60,7 @@
 					<li>Save Percentage</li>
 					<li>Goals Per Game</li>
 				</ul>
-				<ul class="statList col-2">
-					<li ID="secondTeamWinLossRatio"></li>
-					<li ID="secondTeamPoints"></li>
-					<li ID="secondTeamFaceOffWinPercentage"></li>
-					<li ID="secondTeamSavePercentage"></li>
-					<li ID="secondTeamGoalsPerGame"></li>
+				<ul id="secondTeamStatList" class="statList col-2">
 				</ul>
 			</div>
 		</div>

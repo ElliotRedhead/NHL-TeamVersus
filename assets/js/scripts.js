@@ -18,7 +18,7 @@ const teamStatistics = {
     statisticShorthand: ["winLossRatio", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"],
 }
 
-const teamSelectorId = ["firstTeamSelect", "secondTeamSelect"];
+const teamDescriptorId = ["firstTeam", "secondTeam"];
 
 function dataFetch(fetchOptions) {
     console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
@@ -33,8 +33,8 @@ function dataFetch(fetchOptions) {
             }
             if (fetchOptions.getId) {
                 fetchOptions.getId = false;
-                let firstTeamName = document.getElementById("firstTeamSelect").value;
-                let secondTeamName = document.getElementById("secondTeamSelect").value;
+                let firstTeamName = document.getElementById(`${teamDescriptorId[0]}Select`).value;
+                let secondTeamName = document.getElementById(`${teamDescriptorId[1]}Select`).value;
                 fetchOptions.teamIdArray.push(getTeamId(data, firstTeamName));
                 fetchOptions.teamIdArray.push(getTeamId(data, secondTeamName));
                 fetchOptions.getStatistics = true;
@@ -131,25 +131,33 @@ function defaultOptions(fetchOptions) {
 }
 
 function appendTeamNames(sortedData) {
-
-    teamSelectorId.forEach(teamSelectorId => {
+    teamDescriptorId.forEach(teamDescriptorId => {
         sortedData.forEach(sortedData => {
-            document.getElementById(teamSelectorId).innerHTML +=
-                `<option>${sortedData.name}</option>`
+            document.getElementById(`${teamDescriptorId}Select`).innerHTML +=
+            `<option>${sortedData.name}</option>`
         })
     })
 }
 
+function appendStatisticsList() {
+    teamStatistics.elementId.forEach(function(elementId){
+        teamDescriptorId.forEach(function(descriptorValue){
+            console.log(`${descriptorValue}${elementId}`);
+            document.getElementById(`${descriptorValue}StatList`).innerHTML += `<li id=${descriptorValue}${elementId}></li>`
+        })
+
+    })}
+
 function randomiseSelection() {
-    const dropdownOptions = document.getElementById([teamSelectorId[0]]).children;
+    const dropdownOptions = document.getElementById(`${teamDescriptorId[0]}Select`).children;
     let randomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     const secondRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     if (randomOption == secondRandomOption) {
         console.log("switcheroo");
         randomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     }
-    document.getElementById([teamSelectorId[0]]).value = dropdownOptions[randomOption].value;
-    document.getElementById([teamSelectorId[1]]).value = dropdownOptions[secondRandomOption].value;
+    document.getElementById(`${teamDescriptorId[0]}Select`).value = dropdownOptions[randomOption].value;
+    document.getElementById(`${teamDescriptorId[1]}Select`).value = dropdownOptions[secondRandomOption].value;
     $(".dropdownSelector").change()
 }
 
