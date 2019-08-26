@@ -15,35 +15,31 @@
 <body onload="dataFetch(fetchOptions)" class="container-fluid">
 	<!-- TEAM VS TEAM LOGOS SECTION & TRIGGER BUTTONS -->
 	<section id="selectTeams" class="scroll-snap">
-		<div class="row justify-content-around">
-			<div class="col-12 col-md-4 col-lg-3">
+		<div class="row">
+			<div class="order-1 col-8 offset-2 col-md-4 offset-md-1 col-lg-3">
 				<img class="teamLogo" id="firstTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
 			</div>
-			<div class="col-12 col-md-4 col-lg-3">
+			<div class="order-3 col-8 offset-2 order-md-2 col-md-4 offset-md-2 col-lg-3 offset-lg-4">
 				<img class="teamLogo" id="secondTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-12 col-md-3 offset-md-1 order-md-1 align-self-start">
+			<div class="order-2 col-12 order-md-3 col-md-3 offset-md-1 order-md-1 align-self-start">
 				<form align="center">
 					<select class="dropdownSelector" id="firstTeamSelect">
 						<option disabled selected>---Select Team---</option>
 					</select>
 				</form>
 			</div>
-
-			<div class="col-12 col-md-3 order-md-3">
+			<div class="order-4 col-12 order-md-4 col-md-3 order-md-4">
 				<form align="center">
 					<select class="dropdownSelector" id="secondTeamSelect">
 						<option disabled selected>---Select Team---</option>
 					</select>
 				</form>
 			</div>
-			<button id="compareButton" type="button" class="btn btn-light col-md-4 order-md-2"
+			<button id="compareButton" type="button" class="btn btn-light col-md-4 order-2 order-md-3"
 				onclick="optionsEnableStats(fetchOptions)">
 				Compare!
 			</button>
-		</div>
 		</div>
 	</section>
 
