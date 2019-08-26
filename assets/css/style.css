@@ -108,6 +108,12 @@ body {
     /*CREDIT: https://www.filamentgroup.com/lab/select-css.html */
   }
 
+#randomButton {
+    font-size:3rem;
+    text-align:center;
+    background-color:white;
+}
+
 #compareButton {
     font-size:1.7rem;
     visibility:hidden;
