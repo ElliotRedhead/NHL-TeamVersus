@@ -115,13 +115,20 @@ body {
 #randomButton {
     font-size:2rem;
     background-color:white;
-    border-radius: 1rem;
+    text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+    border: lightgray 0.1rem solid;
+    border-radius: 2rem;
     padding:0.5rem;
-    margin-bottom: 1rem;
     z-index:2;
     position: fixed;
     top:1rem;
-    border: grey solid 0.1rem;
+    left: 0.5rem;
+}
+
+#randomButton:hover {
+    cursor:pointer;
+    background-image: linear-gradient(to bottom, #ffffff 0%,#c7c7c7 100%);
+    border-color: gray;
 }
 
 #compareButton {
