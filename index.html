@@ -15,6 +15,7 @@
 <body onload="dataFetch(fetchOptions);appendStatisticsList()" class="container-fluid">
 	<!-- TEAM VS TEAM LOGOS SECTION & TRIGGER BUTTONS -->
 	<i id="randomButton" class="fas fa-random" onclick="randomiseSelection()"></i>
+	<div class="singlePageContainer">
 	<section id="selectTeams" class="scroll-snap">
 		<div class="row">
 			<div class="order-1 col-8 offset-2 col-md-4 offset-md-1 col-lg-3">
@@ -44,12 +45,13 @@
 			</button>
 		</div>
 	</section>
+</div>
 
 
 
 	<!-- STATISTICS, WITH HIGHLIGHTED "WINNING" ATTRIBUTES -->
+	<div class="singlePageContainer">
 	<section ID="statistics" class="scroll-snap">
-		<div>
 			<div class="row">
 				<ul id="firstTeamStatList" class="statList col-2 offset-md-1">
 				</ul>
@@ -63,8 +65,8 @@
 				<ul id="secondTeamStatList" class="statList col-2">
 				</ul>
 			</div>
-		</div>
 	</section>
+</div>
 
 	<!-- SCRIPTS ENABLING BOOTSTRAP -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>

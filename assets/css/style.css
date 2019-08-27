@@ -71,7 +71,13 @@ body {
 }
 
 #selectTeams {
+    height:100%}
+
+#selectTeams .row {
     padding:0.5rem 0.5rem 1rem 0.5rem;
+    height:100%;
+    align-content: space-around;
+
 }
 
 #selectTeams .row {
@@ -84,10 +90,9 @@ body {
     max-height:40vh;
 }
 
-.vertical-center {
+.singlePageContainer {
     height:100vh;
-    display:flex;
-    align-items:center;
+    align-content:space-between!important;
 }
 
 .dropdownSelector {
@@ -139,6 +144,12 @@ body {
 
 #statistics {
     display:none;
+    height:100%;
+}
+
+#statistics .row {
+    height:100%;
+    align-content:space-around;
 }
 
 .statList {
