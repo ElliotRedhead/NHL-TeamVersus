@@ -12,7 +12,7 @@ const fetchOptions = {
 }
 
 const teamStatistics = {
-    scoreCounter: 0,
+    scoreCounter: "",
     firstTeamName: "",
     secondTeamName: "",
     firstTeam: "",
@@ -60,7 +60,6 @@ function dataFetch(fetchOptions) {
                 teamStat.savePctg = teamStat.savePctg * 100;
                 writeStats(teamOrder, teamStat);
             }
-
         })
 }
 
@@ -86,14 +85,19 @@ function writeStats(teamOrder, teamStat) {
 
     teamOrder === 0 ? fetchOptions.firstWriteCompletion = true : fetchOptions.secondWriteCompletion = true;
     if (fetchOptions.firstWriteCompletion && fetchOptions.secondWriteCompletion) {
-        defaultOptions(fetchOptions);
+        highlightWins();
     }
-    highlightWins();
-    statisticsToggle("block");
-    scrollToResults();
+
+    if (typeof (teamStatistics.scoreCounter) === "number") {
+        statisticsToggle("block");
+        scrollToResults();
+        declareWinner();
+    }
+
 }
 
 function highlightWins() {
+    teamStatistics.scoreCounter = 0;
     let i = 0;
     // BRACKET NOTATION IS REQUIRED WHEN USING A VARIABLE OBJECT PROPERTY.
     // CHANGE ALL COLOUR REFERENCES TO HEX VALUES.
@@ -127,7 +131,7 @@ function optionsEnableStats(fetchOptions) {
     dataFetch(fetchOptions);
 }
 
-function defaultOptions(fetchOptions) {
+function defaultOptions() {
     fetchOptions.statsUrl = "";
     fetchOptions.teamIdArray = [];
     fetchOptions.teamId = "";
@@ -137,25 +141,27 @@ function defaultOptions(fetchOptions) {
     fetchOptions.handleStatistics = false;
     fetchOptions.firstWriteCompletion = false;
     fetchOptions.secondWriteCompletion = false;
+    teamStatistics.scoreCounter = "";
 }
 
 function appendTeamNames(sortedData) {
     teamDescriptorId.forEach(teamDescriptorId => {
         sortedData.forEach(sortedData => {
             document.getElementById(`${teamDescriptorId}Select`).innerHTML +=
-            `<option>${sortedData.name}</option>`
+                `<option>${sortedData.name}</option>`
         })
     })
 }
 
 function appendStatisticsList() {
-    teamStatistics.elementId.forEach(function(elementId){
-        teamDescriptorId.forEach(function(descriptorValue){
+    teamStatistics.elementId.forEach(function (elementId) {
+        teamDescriptorId.forEach(function (descriptorValue) {
             console.log(`${descriptorValue}${elementId}`);
             document.getElementById(`${descriptorValue}StatList`).innerHTML += `<li id=${descriptorValue}${elementId}></li>`
         })
 
-    })}
+    })
+}
 
 function randomiseSelection() {
     const dropdownOptions = document.getElementById(`${teamDescriptorId[0]}Select`).children;
@@ -172,7 +178,6 @@ function randomiseSelection() {
 
 $(".dropdownSelector").change(function () {
     statisticsToggle("none");
-    console.log("Change detected.")
     const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     const teamName = $(this).val();
     compareButtonVisibility();
@@ -210,18 +215,19 @@ function statisticsToggle(displayValue) {
 
 function scrollToResults() {
     document.getElementById("statistics").scrollIntoView(true);
-    declareWinner();
 }
 
 function declareWinner() {
-    if (teamStatistics.scoreCounter > 0){
+    console.log(teamStatistics.scoreCounter);
+    if (teamStatistics.scoreCounter > 0) {
         alert(`${teamStatistics.firstTeamName} win!`);
     }
-    else if (teamStatistics.scoreCounter < 0){
+    else if (teamStatistics.scoreCounter < 0) {
         alert(`${teamStatistics.secondTeamName} win!`);
     }
-    else if (teamStatistics.scoreCounter == 0){
-        alert("It's a draw!"); //Example: Winnipeg Jets vs Boston Bruins.
+    else if (teamStatistics.scoreCounter == 0) {
+        alert("It's a draw!"); //Example: Toronto Maple Leafs vs Pittsburgh Penguins
     }
+    defaultOptions();
 }
 
