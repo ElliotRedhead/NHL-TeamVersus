@@ -3,7 +3,7 @@ View the live deployment [here](https://elliotredhead.github.io/NHL-TeamVersus/)
 -----
 
 Page Summary
- 
+
 ## User Experience
  
 #### The target audience for this website is: 
@@ -11,15 +11,14 @@ Page Summary
 
 #### This project is the best way to deliver the content because:
 * It is interactive, with the aim of delivering the statistics in an animated way.
-*
+* 
 *
 *
 
-## User Stories
+## User Stories (How are these fulfilled?)
 
-1.
-2.
-3.
+1. As a user interested in a statistics comparison between two specific teams I want to manually select each team.
+2. As a user interested in comparing two random teams I want a feature that randomly selects these for me.
 
 ## Wireframes
 
@@ -34,16 +33,28 @@ Page Summary
 #### Feature 1 etc.
 Description of feature.
 
+#### Welcome Modal (TBD)
+#### Team Selection Dropdowns
+#### Dynamic Team Logos
+#### Compare Button
+#### Statistics Lists
+#### Statistic Descriptors (TBD) https://codepen.io/nbalcom/pen/ozwqvb
+#### Winner Declaration Modal (TBD)
+#### Restart Prompt (TBD)
+#### Share Feature (TBD)
+
 ### Features Left to Implement
+#### Individual Player Statistic Lookup
 
 ## Technologies Used
 
 1. HTML
 2. CSS.
 3. Javascript.
-4. The developer used [Visual Studio Code](https://code.visualstudio.com/) to create the website. This was chosen due to the developer having established experience within this software and for its Github integration.
-5. [Bootstrap](https://getbootstrap.com)
-6. [FontAwesome](https://fontawesome.com/)
+4. jQuery.
+5. The developer used [Visual Studio Code](https://code.visualstudio.com/) to create the website. This was chosen due to the developer having established experience within this software and for its Github integration.
+6. [Bootstrap](https://getbootstrap.com)
+7. [FontAwesome](https://fontawesome.com/)
 8. [GoogleFonts](https://fonts.google.com/) is used to supply the fonts for the majority of texts across this website, the fonts sourced in this way were x and y.
 
 ## Testing
@@ -101,4 +112,4 @@ The photos used in this site were obtained from the following sources:
 
 ### Acknowledgements
 
-Many thanks for support in the creation of this website to ...
+Many thanks for support in the creation of this website to my mentor: Simen Daehlin.
