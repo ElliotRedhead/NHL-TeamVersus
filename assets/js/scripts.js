@@ -210,7 +210,7 @@ function compareButtonVisibility() {
 }
 
 function statisticsToggle(displayValue) {
-    document.getElementById("statistics").style.display = displayValue;
+    document.getElementById("statisticsContainer").style.display = displayValue;
 }
 
 function scrollToResults() {

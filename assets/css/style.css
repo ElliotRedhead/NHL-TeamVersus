@@ -145,8 +145,11 @@ body {
     padding:0;
 }
 
+#statisticsContainer {
+    display: none;
+}
+
 #statistics {
-    display:none;
     height:100%;
 }
 
