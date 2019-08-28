@@ -61,6 +61,56 @@ function dataFetch(fetchOptions) {
         })
 }
 
+function appendTeamNames(sortedData) {
+    teamDescriptorId.forEach(teamDescriptorId => {
+        sortedData.forEach(sortedData => {
+            document.getElementById(`${teamDescriptorId}Select`).innerHTML +=
+                `<option>${sortedData.name}</option>`
+        })
+    })
+}
+$(".dropdownSelector").change(function () {
+    statisticsToggle("none");
+    const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
+    const teamName = $(this).val();
+    compareButtonVisibility();
+    getTeamLogo(dropdownOrder, teamName);
+})
+
+function getTeamLogo(order, teamName) {
+    const shortenedTeamName = teamName.replace(/\s/g, "");
+    const teamLogo = document.getElementById(`${order}TeamLogo`);
+    teamLogo.src = `assets/images/teamlogos/${shortenedTeamName}.png`;
+    animationHandler(teamLogo);
+}
+
+function animationHandler(teamLogo) {
+    teamLogo.classList.add("animated", "bounceInDown");
+    teamLogo.style.animation = 'none';
+    teamLogo.offsetLeft; /* Only used to trigger reflow. */
+    teamLogo.style.animation = null;
+}
+
+function compareButtonVisibility() {
+    const defaultSelect = "---Select Team---";
+    const firstSelection = document.getElementById("firstTeamSelect").value;
+    const secondSelection = document.getElementById("secondTeamSelect").value;
+    if (firstSelection == defaultSelect || secondSelection == defaultSelect || firstSelection == secondSelection) {
+        document.getElementById("compareButton").style.visibility = "hidden";
+    } else {
+        document.getElementById("compareButton").style.visibility = "visible";
+    }
+}
+
+function getTeamId(data, teamName) {
+    return (data.teams.find(team => team.name == teamName).id);
+}
+
+function optionsEnableStats(fetchOptions) {
+    fetchOptions.getId = true;
+    dataFetch(fetchOptions);
+}
+
 function manipulateStats(teamStat) {
     teamStat.winLossRatio = teamStat.wins / teamStat.losses;
     teamStat.savePctg = teamStat.savePctg * 100;
@@ -97,7 +147,23 @@ function writeStats(teamOrder, teamStat) {
         scrollToResults();
         declareWinner();
     }
+}
 
+function statisticsToggle(displayValue) {
+    document.getElementById("statisticsContainer").style.display = displayValue;
+}
+
+function appendStatisticsList() {
+    teamStatistics.elementId.forEach(function (elementId) {
+        teamDescriptorId.forEach(function (descriptorValue) {
+            document.getElementById(`${descriptorValue}StatList`).innerHTML += `<li id=${descriptorValue}${elementId}></li>`
+        })
+
+    })
+}
+
+function scrollToResults() {
+    document.getElementById("statistics").scrollIntoView(true);
 }
 
 function highlightWins() {
@@ -125,14 +191,17 @@ function highlightWins() {
     })
 }
 
-
-function getTeamId(data, teamName) {
-    return (data.teams.find(team => team.name == teamName).id);
-}
-
-function optionsEnableStats(fetchOptions) {
-    fetchOptions.getId = true;
-    dataFetch(fetchOptions);
+function declareWinner() {
+    if (teamStatistics.scoreCounter > 0) {
+        alert(`${teamStatistics.firstTeamName} win!`);
+    }
+    else if (teamStatistics.scoreCounter < 0) {
+        alert(`${teamStatistics.secondTeamName} win!`);
+    }
+    else if (teamStatistics.scoreCounter == 0) {
+        alert("It's a draw!"); //Example: Toronto Maple Leafs vs Pittsburgh Penguins
+    }
+    defaultOptions();
 }
 
 function defaultOptions() {
@@ -148,24 +217,6 @@ function defaultOptions() {
     teamStatistics.scoreCounter = "";
 }
 
-function appendTeamNames(sortedData) {
-    teamDescriptorId.forEach(teamDescriptorId => {
-        sortedData.forEach(sortedData => {
-            document.getElementById(`${teamDescriptorId}Select`).innerHTML +=
-                `<option>${sortedData.name}</option>`
-        })
-    })
-}
-
-function appendStatisticsList() {
-    teamStatistics.elementId.forEach(function (elementId) {
-        teamDescriptorId.forEach(function (descriptorValue) {
-            document.getElementById(`${descriptorValue}StatList`).innerHTML += `<li id=${descriptorValue}${elementId}></li>`
-        })
-
-    })
-}
-
 function randomiseSelection() {
     const dropdownOptions = document.getElementById(`${teamDescriptorId[0]}Select`).children;
     let randomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
@@ -178,57 +229,4 @@ function randomiseSelection() {
     $(".dropdownSelector").change()
 }
 
-$(".dropdownSelector").change(function () {
-    statisticsToggle("none");
-    const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
-    const teamName = $(this).val();
-    compareButtonVisibility();
-    getTeamLogo(dropdownOrder, teamName);
-})
-
-function getTeamLogo(order, teamName) {
-    const shortenedTeamName = teamName.replace(/\s/g, "");
-    const teamLogo = document.getElementById(`${order}TeamLogo`);
-    teamLogo.src = `assets/images/teamlogos/${shortenedTeamName}.png`;
-    animationHandler(teamLogo);
-}
-
-function animationHandler(teamLogo) {
-    teamLogo.classList.add("animated", "bounceInDown");
-    teamLogo.style.animation = 'none';
-    teamLogo.offsetLeft; /* Only used to trigger reflow. */
-    teamLogo.style.animation = null;
-}
-
-function compareButtonVisibility() {
-    const defaultSelect = "---Select Team---";
-    const firstSelection = document.getElementById("firstTeamSelect").value;
-    const secondSelection = document.getElementById("secondTeamSelect").value;
-    if (firstSelection == defaultSelect || secondSelection == defaultSelect || firstSelection == secondSelection) {
-        document.getElementById("compareButton").style.visibility = "hidden";
-    } else {
-        document.getElementById("compareButton").style.visibility = "visible";
-    }
-}
-
-function statisticsToggle(displayValue) {
-    document.getElementById("statisticsContainer").style.display = displayValue;
-}
-
-function scrollToResults() {
-    document.getElementById("statistics").scrollIntoView(true);
-}
-
-function declareWinner() {
-    if (teamStatistics.scoreCounter > 0) {
-        alert(`${teamStatistics.firstTeamName} win!`);
-    }
-    else if (teamStatistics.scoreCounter < 0) {
-        alert(`${teamStatistics.secondTeamName} win!`);
-    }
-    else if (teamStatistics.scoreCounter == 0) {
-        alert("It's a draw!"); //Example: Toronto Maple Leafs vs Pittsburgh Penguins
-    }
-    defaultOptions();
-}
 
