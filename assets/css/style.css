@@ -10,8 +10,14 @@ html {
     background-color: black;
     background-image: url("./../images/HockeyPostSmallest.jpg");    
     }
+ }
+
+ @media (max-width: 767px) {
     .dropdownSelector{
         font-size:1.5rem;
+    }
+    #selectTeams .row {
+        padding:4rem 0.5rem 4rem 0.5rem;
     }
  }
 
@@ -24,22 +30,24 @@ html {
     background-position: left -10rem top 0rem; 
     }
     .dropdownSelector{
-        font-size:1.5rem;
         left:1.25rem;
     }
- }
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    html{font-size:20px;}
-    body{
-    background-image:url("./../images/HockeyPost.jpg");
-}
+    html{font-size:24px;}
+    body {
+        background-image:url("./../images/HockeyPost.jpg");
+    }
+    #selectTeams .row {
+        padding:5rem 0.5rem 8rem 0.5rem;
+    }
 }
 
 /* Large devices (desktops, 992px and up */
 @media (min-width: 992px) {
-    html{font-size:28px;}
+    html{font-size:30px;}
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -52,7 +60,7 @@ html {
 }
 
 @media (min-width: 2000px) {
-    html{font-size:40px;}
+    html{font-size:50px;}
 }
 
 body {
@@ -71,28 +79,23 @@ body {
 }
 
 #selectTeams {
-    height:100%}
-
-#selectTeams .row {
-    padding:0.5rem 0.5rem 1rem 0.5rem;
     height:100%;
-    align-content: space-around;
-
 }
 
 #selectTeams .row {
+    height:100%;
+    align-content: space-around;
     text-align:center;
 }
 
  .teamLogo {
     margin-top: 0.25rem;
     max-width:100%;
-    max-height:40vh;
+    max-height:50vh;
 }
 
 .singlePageContainer {
     height:100vh;
-    align-content:space-between!important;
 }
 
 .dropdownSelector {
