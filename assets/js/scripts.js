@@ -56,11 +56,16 @@ function dataFetch(fetchOptions) {
             else if (fetchOptions.handleStatistics) {
                 const teamOrder = fetchOptions.teamIdArray.indexOf(data.stats[0].splits[0].team.id);
                 const teamStat = data.stats[0].splits[0].stat;
-                teamStat.winLossRatio = teamStat.wins / teamStat.losses;
-                teamStat.savePctg = teamStat.savePctg * 100;
+                manipulateStats(teamStat);
                 writeStats(teamOrder, teamStat);
             }
         })
+}
+
+function manipulateStats(teamStat) {
+    teamStat.winLossRatio = teamStat.wins / teamStat.losses;
+    teamStat.savePctg = teamStat.savePctg * 100;
+    return teamStat;
 }
 
 function writeStats(teamOrder, teamStat) {
@@ -156,7 +161,6 @@ function appendTeamNames(sortedData) {
 function appendStatisticsList() {
     teamStatistics.elementId.forEach(function (elementId) {
         teamDescriptorId.forEach(function (descriptorValue) {
-            console.log(`${descriptorValue}${elementId}`);
             document.getElementById(`${descriptorValue}StatList`).innerHTML += `<li id=${descriptorValue}${elementId}></li>`
         })
 
@@ -218,7 +222,6 @@ function scrollToResults() {
 }
 
 function declareWinner() {
-    console.log(teamStatistics.scoreCounter);
     if (teamStatistics.scoreCounter > 0) {
         alert(`${teamStatistics.firstTeamName} win!`);
     }
