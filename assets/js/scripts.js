@@ -24,7 +24,6 @@ const teamStatistics = {
 const teamDescriptorId = ["firstTeam", "secondTeam"];
 
 function dataFetch(fetchOptions) {
-    console.log(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl);
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
         .then(res => res.json())
         .then(data => {
@@ -172,7 +171,6 @@ function randomiseSelection() {
     let randomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     const secondRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     if (randomOption == secondRandomOption) {
-        console.log("switcheroo");
         randomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     }
     document.getElementById(`${teamDescriptorId[0]}Select`).value = dropdownOptions[randomOption].value;
