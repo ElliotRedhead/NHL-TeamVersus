@@ -23,6 +23,11 @@ const teamStatistics = {
 
 const teamDescriptorId = ["firstTeam", "secondTeam"];
 
+/**
+ * Fetches data from the NHL API, with different if statements filtering how the data is manipulated and triggers a function to write the statistics to the DOM.
+ *
+ * @param {Object} fetchOptions Modifies what information is acquired by the fetch function and provides the associated URL.
+ */
 function dataFetch(fetchOptions) {
     fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
         .then(res => res.json())
@@ -61,6 +66,10 @@ function dataFetch(fetchOptions) {
         })
 }
 
+/**
+ * Takes the team names acquired from the API data and writes the dropdown selector team lists.
+ * @param {Object} sortedData Contains the alphabetically sorted team data.
+ */
 function appendTeamNames(sortedData) {
     teamDescriptorId.forEach(teamDescriptorId => {
         sortedData.forEach(sortedData => {
@@ -69,6 +78,11 @@ function appendTeamNames(sortedData) {
         })
     })
 }
+
+/** 
+ * On selection of a dropdown option this function hides the statistics section to prevent previous results being shown.
+ * The affected dropdown number and the selection are passed to other functions.
+*/
 $(".dropdownSelector").change(function () {
     statisticsToggle("none");
     const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
@@ -203,6 +217,7 @@ function declareWinner() {
     }
     defaultOptions();
 }
+
 
 function defaultOptions() {
     fetchOptions.statsUrl = "";
