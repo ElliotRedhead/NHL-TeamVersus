@@ -121,7 +121,7 @@ At the time of submission are both the deployed and development versions of this
 
 ### Media
 The photos used in this site were obtained from the following sources:
-1.
+1. Helmet favicon: Made by https://www.flaticon.com/authors/smashicons from https://www.flaticon.com/
 2.
 
 ### Acknowledgements
