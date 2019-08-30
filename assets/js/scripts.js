@@ -95,9 +95,6 @@ function getTeamLogo(order, teamName) {
     const shortenedTeamName = teamName.replace(/\s/g, "");
     console.log(shortenedTeamName);
     console.log(document.getElementsByClassName(`${order}TeamLogo`));
-    // const teamLogo = document.getElementsByClassName(`${order}TeamLogo`);
-    // teamLogo[0].src = `assets/images/teamlogos/${shortenedTeamName}.png`;
-    // teamLogo[1].src = `assets/images/teamlogos/${shortenedTeamName}.png`;
     const teamLogo = document.getElementsByClassName(`${order}TeamLogo`);
     var i;
     for (i=0; i < 2; i++) {
@@ -175,6 +172,7 @@ function writeStats(teamOrder, teamStat) {
 
 function statisticsToggle(displayValue) {
     document.getElementById("statisticsContainer").style.display = displayValue;
+    resizeTeamLogo();
 }
 
 function appendStatisticsList() {
@@ -254,4 +252,8 @@ function randomiseSelection() {
     $(".dropdownSelector").change()
 }
 
+function resizeTeamLogo() {
+    let targetHeight = $("#teamDescriptor").height();
+    console.log($(".statLogo").height());
+    $(".statLogo").height(targetHeight); }
 
