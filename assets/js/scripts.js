@@ -93,8 +93,6 @@ $(".dropdownSelector").change(function () {
 
 function getTeamLogo(order, teamName) {
     const shortenedTeamName = teamName.replace(/\s/g, "");
-    console.log(shortenedTeamName);
-    console.log(document.getElementsByClassName(`${order}TeamLogo`));
     const teamLogo = document.getElementsByClassName(`${order}TeamLogo`);
     var i;
     for (i=0; i < 2; i++) {
@@ -105,7 +103,6 @@ function getTeamLogo(order, teamName) {
 }
 
 function animationHandler(teamLogo) {
-    console.log(teamLogo);
     teamLogo.classList.add("animated", "bounceInDown");
     teamLogo.style.animation = 'none';
     teamLogo.offsetLeft; /* Only used to trigger reflow. */
@@ -254,6 +251,5 @@ function randomiseSelection() {
 
 function resizeTeamLogo() {
     let targetHeight = $("#teamDescriptor").height();
-    console.log($(".statLogo").height());
     $(".statLogo").height(targetHeight); }
 
