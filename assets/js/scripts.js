@@ -93,12 +93,22 @@ $(".dropdownSelector").change(function () {
 
 function getTeamLogo(order, teamName) {
     const shortenedTeamName = teamName.replace(/\s/g, "");
-    const teamLogo = document.getElementById(`${order}TeamLogo`);
-    teamLogo.src = `assets/images/teamlogos/${shortenedTeamName}.png`;
-    animationHandler(teamLogo);
+    console.log(shortenedTeamName);
+    console.log(document.getElementsByClassName(`${order}TeamLogo`));
+    // const teamLogo = document.getElementsByClassName(`${order}TeamLogo`);
+    // teamLogo[0].src = `assets/images/teamlogos/${shortenedTeamName}.png`;
+    // teamLogo[1].src = `assets/images/teamlogos/${shortenedTeamName}.png`;
+    const teamLogo = document.getElementsByClassName(`${order}TeamLogo`);
+    var i;
+    for (i=0; i < 2; i++) {
+        teamLogo[i].src = `assets/images/teamlogos/${shortenedTeamName}.png`;
+    }
+
+    animationHandler(teamLogo[0]);
 }
 
 function animationHandler(teamLogo) {
+    console.log(teamLogo);
     teamLogo.classList.add("animated", "bounceInDown");
     teamLogo.style.animation = 'none';
     teamLogo.offsetLeft; /* Only used to trigger reflow. */
