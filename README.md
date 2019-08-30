@@ -86,6 +86,10 @@ How is troubleshooting approached?
 
 Use the [W3C](https://www.w3.org/) validators and make in accordance with the results.
 
+### Known Bugs
+
+With the statistics list already generated, if using a browser compatibility tool to check layout across resolutions the team logos in the statistics list will be an incorrect size. This is fixed by re-comparing the teams at the chosen test resolution.
+
 ## Deployment
 
 This project was developed using Visual Studio Code, and was both committed to git and pushed to GitHub using the integrated source control feature.
