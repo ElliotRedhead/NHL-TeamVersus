@@ -20,6 +20,12 @@ Page Summary
 1. As a user interested in a statistics comparison between two specific teams I want to manually select each team.
 2. As a user interested in comparing two random teams I want a feature that randomly selects these for me.
 
+### User Story Fulfilment
+
+1. I click the first team selector dropdown and then select a team from the options provided, I will then do the same for the second dropdown. The compare button appears, allowing me to confirm my team choices. The winner is announced in an alert messagebox and the statistics for each team is automatically shown. The attributes that each team has won/lost/drawn for are highlighted with different colours.
+
+2. I click the shuffle icon and two random teams are selected for me, the compare button appears allowing me to lock in these choices. The winner is announced in an alert messagebox and the statistics for each team is automatically shown. The attributes that each team has won/lost/drawn for are highlighted with different colours.
+
 ## Wireframes
 
 1.
@@ -30,21 +36,26 @@ Page Summary
 
 ### Existing Features
 
-#### Feature 1 etc.
-Description of feature.
-
-#### Welcome Modal (TBD)
 #### Team Selection Dropdowns
+The dropdown selectors allow the user to select the teams that they want to compare, they  function to pass the user selection to other processes but are styled to keep with the competitive but fun theme of the page.
+
 #### Dynamic Team Logos
+The team logo above the team selector dropdown changes dynamically based on the team chosen, for example if the team "Anaheim Ducks" is selected from the dropdown: the Anaheim Ducks team logo appears above. This also serves as feedback to the user that their selection has been correctly assigned.
+
 #### Compare Button
+The compare button gives the user the ability to trigger the statistics comparison when they have selected the teams they want to match against each other. If the user were to accidentally pick the wrong team from the list, they have the ability to correct their selection before triggering the comparison.
+
 #### Statistics Lists
+The statistics lists illustrate a breakdown of the attributes that have been used to compare these teams. They provide a user an idea of the factors that have been considered in the decision of the winner and highlighted in respective positive/neutral/negative colours to indicate their win/draw/loss state.
+
+### Features Left to Implement
+#### Welcome Modal
+#### Updated Unknown Team Selection Icon
 #### Statistic Descriptors (TBD) https://codepen.io/nbalcom/pen/ozwqvb
 #### Winner Declaration Modal (TBD)
 #### Restart Prompt (TBD)
 #### Share Feature (TBD)
-
-### Features Left to Implement
-#### Individual Player Statistic Lookup
+#### Background Team Icons (TBD)
 
 ## Technologies Used
 
