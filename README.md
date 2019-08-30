@@ -55,7 +55,6 @@ The statistics lists illustrate a breakdown of the attributes that have been use
 #### Winner Declaration Modal (TBD)
 #### Restart Prompt (TBD)
 #### Share Feature (TBD)
-#### Background Team Icons (TBD)
 
 ## Technologies Used
 
