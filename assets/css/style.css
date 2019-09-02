@@ -37,6 +37,7 @@ html {
     }
     #versusText {
         display:inline-block;
+        font-size:5rem;
     }
 }
 
@@ -60,11 +61,11 @@ html {
 body {
     font-family: 'Teko', sans-serif;
     scroll-snap-type: y mandatory;
-    background-color: #141414
+    background-color: #141414;
 }
 
 .scroll-snap {
-    scroll-snap-align:start;
+    scroll-snap-align:end;
 }
 
 #selectTeams {
