@@ -6,10 +6,7 @@ html {
 }
 
 @media (max-width: 425px) {
-    body{
-    background-color: black;
-    background-image: url("./../images/HockeyPostSmallest.jpg");    
-    }
+
  }
 
  @media (max-width: 767px) {
@@ -19,16 +16,14 @@ html {
     #selectTeams .row {
         padding:4rem 0.5rem 4rem 0.5rem;
     }
+    #versusText {
+        display: none;
+    }
  }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width:426px) and (max-width: 767px) {
     html{font-size:18px;}
-    body{
-    background-color: black;
-    background-image: url("./../images/HockeyPostSmaller.jpg");
-    background-position: left -10rem top 0rem; 
-    }
     .dropdownSelector{
         left:1.25rem;
     }
@@ -37,11 +32,11 @@ html {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     html{font-size:24px;}
-    body {
-        background-image:url("./../images/HockeyPost.jpg");
-    }
     #selectTeams .row {
         padding:5rem 0.5rem 8rem 0.5rem;
+    }
+    #versusText {
+        display:inline-block;
     }
 }
 
@@ -64,13 +59,8 @@ html {
 
 body {
     font-family: 'Teko', sans-serif;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     scroll-snap-type: y mandatory;
+    background-color: #141414
 }
 
 .scroll-snap {
