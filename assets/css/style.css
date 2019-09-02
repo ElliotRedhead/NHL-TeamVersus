@@ -145,7 +145,7 @@ body {
 }
 
 #statisticsContainer {
-    display: none;
+    visibility: hidden;
 }
 
 #statistics {

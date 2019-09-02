@@ -84,7 +84,7 @@ function appendTeamNames(sortedData) {
  * The affected dropdown number and the selection are passed to other functions.
 */
 $(".dropdownSelector").change(function () {
-    statisticsToggle("none");
+    statisticsVisibilityToggle("hidden");
     const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     const teamName = $(this).val();
     compareButtonVisibility();
@@ -161,14 +161,14 @@ function writeStats(teamOrder, teamStat) {
     }
 
     if (typeof (teamStatistics.scoreCounter) === "number") {
-        statisticsToggle("block");
+        statisticsVisibilityToggle("visible");
         scrollToResults();
         declareWinner();
     }
 }
 
-function statisticsToggle(displayValue) {
-    document.getElementById("statisticsContainer").style.display = displayValue;
+function statisticsVisibilityToggle(visibilityValue) {
+    document.getElementById("statisticsContainer").style.visibility = visibilityValue;
     resizeTeamLogo();
 }
 
@@ -182,7 +182,7 @@ function appendStatisticsList() {
 }
 
 function scrollToResults() {
-    document.getElementById("statistics").scrollIntoView(true);
+    document.getElementById("statistics").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
 }
 
 function highlightWins() {
