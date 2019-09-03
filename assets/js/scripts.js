@@ -1,4 +1,4 @@
-const fetchOptions = {
+fetchOptions = {
     fetchUrl: "https://statsapi.web.nhl.com/api/v1/teams/",
     statsUrl: "",
     teamIdArray: [],
@@ -84,7 +84,8 @@ function appendTeamNames(sortedData) {
  * The affected dropdown number and the selection are passed to other functions.
 */
 $(".dropdownSelector").change(function () {
-    statisticsVisibilityToggle("hidden");
+    // statisticsVisibilityToggle("hidden");
+    resizeTeamLogo();
     const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     const teamName = $(this).val();
     compareButtonVisibility();
@@ -127,6 +128,7 @@ function getTeamId(data, teamName) {
 function optionsEnableStats(fetchOptions) {
     fetchOptions.getId = true;
     dataFetch(fetchOptions);
+    toggleCollapse();
 }
 
 function manipulateStats(teamStat) {
@@ -162,14 +164,14 @@ function writeStats(teamOrder, teamStat) {
 
     if (typeof (teamStatistics.scoreCounter) === "number") {
         statisticsVisibilityToggle("visible");
-        scrollToResults();
-        declareWinner();
+        // declareWinner();
+        defaultOptions();
+        // scrollToResults();
     }
 }
 
 function statisticsVisibilityToggle(visibilityValue) {
     document.getElementById("statisticsContainer").style.visibility = visibilityValue;
-    resizeTeamLogo();
 }
 
 function appendStatisticsList() {
@@ -212,15 +214,22 @@ function highlightWins() {
 
 function declareWinner() {
     if (teamStatistics.scoreCounter > 0) {
-        alert(`${teamStatistics.firstTeamName} win!`);
+        winnerModal(`${teamStatistics.firstTeamName} win!`);
     }
     else if (teamStatistics.scoreCounter < 0) {
-        alert(`${teamStatistics.secondTeamName} win!`);
+        // alert(`${teamStatistics.secondTeamName} win!`);
+        winnerModal(`${teamStatistics.secondTeamName} win!`);
     }
     else if (teamStatistics.scoreCounter == 0) {
         alert("It's a draw!"); //Example: Toronto Maple Leafs vs Pittsburgh Penguins
     }
-    defaultOptions();
+}
+
+function winnerModal(modalText) {
+    Swal.fire({
+        title: modalText,
+        confirmButtonText: 'View Statistics'
+        })
 }
 
 
@@ -253,3 +262,7 @@ function resizeTeamLogo() {
     let targetHeight = $("#teamDescriptor").height();
     $(".statLogo").height(targetHeight); }
 
+
+function toggleCollapse() {
+    document.getElementById("statisticsContainer").classList.toggle('collapsed');
+}

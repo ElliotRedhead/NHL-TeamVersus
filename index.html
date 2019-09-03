@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+
 	<title>NHL Team Showdown</title>
 </head>
 
@@ -17,7 +18,7 @@
 	<!-- TEAM VS TEAM LOGOS SECTION & TRIGGER BUTTONS -->
 	<i id="randomButton" class="fas fa-random" onclick="randomiseSelection()"></i>
 	<div class="singlePageContainer">
-		<section id="selectTeams" class="scroll-snap">
+		<section id="selectTeams">
 			<div class="row">
 				<div class="col-12 order-1 col-md-4">
 						<img class="teamLogo firstTeamLogo" src="assets/images/teamlogos/---SelectTeam---.png">
@@ -51,8 +52,8 @@
 	</div>
 
 	<!-- STATISTICS, WITH HIGHLIGHTED "WINNING" ATTRIBUTES -->
-	<div id="statisticsContainer" class="singlePageContainer">
-		<section ID="statistics" class="scroll-snap">
+	<div id="statisticsContainer" class="singlePageContainer collapsed">
+		<section ID="statistics">
 			<div class="row">
 				<div class="col-2">
 					<ul id="firstTeamStatList" class="statList">
@@ -82,6 +83,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 	<!-- CUSTOM JAVASCRIPT -->
 	<script src="assets/js/scripts.js"> </script>
 </body>
