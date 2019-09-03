@@ -166,7 +166,7 @@ function writeStats(teamOrder, teamStat) {
         statisticsVisibilityToggle("visible");
         // declareWinner();
         defaultOptions();
-        // scrollToResults();
+        scrollToResults();
     }
 }
 
@@ -184,7 +184,7 @@ function appendStatisticsList() {
 }
 
 function scrollToResults() {
-    document.getElementById("statistics").scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"})
+    document.getElementById("statistics").scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
 }
 
 function highlightWins() {
