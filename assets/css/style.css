@@ -37,13 +37,16 @@ html {
     }
     #versusText {
         display:inline-block;
-        font-size:5rem;
+        font-size:7rem;
     }
 }
 
 /* Large devices (desktops, 992px and up */
 @media (min-width: 992px) {
     html{font-size:30px;}
+    #versusText {
+        font-size:6rem;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -51,6 +54,9 @@ html {
     html{font-size:30px;}
     #randomButton {
         left:2rem;
+    }
+    #versusText {
+        font-size:9rem;
     }
 }
 
