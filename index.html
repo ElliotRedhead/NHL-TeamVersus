@@ -29,11 +29,9 @@
 				<img class="teamLogo secondTeamLogo my-auto" src="assets/images/teamlogos/---SelectTeam---.png">
 			</div>
 			<div class="order-2 col-12 order-md-4 col-md-4 order-md-4">
-				<form>
 					<select class="dropdownSelector" id="firstTeamSelect">
 						<option disabled selected>---Select Team---</option>
 					</select>
-				</form>
 			</div>
 			<div class="order-4 col-12 order-md-5 col-md-4 order-md-5">
 				<form>
@@ -42,24 +40,27 @@
 					</select>
 				</form>
 			</div>
-			<button id="compareButton" type="button" class="btn btn-light col-md-4 order-2 order-md-4"
+			<div class="col-md-4 order-2 order-md-4">
+			<button id="compareButton" type="button" class="btn btn-light"
 				onclick="optionsEnableStats(fetchOptions)">
 				Compare!
 			</button>
 		</div>
+		</div>
 	</section>
 </div>
 
-
-
-	<!-- STATISTICS, WITH HIGHLIGHTED "WINNING" ATTRIBUTES -->
-	<div id="statisticsContainer" class="singlePageContainer">
+<!-- STATISTICS, WITH HIGHLIGHTED "WINNING" ATTRIBUTES -->
+<div id="statisticsContainer" class="singlePageContainer">
 	<section ID="statistics" class="scroll-snap">
-			<div class="row">
-				<ul id="firstTeamStatList" class="statList col-2 offset-md-1">
+		<div class="row">
+			<div class="col-2">
+				<ul id="firstTeamStatList" class="statList">
 					<li><img class="firstTeamLogo statLogo"></li>
 				</ul>
-				<ul class="statList col-8 col-md-6">
+			</div>
+			<div class="col-8">
+				<ul class="statList">
 					<li id="teamDescriptor">Team</li>
 					<li>Wins : Losses</li>
 					<li>Points</li>
@@ -67,10 +68,13 @@
 					<li>Saves (%)</li>
 					<li>Goals Per Game</li>
 				</ul>
-				<ul id="secondTeamStatList" class="statList col-2">
+			</div>
+			<div class="col-2">
+				<ul id="secondTeamStatList" class="statList">
 					<li><img class="secondTeamLogo statLogo"></li>
 				</ul>
 			</div>
+		</div>
 	</section>
 </div>
 
