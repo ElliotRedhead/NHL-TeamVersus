@@ -165,7 +165,7 @@ body {
 
 #statisticsContainer {
     overflow:hidden;
-    transition:transform 0.3s ease-out;
+    transition:transform 0.5s ease-out;
     height:auto;
     transform:scaleY(1);
     transform-origin:top;
