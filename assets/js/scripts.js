@@ -212,6 +212,7 @@ function highlightWins() {
 }
 
 function declareWinner() {
+    console.log(teamStatistics.scoreCounter);
     if (teamStatistics.scoreCounter > 0) {
         winnerModal(`${teamStatistics.firstTeamName} win!`);
     }
@@ -220,16 +221,17 @@ function declareWinner() {
         winnerModal(`${teamStatistics.secondTeamName} win!`);
     }
     else if (teamStatistics.scoreCounter == 0) {
-        alert("It's a draw!"); //Example: Toronto Maple Leafs vs Pittsburgh Penguins
+        winnerModal("It's a draw!"); //Example: Toronto Maple Leafs vs Pittsburgh Penguins
     }
 }
 
 function winnerModal(modalText) {
     Swal.fire({
         title: modalText,
-        confirmButtonText: 'View Statistics'
-        })
-    scrollToResults()
+        confirmButtonText: 'View Statistics',
+    }).then(function () {
+    scrollToResults();
+    })
 }
 
 
