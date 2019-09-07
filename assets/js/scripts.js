@@ -262,7 +262,7 @@ function randomiseSelection() {
 
 function resizeTeamLogo() {
     let targetHeight = $("#teamDescriptor").height();
-    $(".statLogo").height(targetHeight); }
+    $(".statLogo").height(targetHeight);}
 
 
 function toggleStatisticsCollapse(toggleState) {
