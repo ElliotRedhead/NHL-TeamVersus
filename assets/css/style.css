@@ -62,7 +62,8 @@ html {
 body {
     font-family: 'Teko', sans-serif;
     /* scroll-snap-type: y mandatory; */
-    background-color: #141414;
+    /* background-color: #141414; */
+    background-image: url(/assets/images/ice-4285443_1920.jpg);
 }
 
 /* .scroll-snap {
