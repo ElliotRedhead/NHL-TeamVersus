@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
 
 html {
-    font-size: 20px;
+    font-size: 18px;
 }
 
  @media (max-width: 767px) {
     .dropdownSelector{
         font-size:1.5rem;
     }
-    #selectTeams .row {
-        padding:4rem 0.5rem 4rem 0.5rem;
-    }
     #versusText {
         display: none;
+    }
+    .teamLogo {
+        max-height:30vh;
     }
  }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width:426px) and (max-width: 767px) {
-    html{font-size:18px;}
     .dropdownSelector{
         left:1.25rem;
     }
@@ -27,12 +26,12 @@ html {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     html{font-size:26px;}
-    #selectTeams .row {
-        padding: 6.5rem 0.5rem 8rem 0.5rem;
-    }
     #versusText {
         display:inline-block;
         font-size:6rem;
+    }
+    .teamLogo {
+        max-height:40vh;
     }
 }
 
@@ -75,18 +74,17 @@ body {
 
 #selectTeams .row {
     height:100%;
-    align-content: space-around;
     text-align:center;
+    align-content: space-between;
 }
 
  .teamLogo {
     max-width:100%;
-    max-height:30vh;
 }
 
-.singlePageContainer {
+/* .singlePageContainer {
     height:100vh;
-}
+} */
 
 .dropdownSelector {
     width:100%;
@@ -150,17 +148,16 @@ body {
 }
 
 .statList > li {
-    padding: 0.5rem 0rem;
-    margin: 0.5rem 0.1rem;
+    margin: 0.1rem;
     background-color: rgba(214, 214, 214, 0.712);
     font-size:1.35rem;
     list-style:none;
     text-align: center;
 }
 
-/* #statistics > .row > div {
+#statistics > .row > div {
     padding: 0rem;
-} */
+}
 
 
 #statisticsContainer {
