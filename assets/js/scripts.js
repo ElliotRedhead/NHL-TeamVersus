@@ -96,7 +96,7 @@ function getTeamLogo(order, teamName) {
     const shortenedTeamName = teamName.replace(/\s/g, "");
     const teamLogo = document.getElementsByClassName(`${order}TeamLogo`);
     var i;
-    for (i=0; i < 2; i++) {
+    for (i = 0; i < 2; i++) {
         teamLogo[i].src = `assets/images/teamlogos/${shortenedTeamName}.png`;
     }
 
@@ -182,7 +182,7 @@ function appendStatisticsList() {
 }
 
 function scrollToResults() {
-    document.getElementById("statistics").scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+    document.getElementById("statistics").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
     console.log("SCROLL!");
 }
 
@@ -229,9 +229,9 @@ function winnerModal(modalText) {
     Swal.fire({
         title: modalText,
         confirmButtonText: 'View Statistics',
-    }).then(function () {
-    scrollToResults();
-    })
+    }).then(function () { 
+        scrollToResults();
+     })
 }
 
 
@@ -262,7 +262,8 @@ function randomiseSelection() {
 
 function resizeTeamLogo() {
     let targetHeight = $("#teamDescriptor").height();
-    $(".statLogo").height(targetHeight);}
+    $(".statLogo").height(targetHeight);
+}
 
 
 function toggleStatisticsCollapse(toggleState) {
