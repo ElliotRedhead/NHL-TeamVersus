@@ -63,7 +63,10 @@ body {
     font-family: 'Teko', sans-serif;
     /* scroll-snap-type: y mandatory; */
     /* background-color: #141414; */
-    background-image: url(/assets/images/ice-4285443_1920.jpg);
+    background-image: url(/assets/images/Ice-Background.jpg);
+    background-color: rgb(14, 14, 14);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* .scroll-snap {
@@ -123,7 +126,7 @@ body {
     left: 0.5rem;
 }
 
-#randomButton:hover {
+.btn:hover {
     cursor:pointer;
     background-image: linear-gradient(to bottom, #ffffff 0%,#c7c7c7 100%);
     border-color: gray;
@@ -172,4 +175,8 @@ body {
 
 #statisticsContainer.collapsed {
     transform:scaleY(0);
+}
+
+#resetButton {
+    width:100%;
 }
