@@ -269,3 +269,8 @@ function resizeTeamLogo() {
 function toggleStatisticsCollapse(toggleState) {
     document.getElementById("statisticsContainer").classList.toggle('collapsed', toggleState);
 }
+
+function resetDropdowns() {
+    $(".dropdownSelector").each(console.log("found!"))
+    // $(".dropdownSelector")[0].value = "---Select Team---"
+}
