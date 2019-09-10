@@ -92,6 +92,11 @@ $(".dropdownSelector").change(function () {
     getTeamLogo(dropdownOrder, teamName);
 })
 
+/**
+ * Displays the corresponding team logo to the selected team, calling the animation upon display.
+ * @param {String} order The identifier used to determine which dropdown selector value to use.
+ * @param {String} teamName The name of the selected team.
+ */
 function getTeamLogo(order, teamName) {
     const shortenedTeamName = teamName.replace(/\s/g, "");
     const teamLogo = document.getElementsByClassName(`${order}TeamLogo`);
@@ -102,7 +107,10 @@ function getTeamLogo(order, teamName) {
 
     animationHandler(teamLogo[0]);
 }
-
+/**
+ * Adds an animation to the team logo images.
+ * @param {Object} teamLogo The HTML image item displaying the team logo.
+ */
 function animationHandler(teamLogo) {
     teamLogo.classList.add("animated", "bounceInDown");
     teamLogo.style.animation = 'none';
@@ -110,6 +118,10 @@ function animationHandler(teamLogo) {
     teamLogo.style.animation = null;
 }
 
+/**
+ * Determines if the compare button is displayed.
+ * The button only displays if both selectors aren't equal to each other or equal to the default value.
+ */
 function compareButtonVisibility() {
     const defaultSelect = "---Select Team---";
     const firstSelection = document.getElementById("firstTeamSelect").value;
@@ -121,22 +133,39 @@ function compareButtonVisibility() {
     }
 }
 
+/**
+ * Determines the id of the selected team from the API data.
+ * @param {Object} data The basic team data for all NHL teams.
+ * @param {String} teamName The name of the selected team from the dropdown selector.
+ */
 function getTeamId(data, teamName) {
     return (data.teams.find(team => team.name == teamName).id);
 }
 
+/**
+ * Triggers the statistics fetch and displays the statistics section.
+ * @param {Object} fetchOptions The arguments used when fetching data to determine the function flow.
+ */
 function optionsEnableStats(fetchOptions) {
-    fetchOptions.getId = true;
     dataFetch(fetchOptions);
     toggleStatisticsCollapse(false);
 }
 
+/**
+ * Manipulates the statistics of a team into representative figures.
+ * @param {Object} teamStat The available API current-season statistics for the selected team.
+ */
 function manipulateStats(teamStat) {
     teamStat.winLossRatio = teamStat.wins / teamStat.losses;
     teamStat.savePctg = teamStat.savePctg * 100;
     return teamStat;
 }
 
+/**
+ * Writes the statistics to the DOM, setting the precision of statistic values.
+ * @param {String} teamOrder The identifier used to determine which dropdown selector value to use.
+ * @param {Object} teamStat The available API current-season statistics for the selected team.
+ */
 function writeStats(teamOrder, teamStat) {
     if (teamOrder == 0) {
         teamDivSelect = "firstTeam";
@@ -168,10 +197,17 @@ function writeStats(teamOrder, teamStat) {
     }
 }
 
-function statisticsVisibilityToggle(visibilityValue) {
-    document.getElementById("statisticsContainer").style.visibility = visibilityValue;
-}
+/**
+ * 
+ * @param {} visibilityValue 
+ */
+// function statisticsVisibilityToggle(visibilityValue) {
+//     document.getElementById("statisticsContainer").style.visibility = visibilityValue;
+// }
 
+/**
+ * Appends the team order descriptor i.e. "first", "second" and the statistic descriptor i.e. "WinLossRatio" to the HTML.
+ */
 function appendStatisticsList() {
     teamStatistics.elementId.forEach(function (elementId) {
         teamDescriptorId.forEach(function (descriptorValue) {
@@ -181,11 +217,17 @@ function appendStatisticsList() {
     })
 }
 
+/**
+ * Scrolls to the results section of the page.
+ */
 function scrollToResults() {
     document.getElementById("statistics").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
-    console.log("SCROLL!");
 }
 
+/**
+ * Calculates whether the first or second team attributes are greater, highlighting the winning statistic.
+ * Determines which team wins based on the number of winning attributes.
+ */
 function highlightWins() {
     teamStatistics.scoreCounter = 0;
     let i = 0;
@@ -211,13 +253,14 @@ function highlightWins() {
     })
 }
 
+/**
+ * Calculates which team has won based on the polarity of the score counter.
+ */
 function declareWinner() {
-    console.log(teamStatistics.scoreCounter);
     if (teamStatistics.scoreCounter > 0) {
         winnerModal(`${teamStatistics.firstTeamName} win!`);
     }
     else if (teamStatistics.scoreCounter < 0) {
-        // alert(`${teamStatistics.secondTeamName} win!`);
         winnerModal(`${teamStatistics.secondTeamName} win!`);
     }
     else if (teamStatistics.scoreCounter == 0) {
@@ -225,6 +268,10 @@ function declareWinner() {
     }
 }
 
+/**
+ * Displays an alert to the user detailing which team has won or if there is a draw.
+ * @param {String} modalText The text displayed as a message to the user in a modal alert.
+ */
 function winnerModal(modalText) {
     Swal.fire({
         title: modalText,
@@ -234,7 +281,9 @@ function winnerModal(modalText) {
      })
 }
 
-
+/**
+ * Resets the fetch options used to their default values.
+ */
 function defaultOptions() {
     fetchOptions.statsUrl = "";
     fetchOptions.teamIdArray = [];
@@ -248,28 +297,40 @@ function defaultOptions() {
     teamStatistics.scoreCounter = "";
 }
 
+/**
+ * Randomises the dropdown-selected values, ensuring they are not equal to one another.
+ */
 function randomiseSelection() {
     const dropdownOptions = document.getElementById(`${teamDescriptorId[0]}Select`).children;
-    let randomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
-    const secondRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
-    if (randomOption == secondRandomOption) {
-        randomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    let firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    let secondRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    if (firstRandomOption == secondRandomOption) {
+        firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     }
     document.getElementById(`${teamDescriptorId[0]}Select`).value = dropdownOptions[randomOption].value;
     document.getElementById(`${teamDescriptorId[1]}Select`).value = dropdownOptions[secondRandomOption].value;
     $(".dropdownSelector").change()
 }
 
+/**
+ * Sets the team logos shown in the statistic section to a height equal to the descriptors for uniformity.
+ */
 function resizeTeamLogo() {
     let targetHeight = $("#teamDescriptor").height();
     $(".statLogo").height(targetHeight);
 }
 
-
+/**
+ * Toggles addition/removal of the collapsed CSS class.
+ * @param {Boolean} toggleState The active/inactive state of the "collapsed" CSS class.
+ */
 function toggleStatisticsCollapse(toggleState) {
     document.getElementById("statisticsContainer").classList.toggle('collapsed', toggleState);
 }
 
+/**
+ * Resets the dropdown selector values to default values.
+ */
 function resetDropdowns() {
     $(".dropdownSelector").each(console.log("found!"))
     // $(".dropdownSelector")[0].value = "---Select Team---"
