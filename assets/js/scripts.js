@@ -326,12 +326,14 @@ function resizeTeamLogo() {
  */
 function toggleStatisticsCollapse(toggleState) {
     document.getElementById("statisticsContainer").classList.toggle('collapsed', toggleState);
+    // $("#statisticsContainer").classList.toggle('collapsed', toggleState);
 }
 
 /**
- * Resets the dropdown selector values to default values.
+ * A test function to explore further capabilities of jquery in this project.
  */
-function resetDropdowns() {
-    $(".dropdownSelector").each(console.log("found!"))
-    // $(".dropdownSelector")[0].value = "---Select Team---"
+function testQuery() {
+    ($(".dropdownSelector").each(function () {
+        console.log($(this).val())
+    }))
 }
