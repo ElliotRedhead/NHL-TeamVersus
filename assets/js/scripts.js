@@ -307,7 +307,7 @@ function randomiseSelection() {
     if (firstRandomOption == secondRandomOption) {
         firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     }
-    document.getElementById(`${teamDescriptorId[0]}Select`).value = dropdownOptions[randomOption].value;
+    document.getElementById(`${teamDescriptorId[0]}Select`).value = dropdownOptions[firstRandomOption].value;
     document.getElementById(`${teamDescriptorId[1]}Select`).value = dropdownOptions[secondRandomOption].value;
     $(".dropdownSelector").change()
 }
