@@ -339,10 +339,15 @@ function testQuery() {
 }
 
 function resetPage() {
-    defaultOptions();
+    defaultDropdownValue = "Select Team";
     ($(".dropdownSelector").each(function () {
-        ($(this).val("Select Team"))
-            console.log($(this).val())
+        ($(this).val(defaultDropdownValue));
     }))
-
+    defaultOptions();
+    let order = ["first","second"];
+    order.forEach(order => {
+        getTeamLogo(order, defaultDropdownValue);
+    })
+    toggleStatisticsCollapse(true);
+    window.scrollTo(0,0);
 }
