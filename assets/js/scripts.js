@@ -337,3 +337,12 @@ function testQuery() {
         console.log($(this).val())
     }))
 }
+
+function resetPage() {
+    defaultOptions();
+    ($(".dropdownSelector").each(function () {
+        ($(this).val("Select Team"))
+            console.log($(this).val())
+    }))
+
+}
