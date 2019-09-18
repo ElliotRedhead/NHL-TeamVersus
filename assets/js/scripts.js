@@ -330,14 +330,9 @@ function toggleStatisticsCollapse(toggleState) {
 }
 
 /**
- * A test function to explore further capabilities of jquery in this project.
+ * Resets the fetch parameters, selected dropdown values and team logos to default.
+ * Collapses the statistics section and scrolls to the top of the page.
  */
-function testQuery() {
-    ($(".dropdownSelector").each(function () {
-        console.log($(this).val())
-    }))
-}
-
 function resetPage() {
     defaultDropdownValue = "Select Team";
     ($(".dropdownSelector").each(function () {
