@@ -216,6 +216,7 @@ function appendStatisticsList() {
  * Scrolls to the results section of the page.
  */
 function scrollToResults() {
+    // window.scrollTo(0,1000);
     document.getElementById("statistics").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
 }
 
@@ -315,18 +316,15 @@ function resizeTeamLogo() {
     $(".statLogo").height(targetHeight);
 }
 
-function sectionCollapse(statisticsSection){
-    statisticsSection.style.transition = '';
+function sectionCollapse(){
         requestAnimationFrame(function() {
             statisticsSection.style.height = 0 + 'px';
         });
       };
 
-function sectionExpand(statisticsSection){
-    console.log(statisticsSection);
+function sectionExpand(){
     let sectionHeight = statisticsSection.scrollHeight;
     let elementTransition = statisticsSection.style.transition;
-    statisticsSection.style.transition = '';
     requestAnimationFrame(function() {
         statisticsSection.style.height = sectionHeight + 'px';
         statisticsSection.style.transition = elementTransition;
@@ -346,6 +344,6 @@ function resetPage() {
     order.forEach(order => {
         getTeamLogo(order, defaultDropdownValue);
     })
-    toggleStatisticsCollapse(true);
+    sectionCollapse();
     window.scrollTo(0,0);
 }
