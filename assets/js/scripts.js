@@ -23,6 +23,8 @@ const teamStatistics = {
 
 const teamDescriptorId = ["firstTeam", "secondTeam"];
 
+const statisticsSection = document.getElementById("statisticsContainer");
+
 /**
  * Fetches data from the NHL API, with different if statements filtering how the data is manipulated and triggers a function to write the statistics to the DOM.
  *
@@ -149,8 +151,7 @@ function getTeamId(data, teamName) {
  */
 function optionsEnableStats(fetchOptions) {
     dataFetch(fetchOptions);
-    let statisticsSection = document.getElementById("statisticsContainer");
-    sectionExpand(statisticsSection);
+    sectionExpand(sectionCollapse);
 }
 
 /**
@@ -198,14 +199,6 @@ function writeStats(teamOrder, teamStat) {
         defaultOptions();
     }
 }
-
-/**
- * 
- * @param {} visibilityValue 
- */
-// function statisticsVisibilityToggle(visibilityValue) {
-//     document.getElementById("statisticsContainer").style.visibility = visibilityValue;
-// }
 
 /**
  * Appends the team order descriptor i.e. "first", "second" and the statistic descriptor i.e. "WinLossRatio" to the HTML.
@@ -322,26 +315,21 @@ function resizeTeamLogo() {
     $(".statLogo").height(targetHeight);
 }
 
-function sectionCollapse(section){
-    let sectionHeight = section.scrollHeight;
-    let elementTransition = section.style.transition;
-    section.style.transition = '';
-    requestAnimationFrame(function() {
-        section.style.height = sectionHeight + 'px';
-        section.style.transition = elementTransition;
+function sectionCollapse(statisticsSection){
+    statisticsSection.style.transition = '';
         requestAnimationFrame(function() {
-        section.style.height = 0 + 'px';
+            statisticsSection.style.height = 0 + 'px';
         });
-      });
-    }
+      };
 
-function sectionExpand(section){
-    let sectionHeight = section.scrollHeight;
-    let elementTransition = section.style.transition;
-    section.style.transition = '';
+function sectionExpand(statisticsSection){
+    console.log(statisticsSection);
+    let sectionHeight = statisticsSection.scrollHeight;
+    let elementTransition = statisticsSection.style.transition;
+    statisticsSection.style.transition = '';
     requestAnimationFrame(function() {
-        section.style.height = sectionHeight + 'px';
-        section.style.transition = elementTransition;
+        statisticsSection.style.height = sectionHeight + 'px';
+        statisticsSection.style.transition = elementTransition;
     })}
 
 /**
