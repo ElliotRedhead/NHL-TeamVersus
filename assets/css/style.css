@@ -152,6 +152,12 @@ body {
     align-content:space-around;
 } */
 
+#statisticsContainer {
+    overflow:hidden;
+    transition:height 0.3s ease-out;
+    height:auto;
+}
+
 .statList > li {
     margin: 0.1rem;
     padding:0.3rem 0.1rem;
@@ -163,18 +169,6 @@ body {
 
 #statistics > .row > div {
     padding: 0rem;
-}
-
-
-#statisticsContainer {
-    transition:transform 0.5s ease-out;
-    height:auto;
-    transform:scaleY(1);
-    transform-origin:top;
-  }
-
-#statisticsContainer.collapsed {
-    transform:scaleY(0);
 }
 
 #resetButton {

@@ -84,7 +84,8 @@ function appendTeamNames(sortedData) {
  * The affected dropdown number and the selection are passed to other functions.
 */
 $(".dropdownSelector").change(function () {
-    toggleStatisticsCollapse(true);
+    let statisticsSection = document.getElementById("statisticsContainer");
+    sectionCollapse(statisticsSection);
     resizeTeamLogo();
     const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     const teamName = $(this).val();
@@ -148,7 +149,8 @@ function getTeamId(data, teamName) {
  */
 function optionsEnableStats(fetchOptions) {
     dataFetch(fetchOptions);
-    toggleStatisticsCollapse(false);
+    let statisticsSection = document.getElementById("statisticsContainer");
+    sectionExpand(statisticsSection);
 }
 
 /**
@@ -320,14 +322,27 @@ function resizeTeamLogo() {
     $(".statLogo").height(targetHeight);
 }
 
-/**
- * Toggles addition/removal of the collapsed CSS class.
- * @param {Boolean} toggleState The active/inactive state of the "collapsed" CSS class.
- */
-function toggleStatisticsCollapse(toggleState) {
-    document.getElementById("statisticsContainer").classList.toggle('collapsed', toggleState);
-    // $("#statisticsContainer").classList.toggle('collapsed', toggleState);
-}
+function sectionCollapse(section){
+    let sectionHeight = section.scrollHeight;
+    let elementTransition = section.style.transition;
+    section.style.transition = '';
+    requestAnimationFrame(function() {
+        section.style.height = sectionHeight + 'px';
+        section.style.transition = elementTransition;
+        requestAnimationFrame(function() {
+        section.style.height = 0 + 'px';
+        });
+      });
+    }
+
+function sectionExpand(section){
+    let sectionHeight = section.scrollHeight;
+    let elementTransition = section.style.transition;
+    section.style.transition = '';
+    requestAnimationFrame(function() {
+        section.style.height = sectionHeight + 'px';
+        section.style.transition = elementTransition;
+    })}
 
 /**
  * Resets the fetch parameters, selected dropdown values and team logos to default.
