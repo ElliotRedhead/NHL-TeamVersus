@@ -14,7 +14,7 @@
 	<title>NHL Team Showdown</title>
 </head>
 
-<body onload="dataFetch(fetchOptions);sectionCollapse(statisticsSection);appendStatisticsList()" class="container-fluid">
+<body onload="dataFetch(fetchOptions);sectionCollapse(statisticsSection);appendStatisticsList();initialiseTooltips();" class="container-fluid">
 	<!-- TEAM VS TEAM LOGOS SECTION & TRIGGER BUTTONS -->
 	<i id="randomButton" class="fas fa-random" onclick="randomiseSelection()"></i>
 	<div class="singlePageContainer">
@@ -62,12 +62,12 @@
 				</div>
 				<div class="col-8">
 					<ul class="statList">
-						<li id="teamDescriptor">Team</li>
-						<li>Wins : Losses</li>
-						<li>Points</li>
-						<li>Face-Off Wins (%)</li>
-						<li>Saves (%)</li>
-						<li>Goals Per Game</li>
+						<li id="teamDescriptor">Team<i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The logo of each team."></i></li>
+						<li>Wins : Losses<i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The win to loss match ratio."></i></li>
+						<li>Points<i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="Total number of points scored."></i></li>
+						<li>Face-Off Wins (%)<i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The face-off win percentage."></i></li>
+						<li>Saves (%)<i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The overall save percentage."></i></li>
+						<li>Goals Per Game<i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="The average number of goals scored per match."></i></li>
 					</ul>
 				</div>
 				<div class="col-2">

@@ -347,3 +347,7 @@ function resetPage() {
     sectionCollapse();
     window.scrollTo(0,0);
 }
+
+function initialiseTooltips () {
+    $('[data-toggle="tooltip"]').tooltip()
+  }
