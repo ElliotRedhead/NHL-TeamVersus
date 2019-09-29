@@ -10,9 +10,9 @@ Page Summary
 * NHL fans that want to compare team statistics.
 
 #### This project is the best way to deliver the content because:
-* It is interactive, with the aim of delivering the statistics in an animated way.
-* 
-*
+* It is interactive, with the aim of delivering the statistics in a fun, animated way.
+* It is fully-responsive, enabling use across a range of resolutions.
+* The layout is intuitive, detailed instructions would not be required for the average user to access and use the site.
 *
 
 ## User Stories (How are these fulfilled?)
@@ -42,18 +42,29 @@ The dropdown selectors allow the user to select the teams that they want to comp
 #### Dynamic Team Logos
 The team logo above the team selector dropdown changes dynamically based on the team chosen, for example if the team "Anaheim Ducks" is selected from the dropdown: the Anaheim Ducks team logo appears above. This also serves as feedback to the user that their selection has been correctly assigned.
 
+#### Shuffle Button
+The well-established icon for shuffling a selection is used in a button at the top of the page, this randomly selects two teams for the user to compare. The user can repeatedly shuffle the selected teams as many times as they like. The same team cannot be compared against itself and the shuffle function does not allow the same team to be randomly chosen for both dropdown selectors.
+
 #### Compare Button
 The compare button gives the user the ability to trigger the statistics comparison when they have selected the teams they want to match against each other. If the user were to accidentally pick the wrong team from the list, they have the ability to correct their selection before triggering the comparison.
+
+#### Dynamic Background Size
+Upon triggering the comparison of the two teams; the background size enlarges to fill the newly displayed statistics section, this ensure constinuity and adds dramatic effect by "focusing" closer.
+
+#### Winner Declaration Modal
+The winning team is stated using a sweetalerts modal box, this informs the user which team has won before the statistics are shown.
 
 #### Statistics Lists
 The statistics lists illustrate a breakdown of the attributes that have been used to compare these teams. They provide a user an idea of the factors that have been considered in the decision of the winner and highlighted in respective positive/neutral/negative colours to indicate their win/draw/loss state.
 
+#### Statistic Descriptors
+Tooltips give a brief description of each of the factors that are used to decide which team has won. They are described using as non-technical language as possible to also be accessible to people new to the sport.
+
+#### Restart Button
+Upon accessing the statistics portion of the page abutton labelled "Play Again" is also displayed. Upon clicking this, the page is reset to its initial state for the user to pick teams again.
+
 ### Features Left to Implement
-#### Welcome Modal
-#### Updated Unknown Team Selection Icon
-#### Statistic Descriptors (TBD) https://codepen.io/nbalcom/pen/ozwqvb
-#### Winner Declaration Modal (TBD)
-#### Restart Prompt (TBD)
+#### Welcome Modal (TBD)
 #### Share Feature (TBD)
 
 ## Technologies Used
@@ -87,7 +98,7 @@ Use the [W3C](https://www.w3.org/) validators and make in accordance with the re
 
 ### Known Bugs
 
-With the statistics list already generated, if using a browser compatibility tool to check layout across resolutions the team logos in the statistics list will be an incorrect size. This is fixed by re-comparing the teams at the chosen test resolution.
+With the statistics list already generated, if using a browser compatibility tool to check layout across resolutions the team logos in the statistics list will be an incorrect size. This is fixed by re-comparing the teams at the chosen test resolution. This layout bug does not affect standard use of the site, and is known to be present across other popular websites i.e. Facebook.
 
 ## Deployment
 
