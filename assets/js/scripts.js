@@ -316,12 +316,18 @@ function resizeTeamLogo() {
     $(".statLogo").height(targetHeight);
 }
 
+/**
+ * Collapses the statistics section to effectively hide when not suitable to be shown i.e. statistics not yet fetched, team selections changed.
+ */
 function sectionCollapse(){
         requestAnimationFrame(function() {
             statisticsSection.style.height = 0 + 'px';
         });
       };
 
+/**
+ * Expands the statistics section to reveal the statistics data provided for both of the selected teams.
+ */
 function sectionExpand(){
     let sectionHeight = statisticsSection.scrollHeight;
     let elementTransition = statisticsSection.style.transition;
@@ -348,6 +354,9 @@ function resetPage() {
     window.scrollTo(0,0);
 }
 
+/**
+ * Required function to use the statistic descriptor tooltips.
+ */
 function initialiseTooltips () {
     $('[data-toggle="tooltip"]').tooltip()
   }
