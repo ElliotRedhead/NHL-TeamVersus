@@ -61,17 +61,12 @@ html {
 
 body {
     font-family: 'Teko', sans-serif;
-    /* scroll-snap-type: y mandatory; */
-    /* background-color: #141414; */
+    background-color: #141414;
     background-image: url(/assets/images/Ice-Background.jpg);
     background-color: rgb(14, 14, 14);
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-/* .scroll-snap {
-    scroll-snap-align:start;
-} */
 
 #selectTeams {
     height:100%;
@@ -147,10 +142,6 @@ body {
 #statistics .row div ul {
     padding:0rem;
 }
-
-/* .statlist {
-    align-content:space-around;
-} */
 
 #statisticsContainer {
     overflow:hidden;
