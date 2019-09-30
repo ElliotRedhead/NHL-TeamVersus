@@ -158,6 +158,10 @@ body {
     text-align: center;
 }
 
+.statList > li > i {
+    padding-left:0.3rem;
+}
+
 #statistics > .row > div {
     padding: 0rem;
 }
