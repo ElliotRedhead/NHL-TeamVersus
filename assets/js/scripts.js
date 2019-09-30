@@ -106,6 +106,7 @@ function getTeamLogo(order, teamName) {
     var i;
     for (i = 0; i < 2; i++) {
         teamLogo[i].src = `assets/images/teamlogos/${shortenedTeamName}.png`;
+        teamLogo[i].setAttribute("aria-label", `${teamName} team logo.`)
     }
 
     animationHandler(teamLogo[0]);
