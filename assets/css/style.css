@@ -63,7 +63,7 @@ body {
     font-family: 'Teko', sans-serif;
     background-color: #141414;
     background-image: url(/assets/images/Ice-Background.jpg);
-    background-color: rgb(14, 14, 14);
+    background-color: #0e0e0e;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -94,11 +94,11 @@ body {
     -moz-appearance: none;
 	-webkit-appearance: none;
     appearance: none;
-    color: rgb(15, 36, 65);
+    color: #0f2441;
     padding: 0.3rem 1.2rem 0.3rem 0.3rem;
     font-weight: 500;
-    border: 1px solid rgb(118, 165, 209);
-    box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+    border: 1px solid #76a5d1;
+    box-shadow: 0 1px 0 1px #0000000a;
     border-radius: .2rem;
     background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'),
     linear-gradient(to bottom, #ffffff 0%,#c7c7c7 100%);
@@ -110,9 +110,9 @@ body {
 
 #randomButton {
     font-size:2rem;
-    background-color:white;
-    text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
-    border: lightgray 0.1rem solid;
+    background-color:#ffffff;
+    text-shadow: 0 1px 0 #ffffff1a, 0 0 30px #ffffff66;
+    border: #d3d3d3 0.1rem solid;
     border-radius: 2rem;
     padding:0.5rem;
     z-index:2;
@@ -124,7 +124,7 @@ body {
 .btn:hover {
     cursor:pointer;
     background-image: linear-gradient(to bottom, #ffffff 0%,#c7c7c7 100%);
-    border-color: gray;
+    border-color: #808080;
 }
 
 #compareButton {
@@ -152,7 +152,7 @@ body {
 .statList > li {
     margin: 0.1rem;
     padding:0.3rem 0.1rem;
-    background-color: rgba(214, 214, 214, 0.712);
+    background-color: #d6d6d6b6;
     font-size:1.35rem;
     list-style:none;
     text-align: center;
