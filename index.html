@@ -14,20 +14,24 @@
 	<title>NHL Team Showdown</title>
 </head>
 
-<body onload="dataFetch(fetchOptions);sectionCollapse(statisticsSection);appendStatisticsList();initialiseTooltips();" class="container-fluid">
-	<!-- TEAM VS TEAM LOGOS SECTION & TRIGGER BUTTONS -->
-	<i id="randomButton" class="fas fa-random" onclick="randomiseSelection()" aria-label="Randomise the selected teams."></i>
+<body onload="dataFetch(fetchOptions);sectionCollapse(statisticsSection);appendStatisticsList();initialiseTooltips();"
+	class="container-fluid">
+	<!-- Team vs team selector section: team logos with dropdown selectors to specify teams, a button to randomise the team selections and a button to trigger the statistics comparison. -->
+	<i id="randomButton" class="fas fa-random" onclick="randomiseSelection()"
+		aria-label="Randomise the selected teams."></i>
 	<div class="singlePageContainer">
 		<section id="selectTeams">
 			<div class="row">
 				<div class="col-12 order-1 col-md-5 my-auto">
-						<img class="teamLogo firstTeamLogo" src="assets/images/teamlogos/SelectTeam.png" aria-label="A question mark.">
+					<img class="teamLogo firstTeamLogo" src="assets/images/teamlogos/SelectTeam.png"
+						aria-label="A question mark.">
 				</div>
 				<div id="versusText" class="col-md-2 order-md-2 my-auto">
 					VS
 				</div>
 				<div class="col-12 order-3 order-md-3 col-md-5 my-auto">
-						<img class="teamLogo secondTeamLogo" src="assets/images/teamlogos/SelectTeam.png" aria-label="A question mark.">
+					<img class="teamLogo secondTeamLogo" src="assets/images/teamlogos/SelectTeam.png"
+						aria-label="A question mark.">
 				</div>
 				<div class="order-2 col-12 order-md-4 col-md-4 order-md-4">
 					<select class="dropdownSelector" id="firstTeamSelect">
@@ -51,9 +55,9 @@
 		</section>
 	</div>
 
-	<!-- STATISTICS, WITH HIGHLIGHTED "WINNING" ATTRIBUTES -->
+	<!-- Statistics section: The statistics used to determine the winner are detailed with brief descriptions.  -->
 	<div id="statisticsContainer" class="collapsed">
-		<section class = "singlePageContainer" ID="statistics">
+		<section class="singlePageContainer" ID="statistics">
 			<div class="row no-gutters">
 				<div class="col-2">
 					<ul id="firstTeamStatList" class="statList">
@@ -62,12 +66,23 @@
 				</div>
 				<div class="col-8">
 					<ul class="statList">
-						<li id="teamDescriptor">Team<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0" data-placement="top" title="The NHL logo of each team."></i></li>
-						<li>Wins : Losses<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0" data-placement="top" title="The ratio of matches won to matches lost for the current season."></i></li>
-						<li>Points<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0" data-placement="top" title="Total number of points scored for the current season. A win is worth two points and a match lost to overtime or shootout is worth one point."></i></li>
-						<li>Face-Off Wins (%)<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0" data-placement="top" title="The percentage of faceoffs won by a team for the current season."></i></li>
-						<li>Saves (%)<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0" data-placement="top" title="The overall save percentage of shots for the current season."></i></li>
-						<li>Goals Per Game<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0" data-placement="top" title="The average number of goals scored per match for the current season."></i></li>
+						<li id="teamDescriptor">Team<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0"
+								data-placement="top" title="The NHL logo of each team."></i></li>
+						<li>Wins : Losses<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0"
+								data-placement="top"
+								title="The ratio of matches won to matches lost for the current season."></i></li>
+						<li>Points<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0" data-placement="top"
+								title="Total number of points scored for the current season. A win is worth two points and a match lost to overtime or shootout is worth one point."></i>
+						</li>
+						<li>Face-Off Wins (%)<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0"
+								data-placement="top"
+								title="The percentage of faceoffs won by a team for the current season."></i></li>
+						<li>Saves (%)<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0"
+								data-placement="top"
+								title="The overall save percentage of shots for the current season."></i></li>
+						<li>Goals Per Game<i class="fas fa-info-circle" data-toggle="tooltip" tabindex="0"
+								data-placement="top"
+								title="The average number of goals scored per match for the current season."></i></li>
 					</ul>
 				</div>
 				<div class="col-2">
@@ -84,13 +99,13 @@
 		</section>
 	</div>
 
-	<!-- SCRIPTS ENABLING BOOTSTRAP -->
+	<!-- Scripts enabling Bootstrap compatibility.-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-	<!-- CUSTOM JAVASCRIPT -->
-	<script src="assets/js/scripts.js"> </script>
+	<!-- Custom JavaScript -->
+	<script src="assets/js/scripts.js"></script>
 </body>
 
 </html>
