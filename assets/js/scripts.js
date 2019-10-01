@@ -156,6 +156,11 @@ function getTeamId(data, teamName) {
     return (data.teams.find(team => team.name == teamName).id);
 }
 
+
+$("#compareButton").click(function(){
+    optionsEnableStats(fetchOptions);
+})
+
 /**
  * Triggers the statistics fetch and displays the statistics section.
  * @param {Object} fetchOptions The arguments used when fetching data to determine the function flow.
@@ -289,8 +294,11 @@ function winnerModal(modalText) {
 }
 
 /**
+ * Triggers upon clicking "Play Again" at the bottom of the page.
  * Resets the fetch options used to their default values.
  */
+
+
 function defaultOptions() {
     fetchOptions.statsUrl = "";
     fetchOptions.teamIdArray = [];
@@ -302,7 +310,12 @@ function defaultOptions() {
     fetchOptions.firstWriteCompletion = false;
     fetchOptions.secondWriteCompletion = false;
     teamStatistics.scoreCounter = "";
-}
+};
+
+
+$("#randomButton").click(function() {
+    randomiseSelection();
+});
 
 /**
  * Randomises the dropdown-selected values, ensuring they are not equal to one another.
@@ -317,7 +330,7 @@ function randomiseSelection() {
     document.getElementById(`${teamDescriptorId[0]}Select`).value = dropdownOptions[firstRandomOption].value;
     document.getElementById(`${teamDescriptorId[1]}Select`).value = dropdownOptions[secondRandomOption].value;
     $(".dropdownSelector").change()
-}
+};
 
 /**
  * Sets the team logos shown in the statistic section to a height equal to the descriptors for uniformity.
@@ -347,6 +360,8 @@ function sectionExpand(){
         statisticsSection.style.transition = elementTransition;
     })}
 
+$( "#resetButton" ).click(function () {
+    resetPage();});
 /**
  * Resets the fetch parameters, selected dropdown values and team logos to default.
  * Collapses the statistics section and scrolls to the top of the page.
@@ -361,7 +376,8 @@ function resetPage() {
     order.forEach(order => {
         getTeamLogo(order, defaultDropdownValue);
     })
-    sectionCollapse();
+    sectionCollapse(statisticsSection);
+    compareButtonVisibility();
     window.scrollTo(0,0);
 }
 
