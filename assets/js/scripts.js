@@ -1,4 +1,5 @@
-fetchOptions = {
+// The default parameters related to the fetching and handling of the NHL API data.
+const fetchOptions = {
     fetchUrl: "https://statsapi.web.nhl.com/api/v1/teams/",
     statsUrl: "",
     teamIdArray: [],
@@ -11,6 +12,7 @@ fetchOptions = {
     secondWriteCompletion: false,
 }
 
+// The default parameters used for the handling of the teams' statistics.
 const teamStatistics = {
     scoreCounter: "",
     firstTeamName: "",
