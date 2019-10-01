@@ -129,7 +129,7 @@ function animationHandler(teamLogo) {
  * The button only displays if both selectors aren't equal to each other or equal to the default value.
  */
 function compareButtonVisibility() {
-    const defaultSelect = "---Select Team---";
+    const defaultSelect = "Select Team";
     const firstSelection = document.getElementById("firstTeamSelect").value;
     const secondSelection = document.getElementById("secondTeamSelect").value;
     if (firstSelection == defaultSelect || secondSelection == defaultSelect || firstSelection == secondSelection) {
@@ -219,8 +219,8 @@ function appendStatisticsList() {
  * Scrolls to the results section of the page.
  */
 function scrollToResults() {
-    // window.scrollTo(0,1000);
-    document.getElementById("statistics").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+    //window.scrollTo(0,50000);
+    document.getElementById("resetButton").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
 }
 
 /**
