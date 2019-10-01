@@ -27,6 +27,13 @@ const teamDescriptorId = ["firstTeam", "secondTeam"];
 
 const statisticsSection = document.getElementById("statisticsContainer");
 
+$( document ).ready(function() {
+    dataFetch(fetchOptions);
+    sectionCollapse(statisticsSection);
+    appendStatisticsList();
+    initialiseTooltips();
+});
+
 /**
  * Fetches data from the NHL API, with different if statements filtering how the data is manipulated and triggers a function to write the statistics to the DOM.
  *
