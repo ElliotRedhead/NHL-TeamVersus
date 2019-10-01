@@ -232,9 +232,7 @@ function appendStatisticsList() {
  * Scrolls to the results section of the page.
  */
 function scrollToResults() {
-    //window.scrollTo(0,50000);
-    document.getElementById("resetButton").scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
-}
+    window.scrollTo({top: 700,behavior: 'smooth'})}
 
 /**
  * Calculates whether the first or second team attributes are greater, highlighting the winning statistic.
