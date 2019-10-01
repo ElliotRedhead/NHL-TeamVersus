@@ -27,6 +27,7 @@ const teamDescriptorId = ["firstTeam", "secondTeam"];
 
 const statisticsSection = document.getElementById("statisticsContainer");
 
+// jQuery triggers the initial functions when the page has loaded.
 $( document ).ready(function() {
     dataFetch(fetchOptions);
     sectionCollapse(statisticsSection);
