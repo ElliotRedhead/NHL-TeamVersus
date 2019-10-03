@@ -41,7 +41,7 @@ $( document ).ready(function() {
  * @param {Object} fetchOptions Modifies what information is acquired by the fetch function and provides the associated URL.
  */
 function dataFetch(fetchOptions) {
-    fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl)
+    fetch(fetchOptions.fetchUrl + fetchOptions.teamId + fetchOptions.statsUrl + "?season=20182019")
         .then(res => res.json())
         .then(data => {
             if (fetchOptions.sortData) {
