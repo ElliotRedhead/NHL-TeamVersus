@@ -165,7 +165,14 @@ body {
 #statistics > .row > div {
     padding: 0rem;
 }
-
-#resetButton {
+#resetContainer {
+    text-align: center;
     width:100%;
+    font-size: 1.5rem;
 }
+
+.buttonStyle {
+    color: #ffffff;
+    text-decoration: none;
+}
+
