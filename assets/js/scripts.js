@@ -35,6 +35,9 @@ $(document).ready(function() {
     initialiseTooltips();
 });
 
+/**
+ * Displays a SweetAlerts modal, welcoming users to the page and providing brief instructions for its use.
+ */
 function welcomeModal() {
     Swal.fire({
         title: "Welcome to NHL showdown 2018-2019!",
