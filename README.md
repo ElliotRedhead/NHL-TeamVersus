@@ -36,6 +36,9 @@ Page Summary
 
 ### Existing Features
 
+#### Welcome Modal
+The welcome modal gives a brief instruction to the user of how to operate the comparison tool, explaining both the manual selection and random selection functions.
+
 #### Team Selection Dropdowns
 The dropdown selectors allow the user to select the teams that they want to compare, they  function to pass the user selection to other processes but are styled to keep with the competitive but fun theme of the page.
 
@@ -63,20 +66,16 @@ Tooltips give a brief description of each of the factors that are used to decide
 #### Restart Button
 Upon accessing the statistics portion of the page abutton labelled "Play Again" is also displayed. Upon clicking this, the page is reset to its initial state for the user to pick teams again.
 
-### Features Left to Implement
-#### Welcome Modal (TBD)
-#### Share Feature (TBD)
-
 ## Technologies Used
 
 1. HTML
 2. CSS.
 3. Javascript.
 4. jQuery.
-5. The developer used [Visual Studio Code](https://code.visualstudio.com/) to create the website. This was chosen due to the developer having established experience within this software and for its Github integration.
-6. [Bootstrap](https://getbootstrap.com)
-7. [FontAwesome](https://fontawesome.com/)
-8. [GoogleFonts](https://fonts.google.com/) is used to supply the fonts for the majority of texts across this website, the fonts sourced in this way were x and y.
+5. [Bootstrap](https://getbootstrap.com)
+6. [Font Awesome](https://fontawesome.com/)
+7. [Google Fonts](https://fonts.google.com/) is used to supply the main font for the majority of this website, the font sourced in this way is ["Teko"](https://fonts.google.com/specimen/Teko).
+8. [SweetAlert2](https://sweetalert2.github.io/) is used for both the welcome and winning announcement modals on this site.
 
 ## Testing
 
@@ -84,17 +83,17 @@ Upon accessing the statistics portion of the page abutton labelled "Play Again" 
 
 2. Navigation (Smaller Resolution)
 
-3.
+3. Team Selection Functionality
 
-4. Links
-    
-5. Share Options
+4. The "Shuffle" Button
 
-Open the completed website across multiple devices and platforms, including Windows (Chrome), Linux (Chromium), Apple Mac (Safari), Apple iPhone (Safari) and Android Galaxy (Samsung Internet). Does the page load correctly and as was designed across all platforms?
+5. Statistics Tooltips
 
-How is troubleshooting approached?
+6. The "Play Again" Button
 
-Use the [W3C](https://www.w3.org/) validators and make in accordance with the results.
+Open the completed website across multiple devices and platforms, including Windows (Chrome), Linux (Chromium), Apple Mac (Safari), Apple iPhone (Safari) and Android Galaxy (Samsung Internet). Does the page load correctly and as was designed across target resolutions?
+
+Use the [W3C](https://www.w3.org/) validators at the project's end and make adjustments if required, in accordance with the results.
 
 ### Known Bugs
 
@@ -123,7 +122,7 @@ At the time of submission are both the deployed and development versions of this
 5. Navigate to where the cloned directory should reside, make this the current working directory.
 6. Type "git clone", and paste the clone URL.
 
-**i.e. "git clone https://github.com/ElliotRedhead/NHL-TeamVersus.git"**
+```git clone https://github.com/ElliotRedhead/NHL-TeamVersus.git```
 
 7. Press Enter.
 8. The local clone is now created.
@@ -132,9 +131,8 @@ At the time of submission are both the deployed and development versions of this
 
 ### Media
 The photos used in this site were obtained from the following sources:
-1. Helmet favicon: Made by https://www.flaticon.com/authors/smashicons from https://www.flaticon.com/
-2.
+1. Helmet favicon: From [flaticon](https://www.flaticon.com/) from the [smashicon authors](https://www.flaticon.com/authors/smashicons).
 
 ### Acknowledgements
 
-Many thanks for support in the creation of this website to my mentor: Simen Daehlin.
+Many thanks for support in the creation of this website to my mentor: [Simen Daehlin](https://github.com/Eventyret).
