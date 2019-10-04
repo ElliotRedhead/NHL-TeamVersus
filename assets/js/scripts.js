@@ -238,7 +238,7 @@ function appendStatisticsList() {
  * Scrolls to the results section of the page.
  */
 function scrollToResults() {
-    window.scrollTo({top: 700,behavior: 'smooth'})}
+    window.scrollTo({top: 900,behavior: 'smooth'})}
 
 /**
  * Calculates whether the first or second team attributes are greater, highlighting the winning statistic.
