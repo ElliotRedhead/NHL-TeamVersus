@@ -73,9 +73,10 @@ Upon accessing the statistics portion of the page abutton labelled "Play Again" 
 3. Javascript.
 4. jQuery.
 5. [Bootstrap](https://getbootstrap.com)
-6. [Font Awesome](https://fontawesome.com/)
-7. [Google Fonts](https://fonts.google.com/) is used to supply the main font for the majority of this website, the font sourced in this way is ["Teko"](https://fonts.google.com/specimen/Teko).
-8. [SweetAlert2](https://sweetalert2.github.io/) is used for both the welcome and winning announcement modals on this site.
+6. [Git](https://git-scm.com/) is used for the version control of this project.
+7. [Font Awesome](https://fontawesome.com/) provides the shuffle and information icons (used for both the welcome trigger and tooltips).
+8. [Google Fonts](https://fonts.google.com/) is used to supply the main font for the majority of this website, the font sourced in this way is ["Teko"](https://fonts.google.com/specimen/Teko).
+9. [SweetAlert2](https://sweetalert2.github.io/) is used for both the welcome and winning announcement modals on this site.
 
 ## Testing
 
@@ -84,6 +85,8 @@ Upon accessing the statistics portion of the page abutton labelled "Play Again" 
 2. Navigation (Smaller Resolution)
 
 3. Team Selection Functionality
+
+The dropdown selector successfully only allows selection of two teams that are different from one another and does not allow selection of the "Select Team" disabled option. Upon satisfying this criteria, a button to trigger the comparison appears.
 
 4. The "Shuffle" Button
 
