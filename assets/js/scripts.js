@@ -29,6 +29,7 @@ const statisticsSection = document.getElementById("statisticsContainer");
 
 // jQuery triggers the initial functions when the page has loaded.
 $(document).ready(function() {
+    welcomeModal();
     dataFetch(fetchOptions);
     sectionCollapse(statisticsSection);
     appendStatisticsList();
@@ -42,7 +43,13 @@ function welcomeModal() {
     Swal.fire({
         title: "Welcome to NHL showdown 2018-2019!",
         html:"Select two teams to compare from the dropdowns or click the shuffle button to have two teams randomly selected!<br>Click 'Compare!' to see who wins with a comparison of the teams' statistics!",
-      })}
+      })
+    welcomeDisplay = false;}
+
+$("#infoButton").click(function(){
+    welcomeModal();
+})
+    
 
 /**
  * Fetches data from the NHL API, with different if statements filtering how the data is manipulated and triggers a function to write the statistics to the DOM.
