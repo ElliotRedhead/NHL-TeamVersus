@@ -153,11 +153,9 @@ body {
 }
 
 #compareButton {
-    font-size:1.7rem;
     visibility:hidden;
     padding:0;
     width:100%;
-    animation: contrast-pulse 1.5s infinite;
 }
 
 #statistics .row {
@@ -197,12 +195,15 @@ body {
     font-size: 1.2rem;
 }
 
-.buttonStyle, .buttonStyle:hover {
+.buttonStyle {
+    font-size:1.7rem;
+    animation: contrast-pulse 1.5s infinite;
     color: #000000;
     text-shadow: 0 0 0.1rem #fff, 0 0 0.4rem #fff, 0 0 1rem #e65400e8, 0 0 1.5rem #e65400e8, 0 0 2rem #e65400e8, 0 0 2.5rem #e65400e8, 0 0 3rem #e65400e8;
 }
 
 .buttonStyle:hover {
+    animation: none;
     color: #ffffff;
     text-shadow: 0 0 0.3rem #fff, 0 0 0.5rem #fff, 0 0 1rem #e60000, 0 0 1.5rem #e60000, 0 0 2rem #e60000, 0 0 2.5rem #e60000, 0 0 3rem #e60000, 0 0 3rem #e60000, 0 0 3rem #e60000, 0 0 3rem #e60000;
 }
