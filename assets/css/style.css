@@ -109,6 +109,7 @@ body {
   }
 
 #randomButton {
+    color:#000000;
     font-size:2rem;
     background-color:#ffffff;
     text-shadow: 0 1px 0 #ffffff1a, 0 0 30px #ffffff66;
@@ -182,11 +183,14 @@ body {
 
 .buttonStyle, .buttonStyle:hover {
     color: #000000;
-    text-decoration: none;
     text-shadow: 0 0 0.1rem #fff, 0 0 0.4rem #fff, 0 0 1rem #e65400e8, 0 0 1.5rem #e65400e8, 0 0 2rem #e65400e8, 0 0 2.5rem #e65400e8, 0 0 3rem #e65400e8;
 }
 
 .buttonStyle:hover {
     color: #ffffff;
     text-shadow: 0 0 0.3rem #fff, 0 0 0.5rem #fff, 0 0 1rem #e60000, 0 0 1.5rem #e60000, 0 0 2rem #e60000, 0 0 2.5rem #e60000, 0 0 3rem #e60000, 0 0 3rem #e60000, 0 0 3rem #e60000, 0 0 3rem #e60000;
+}
+
+.removeLinkDecoration, .removeLinkDecoration:hover {
+    text-decoration: none;
 }
