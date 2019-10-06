@@ -22,7 +22,13 @@ This recreational/educational tool is designed to easily allow comparison of key
 
 ### User Story Fulfilment
 
-1. Activating each team selector dropdown provides lists of teams as input options, the two different teams can be selected from each. Upon selection of both valid teams; the compare button appears, ensuring the user is certain of their choice before manual confirmation. Upon clicking the "Compare!" prompt the winner is announced in an alert messagebox, proceeding by click the "View Statistics" button in the alert modal displays the statistics for both teams. The respective value for each attribute that each team has won/lost/drawn for are displayed and highlighted with different colours for greater contrast. Hovering over the tooltip for each statistic descriptor gives a brief explanation of each, if the user does not completely understand these they are now equipped with enough keywords to research further if interested in doing so. The "Play Again" prompt at the bottom of the screen allows the user to start again and hides the previous statistics. Alternatively, the user can manually scroll back to the dropdown selectors and manually change one or both options, this will result in the previous statistics being hidden to prevent potential confusion.
+1. Activating each team selector dropdown provides lists of teams as input options, the two different teams can be selected from each. 
+Upon selection of both valid teams; the compare button appears, ensuring the user is certain of their choice before manual confirmation. 
+Upon clicking the "Compare!" prompt the winner is announced in an alert messagebox, proceeding by click the "View Statistics" button in the alert modal displays the statistics for both teams.
+The respective value for each attribute that each team has won/lost/drawn for are displayed and highlighted with different colours for greater contrast.
+Hovering over the tooltip for each statistic descriptor gives a brief explanation of each, if the user does not completely understand these they are now equipped with enough keywords to research further if interested in doing so. 
+The "Play Again" prompt at the bottom of the screen allows the user to start again and hides the previous statistics.
+Alternatively, the user can manually scroll back to the dropdown selectors and manually change one or both options, this will result in the previous statistics being hidden to prevent potential confusion.
 
 2. I click the shuffle icon and two random teams are selected for me, the compare button appears allowing me to lock in these choices. The winner is announced in an alert messagebox and the statistics for each team is automatically shown. The attributes that each team has won/lost/drawn for are highlighted with different colours.
 
