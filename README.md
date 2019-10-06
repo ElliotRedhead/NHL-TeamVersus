@@ -94,9 +94,14 @@ Upon clicking the shuffle/randomize button: two teams are randomly selected from
 If the initial randomization results in identical teams then one is re-randomized until the teams are different from one another.
 This feature was extensively tested at [this commit](https://github.com/ElliotRedhead/NHL-TeamVersus/tree/6c4c3e2ce69c132fc0e55879e70b26478a0d8447) with a console message displayed each time the re-randomization was required and triggered.
 
-5. Statistics Tooltips
+5. Calculating the Winner
 
-6. The "Play Again" Button
+Comparison of the two teams "Philadelphia Flyers" and "New Jersey Devils" correctly announces that Philadelphia Flyers has won the statistics comparison in a modal. Greater/lesser statistics are correctly highlighted in the appropriate column with the tied save percentage statistic highlighted yellow for both teams. Reversing the team positions in the dropdown order yields the same correct result.
+Comparison of the two teams "Toronto Maple Leafs" and "Pittsburgh Penguins" correctly announces that the teams have tied, the statistics correctly colours the greater/lesser statistics with an even spread of won statistics for both teams with a single tie.
+
+6. Statistics Tooltips
+
+7. The "Play Again" Button
 
 Open the completed website across multiple devices and platforms, including Windows (Chrome), Linux (Chromium), Apple Mac (Safari), Apple iPhone (Safari) and Android Galaxy (Samsung Internet). Does the page load correctly and as was designed across target resolutions?
 
