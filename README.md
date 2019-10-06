@@ -87,6 +87,10 @@ Upon accessing the statistics portion of the page abutton labelled "Play Again" 
 
 4. The "Shuffle" Button
 
+Upon clicking the shuffle/randomize button: two teams are randomly selected from the list but these teams must also not be identical to each other as identical teams cannot be compared.
+If the initial randomization results in identical teams then one is re-randomized until the teams are different from one another.
+This feature was extensively tested at [this commit](https://github.com/ElliotRedhead/NHL-TeamVersus/tree/6c4c3e2ce69c132fc0e55879e70b26478a0d8447) with a console message displayed each time the re-randomization was required and triggered.
+
 5. Statistics Tooltips
 
 6. The "Play Again" Button
