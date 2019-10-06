@@ -80,14 +80,7 @@ body {
     background-size: cover;
 }
 
-
-
-#selectTeams {
-    height:100%;
-}
-
 #selectTeams .row {
-    height:100%;
     text-align:center;
     align-content: space-around;
 }
@@ -159,7 +152,6 @@ body {
 }
 
 #statistics .row {
-    height:100%;
     align-content:space-around;
 }
 
@@ -210,4 +202,8 @@ body {
 
 .removeLinkDecoration, .removeLinkDecoration:hover {
     text-decoration: none;
+}
+
+.fillHeight {
+    height:100%;
 }
