@@ -68,6 +68,18 @@ body {
     background-size: cover;
 }
 
+@keyframes contrast-pulse {
+    0% {
+        color: #000000;
+     }
+    50% {
+        color: #ffffff;
+    }
+    100% {
+        color: #000000;
+     }
+}
+
 #selectTeams {
     height:100%;
 }
@@ -143,6 +155,7 @@ body {
     visibility:hidden;
     padding:0;
     width:100%;
+    animation: contrast-pulse 1.5s infinite;
 }
 
 #statistics .row {
