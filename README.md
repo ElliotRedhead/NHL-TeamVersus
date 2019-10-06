@@ -70,15 +70,16 @@ Upon accessing the statistics portion of the page abutton labelled "Play Again" 
 
 ## Technologies Used
 
-1. HTML
-2. CSS.
-3. Javascript.
-4. jQuery.
-5. [Bootstrap](https://getbootstrap.com)
-6. [Git](https://git-scm.com/) is used for the version control of this project.
-7. [Font Awesome](https://fontawesome.com/) provides the shuffle and information icons (used for both the welcome trigger and tooltips).
-8. [Google Fonts](https://fonts.google.com/) is used to supply the main font for the majority of this website, the font sourced in this way is ["Teko"](https://fonts.google.com/specimen/Teko).
-9. [SweetAlert2](https://sweetalert2.github.io/) is used for both the welcome and winning announcement modals on this site.
+* HTML.
+* CSS.
+* Javascript.
+* []jQuery](https://jquery.com/) is primarily used within this project for ease of DOM manipulation.
+* [Bootstrap](https://getbootstrap.com) is used for resolution responsiveness and for general structuring of the UI.
+* [Git](https://git-scm.com/) is used for the version control of this project.
+* [Font Awesome](https://fontawesome.com/) provides the shuffle and information icons (used for both the welcome trigger and tooltips).
+* [Google Fonts](https://fonts.google.com/) is used to supply the main font for the majority of this website, the font sourced in this way is ["Teko"](https://fonts.google.com/specimen/Teko).
+* [SweetAlert2](https://sweetalert2.github.io/) is used for both the welcome and winning announcement modals on this site.
+* The [NHL API](https://statsapi.web.nhl.com/api/v1/teams/) is accessed for the teams' data, the public documentation for its use can be found [here](https://gitlab.com/dword4/nhlapi).
 
 ## Testing
 
