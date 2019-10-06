@@ -68,6 +68,21 @@ Tooltips give a brief description of each of the factors that are used to decide
 #### Restart Button
 Upon accessing the statistics portion of the page abutton labelled "Play Again" is also displayed. Upon clicking this, the page is reset to its initial state for the user to pick teams again.
 
+### Potential Features to Implement
+
+The following are suggested additions that would exceed the project time constraints or require inaccessible resources but that would provide additional value to the project.
+
+#### Determination of a Statistical Weighting for Each Statistic 
+* Does a greater face-off win percentage provide a greater statistical value than a greater save percentage? 
+* Does an average goal per game outweigh greater values of both of the above factors?
+These are difficult factors to quantify a weighting between, as outliers in data and variation between players can influence the overall value. A situational example of this being that a specific team may have a couple of their strongest players taking the face-offs, resulting in a much greater face-off win percentage than is reflected in the overall team performance.
+
+#### Adaptation to Season Changes
+As new teams are formed, (for example a new Seattle team in the process of formation at the time this project was made) or team logos are adjusted; these adjustments could be made to the project with maintenance updates. The start of a new season also results in not enough current data to make comparisons, especially with players often changing between teams or rule changes being made between seasons. For this reason, this project has been isolated to the completed 2018/2019 season for evaluation purposes.
+
+#### Visual Charting of Statistics & Trend Predictions
+An idea originally contemplated for this project was to display a comparison of the selected statistics over the season for the selected teams, this however is not appropriate for the arcade-style of this particular page but if it were evolved into a larger-scale tool this could be suitable for the prediction of trends.
+
 ## Technologies Used
 
 * HTML.
@@ -115,8 +130,6 @@ Use the [W3C](https://www.w3.org/) validators at the project's end and make adju
 1. With the statistics list already generated, if using a browser compatibility tool to check layout across resolutions the team logos in the statistics list will be an incorrect size. This is fixed by re-comparing the teams at the chosen test resolution. This layout bug does not affect standard use of the site, and is known to be present across other popular websites i.e. Facebook.
 
 2. As a new season starts there are insufficient statistics for the teams to determine a winner, with the potential introduction of new teams or change in team logos over time this project has been limited to the 2018/2019 season.
-
-3. The winner 
 
 ## Deployment
 
