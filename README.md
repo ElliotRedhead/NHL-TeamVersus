@@ -28,7 +28,9 @@ This recreational/educational tool is designed to easily allow comparison of key
 
 ## Wireframes
 
-1. ![Initial Desktop Wireframe](./assets/wireframes/Initial-Desktop-Wireframe.png)
+### Initial Wireframe
+The layout and functionality for this project has progressed since its inception, with the layout originally going to be kept constant across all resolutions. The core concept has been retained, with the purpose of team comparisons with a winner defined by statistical analysis. 
+![Initial Desktop Wireframe](./assets/wireframes/Initial-Desktop-Wireframe.png)
 2.
 3.
 
