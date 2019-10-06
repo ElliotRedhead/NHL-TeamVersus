@@ -28,7 +28,7 @@ This recreational/educational tool is designed to easily allow comparison of key
 
 ## Wireframes
 
-1. [Initial Desktop Wireframe](./assets/wireframes/Initial-Desktop-Wireframe.png)
+1. ![Initial Desktop Wireframe](./assets/wireframes/Initial-Desktop-Wireframe.png)
 2.
 3.
 
