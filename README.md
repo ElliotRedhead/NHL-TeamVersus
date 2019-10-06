@@ -91,7 +91,7 @@ Addition of a mini-game wherein the user was provided with two teams and they we
 * HTML.
 * CSS.
 * Javascript.
-* []jQuery](https://jquery.com/) is primarily used within this project for ease of DOM manipulation.
+* [jQuery](https://jquery.com/) is primarily used within this project for ease of DOM manipulation.
 * [Bootstrap](https://getbootstrap.com) is used for resolution responsiveness and for general structuring of the UI.
 * [Git](https://git-scm.com/) is used for the version control of this project.
 * [Font Awesome](https://fontawesome.com/) provides the shuffle and information icons (used for both the welcome trigger and tooltips).
