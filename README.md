@@ -106,7 +106,9 @@ Use the [W3C](https://www.w3.org/) validators at the project's end and make adju
 
 1. With the statistics list already generated, if using a browser compatibility tool to check layout across resolutions the team logos in the statistics list will be an incorrect size. This is fixed by re-comparing the teams at the chosen test resolution. This layout bug does not affect standard use of the site, and is known to be present across other popular websites i.e. Facebook.
 
-2. As a new season starts there is insufficient statistics for the teams to determine a winner, with the potential introduction of new teams or change in team logos over time this project has been limited to the 2018/2019 season.
+2. As a new season starts there are insufficient statistics for the teams to determine a winner, with the potential introduction of new teams or change in team logos over time this project has been limited to the 2018/2019 season.
+
+3. The winner 
 
 ## Deployment
 
@@ -141,6 +143,7 @@ At the time of submission are both the deployed and development versions of this
 ### Media
 The photos used in this site were obtained from the following sources:
 1. Helmet favicon: From [flaticon](https://www.flaticon.com/) from the [smashicon authors](https://www.flaticon.com/authors/smashicons).
+2. Background image: Scratched ice background sourced from [pixabay](https://pixabay.com/photos/ice-ice-hockey-scratch-color-4285443/).
 
 ### Acknowledgements
 
