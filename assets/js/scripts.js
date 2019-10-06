@@ -335,12 +335,10 @@ $("#randomButton").click(function() {
  * Randomises the dropdown-selected values, ensuring they are not equal to one another.
  */
 function randomiseSelection() {
-    console.log("Randomize");
     const dropdownOptions = document.getElementById(`${teamDescriptorId[0]}Select`).children;
     let firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     let secondRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     if (firstRandomOption == secondRandomOption) {
-        console.log("Re-roll due to identical team selections.")
         firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     }
     document.getElementById(`${teamDescriptorId[0]}Select`).value = dropdownOptions[firstRandomOption].value;
@@ -403,9 +401,3 @@ function resetPage() {
 function initialiseTooltips () {
     $('[data-toggle="tooltip"]').tooltip()
   }
-
-function testShuffle () {
-    for (i=0; i < 1000; i++) {
-        randomiseSelection();
-    }
-}
