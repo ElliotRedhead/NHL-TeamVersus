@@ -83,6 +83,9 @@ As new teams are formed, (for example a new Seattle team in the process of forma
 #### Visual Charting of Statistics & Trend Predictions
 An idea originally contemplated for this project was to display a comparison of the selected statistics over the season for the selected teams, this however is not appropriate for the arcade-style of this particular page but if it were evolved into a larger-scale tool this could be suitable for the prediction of trends.
 
+#### Mini-Game Counter
+Addition of a mini-game wherein the user was provided with two teams and they were to choose which they thought would win, with their score dependent on their streak of correct choices.
+
 ## Technologies Used
 
 * HTML.
