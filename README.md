@@ -55,7 +55,7 @@ The *Play Again* feature was also devised at a later stage to enable better user
 The layout designed for the desktop version was not as suitable for resolutions below general tablet sizes, to enable easier selection of options and better visual feedback a re-design was required.  
 The *VS* text was removed to allow the main functionality of the page to take precedence, in turn this provided space for a more impactful layout with improved ease-of-use with the larger selection dropdowns and buttons.  
 The decision to display the selected teams' logos in a vertical layout also results in a tool that is both easier to navigate and interact with on a mobile-scale.  
-![Final Mobile Wireframe](.assets/wireframes/Final-Mobile-Wireframe.png)  
+![Final Mobile Wireframe](./assets/wireframes/Final-Mobile-Wireframe.png)  
 
 ### Welcome Modal Wireframe  
 Upon loading of the page the user is greeted by a simple introduction with basic instructions for using the site, this can be manually re-triggered by either refreshing the page or selection the large information button.
