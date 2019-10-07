@@ -37,13 +37,33 @@ Hovering over the tooltip for each statistic descriptor gives a brief explanatio
 The "Play Again" prompt at the bottom of the screen allows the user to start again and hides the previous statistics.  
 Alternatively, the user can manually scroll back to the dropdown selectors and manually change one or both options, or clicking the shuffle icon again, this will result in the previous statistics being hidden to prevent potential confusion.  
 
-## Wireframes
+## Wireframes  
 
-### Initial Wireframe
-The layout and functionality for this project has progressed since its inception, with the layout originally going to be kept constant across all resolutions. The core concept has been retained, with the purpose of team comparisons with a winner defined by statistical analysis. 
+### Project Inception Wireframe  
+The layout and functionality for this project has progressed since its inception, with the layout originally going to be kept constant across all resolutions.  
+The core concept has been retained, with the purpose of team comparisons with a winner defined by statistical analysis.  
 ![Initial Desktop Wireframe](./assets/wireframes/Initial-Desktop-Wireframe.png)
-2.
-3.
+
+### Desktop Wireframe  
+The addition of the function to randomize team selections resulted in introduction of the *shuffle* button, a similar addition was the manual trigger button for the welcome modal denoted by a larger information button.  
+Smaller information icons were also added to the layout during development to provide optional tooltips for the user.
+The better spacing of the statistics descriptors and values provided better contrast and separation of numbers for legibility.  
+The *Play Again* feature was also devised at a later stage to enable better user guidance.  
+![Final Desktop Wireframe](./assets/wireframes/Final-Desktop-Wireframe.png)  
+
+### Mobile Wireframe  
+The layout designed for the desktop version was not as suitable for resolutions below general tablet sizes, to enable easier selection of options and better visual feedback a re-design was required.  
+The *VS* text was removed to allow the main functionality of the page to take precedence, in turn this provided space for a more impactful layout with improved ease-of-use with the larger selection dropdowns and buttons.  
+The decision to display the selected teams' logos in a vertical layout also results in a tool that is both easier to navigate and interact with on a mobile-scale.  
+![Final Mobile Wireframe](.assets/wireframes/Final-Mobile-Wireframe.png)  
+
+### Welcome Modal Wireframe  
+Upon loading of the page the user is greeted by a simple introduction with basic instructions for using the site, this can be manually re-triggered by either refreshing the page or selection the large information button.
+![Welcome Modal](./assets/wireframes/Welcome-Modal.png)  
+
+### Winner Declaration Modal Wireframe  
+Triggering the comparison of the two target teams results in a modal displaying the winning team's name. Proceeding with the modal button closes the modal message and automatically shows the statistics breakdown.  
+![Winner Declaration Modal](./assets/wireframes/Winner-Declaration-Modal.png)  
 
 ## Features
 
