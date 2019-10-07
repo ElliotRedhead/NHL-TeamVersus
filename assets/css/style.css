@@ -155,9 +155,7 @@ body {
     align-content:space-around;
 }
 
-#statistics .row div ul {
-    padding:0rem;
-}
+
 
 #statisticsContainer {
     overflow:hidden;
