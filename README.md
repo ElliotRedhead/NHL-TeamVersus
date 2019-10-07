@@ -85,7 +85,7 @@ The well-established icon for shuffling a selection is used in a button at the t
 The compare button gives the user the ability to trigger the statistics comparison when they have selected the teams they want to match against each other. If the user were to accidentally pick the wrong team from the list, they have the ability to correct their selection before triggering the comparison.
 
 #### Dynamic Background Size
-Upon triggering the comparison of the two teams; the background size enlarges to fill the newly displayed statistics section, this ensure constinuity and adds dramatic effect by "focusing" closer.
+Upon triggering the comparison of the two teams; the background size enlarges to fill the newly displayed statistics section, this ensure continuity and adds dramatic effect by "focusing" closer.
 
 #### Winner Declaration Modal
 The winning team is stated using a sweetalerts modal box, this informs the user which team has won before the statistics are shown.
@@ -97,7 +97,7 @@ The statistics lists illustrate a breakdown of the attributes that have been use
 Tooltips give a brief description of each of the factors that are used to decide which team has won. They are described using as non-technical language as possible to also be accessible to people new to the sport.
 
 #### Restart Button
-Upon accessing the statistics portion of the page abutton labelled "Play Again" is also displayed. Upon clicking this, the page is reset to its initial state for the user to pick teams again.
+Upon accessing the statistics portion of the page a button labelled "Play Again" is also displayed. Upon clicking this, the page is reset to its initial state for the user to pick teams again.
 
 ### Potential Features to Implement
 
