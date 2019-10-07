@@ -41,7 +41,7 @@ $(document).ready(function() {
  */
 function welcomeModal() {
     Swal.fire({
-        title: "Welcome to NHL showdown 2018-2019!",
+        title: "Welcome to NHL Showdown 2018-2019!",
         html:"Select two teams to compare from the dropdowns or click the shuffle button to have two teams randomly selected!<br>Click 'Compare!' to see who wins with a comparison of the teams' statistics!",
       })
     welcomeModalDisplay = false;}
