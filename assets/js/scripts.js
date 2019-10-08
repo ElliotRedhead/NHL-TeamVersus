@@ -336,24 +336,54 @@ $("#randomButton").click(function() {
  */
 function randomiseSelection() {
     const dropdownOptions = document.getElementById(`${teamDescriptorId[0]}Select`).children;
-    let firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
-    let secondRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
-    if (firstRandomOption == secondRandomOption) {
-        firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    const randomOptions = {
+        firstRandomOption: "",
+        secondRandomOption: "",
     }
 
-    $(".firstTeamLogo").each(function(i, obj) {
-        obj.alt = `${dropdownOptions[firstRandomOption].value} team logo.`
-        console.log(i, obj);
+    $.each(randomOptions, function(iteration){
+        randomOptions[iteration] = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+        console.log(randomOptions);
     });
 
-    $(".secondTeamLogo").each(function(i, obj) {
-        obj.alt = `${dropdownOptions[secondRandomOption].value} team logo.`
-        console.log(i, obj);
-    });
+    // randomOptions.firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    // randomOptions.secondRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    while (randomOptions.firstRandomOption == randomOptions.secondRandomOption) {
+        randomOptions.firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    }
 
-    document.getElementById(`${teamDescriptorId[0]}Select`).value = dropdownOptions[firstRandomOption].value;
-    document.getElementById(`${teamDescriptorId[1]}Select`).value = dropdownOptions[secondRandomOption].value;
+    console.log(randomOptions);
+
+    // $(".firstTeamLogo").each(function(i, obj) {
+    //     obj.alt = `${dropdownOptions[firstRandomOption].value} team logo.`
+    //     console.log(i, obj);
+    // });
+
+    // $(".secondTeamLogo").each(function(i, obj) {
+    //     obj.alt = `${dropdownOptions[secondRandomOption].value} team logo.`
+    //     console.log(i, obj);
+    // });
+    $(teamDescriptorId).each(function(iteration, object){
+        // console.log(iteration,object);
+        // console.log(`${object}Select`);
+        // console.log((`${object}`).replace("Team",""));
+        // console.log(dropdownOptions[randomOptions.firstRandomOption]);
+        specificRandomOption = object.replace("Team","RandomOption");
+        // console.log(specificRandomOption);
+        // console.log(`${specificRandomOption}`);
+        // console.log(dropdownOptions[`${specificRandomOption}`]);
+        // console.log(dropdownOptions[$(specificRandomOption)]);
+        // console.log(dropdownOptions[$(specificRandomOption)]);
+
+
+        // console.log(dropdownOptions[specificRandomOption]);
+        // console.log(dropdownOptions[`${specificRandomOption}`]);
+        $(`${object}Select`).value = dropdownOptions[$(specificRandomOption)].value;
+
+    })
+    console.log($(`${teamDescriptorId[0]}Select`));
+    // document.getElementById($(`$(teamDescriptorId)Select`)).value = dropdownOptions[firstRandomOption].value;
+    // document.getElementById(`${teamDescriptorId[1]}Select`).value = dropdownOptions[secondRandomOption].value;
     $(".dropdownSelector").change()
 };
 
