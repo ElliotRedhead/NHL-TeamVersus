@@ -118,9 +118,7 @@ Addition of a mini-game wherein the user was provided with two teams and they we
 
 ## Technologies Used
 
-* HTML.
-* CSS.
-* Javascript.
+* HTML, CSS and Javascript programming languages are used for creating the core structure, styling and logic of this site.
 * [jQuery](https://jquery.com/) is primarily used within this project for ease of DOM manipulation.
 * [Bootstrap](https://getbootstrap.com) is used for resolution responsiveness and for general structuring of the UI.
 * [Git](https://git-scm.com/) is used for the version control of this project.
