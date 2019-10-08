@@ -13,7 +13,6 @@ This recreational/educational tool is designed to easily allow comparison of key
 * It is interactive, with the aim of delivering the statistics in a fun, animated way.
 * It is fully-responsive, enabling use across a range of resolutions.
 * The layout is intuitive, detailed instructions would not be required for the average user to access and use the site.
-*
 
 ## User Stories
 
