@@ -117,7 +117,6 @@ $(".dropdownSelector").change(function () {
     resizeTeamLogo();
     const dropdownOrder = ($(this).attr("id")).replace("TeamSelect", "");
     const teamName = $(this).val();
-    console.log(teamName);
     compareButtonVisibility();
     getTeamLogo(dropdownOrder, teamName);
 })
@@ -133,7 +132,7 @@ function getTeamLogo(order, teamName) {
     var i;
     for (i = 0; i < 2; i++) {
         teamLogo[i].src = `assets/images/teamlogos/${shortenedTeamName}.png`;
-        teamLogo[i].setAttribute("aria-label", `${teamName} team logo.`)
+        teamLogo[i].setAttribute("alt", `${teamName} team logo.`)
     }
 
     animationHandler(teamLogo[0]);
@@ -346,47 +345,16 @@ function randomiseSelection() {
         randomOptions[iteration] = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     });
 
-    while (randomOptions.firstRandomOption == randomOptions.secondRandomOption) {
-        randomOptions.firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
+    while (randomOptions.firstRandomNumber == randomOptions.secondRandomNumber) {
+        randomOptions.firstRandomNumber = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     }
 
-    // $(".firstTeamLogo").each(function(i, obj) {
-    //     obj.alt = `${dropdownOptions[firstRandomOption].value} team logo.`
-    //     console.log(i, obj);
-    // });
-
-    // $(".secondTeamLogo").each(function(i, obj) {
-    //     obj.alt = `${dropdownOptions[secondRandomOption].value} team logo.`
-    //     console.log(i, obj);
-    // });
-
-
     $(teamDescriptorId).each(function(iteration,teamOrderIdentifier){
-        // console.log(iteration,teamOrderIdentifier);
-        // console.log(dropdownOptions[randomOptions.firstRandomNumber]);
         specificRandomNumber = teamOrderIdentifier.replace("Team","RandomNumber");
-        selectedTeam = dropdownOptions[randomOptions[`${specificRandomNumber}`]];
-        // console.log(dropdownOptions[randomOptions[`${specificRandomOption}`]]);
-        // console.log(dropdownOptions[randomOptions[`${specificRandomNumber}`]]); Correctly identifies the random team name.
-        // console.log($(`#${teamOrderIdentifier}Select`));
-        console.log(selectedTeam);
-        $(`#${teamOrderIdentifier}Select`).value = selectedTeam;
-        
+        selectedTeam = dropdownOptions[randomOptions[`${specificRandomNumber}`]]["value"];
         $(`#${teamOrderIdentifier}Select`).val(selectedTeam);
-        console.log($(`#${teamOrderIdentifier}Select`).val());
-        console.log($(`#${teamOrderIdentifier}Select`));
-
-        // `#${teamOrderIdentifier}Select`[0].value = dropdownOptions[randomOptions[`${specificRandomOption}`]];
-        console.log($(`#${teamOrderIdentifier}Select`)[0].value);
-        console.log($("#firstTeamSelect")[0].value);
-        // console.log($(`${teamOrderIdentifier}Select`).value);
-        // console.log((`${teamOrderIdentifier}Select`.value));
-
-        // $(`${teamOrderIdentifier}Select`).value = dropdownOptions[specificRandomOption].value;
-
     })
-    // document.getElementById($(`$(teamDescriptorId)Select`)).value = dropdownOptions[firstRandomOption].value;
-    // document.getElementById(`${teamDescriptorId[1]}Select`).value = dropdownOptions[secondRandomOption].value;
+
     $(".dropdownSelector").change()
 };
 
