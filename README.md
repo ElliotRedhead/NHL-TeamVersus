@@ -200,3 +200,7 @@ The photos used in this site were obtained from the following sources:
 ### Acknowledgements
 
 Many thanks for support in the creation of this website to my mentor: [Simen Daehlin](https://github.com/Eventyret).
+
+#### Disclaimer
+
+This project and its contents are for educational purposes only.
