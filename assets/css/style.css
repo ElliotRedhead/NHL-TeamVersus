@@ -1,10 +1,16 @@
+/* Importing the main font used throughout the project "Teko" from Google Fonts*/
+
 @import url('https://fonts.googleapis.com/css?family=Teko&display=swap');
+
+/* Changing the default font-size from 16px to suit the font-style, providing a benchmark to base relative size units from. */
 
 html {
     font-size: 18px;
 }
 
- @media (max-width: 767px) {
+/* Removal of "VS" text at smallest resolutions and general scaling. */
+
+@media (max-width: 767px) {
     .dropdownSelector{
         font-size:1.5rem;
     }
@@ -17,6 +23,7 @@ html {
  }
 
 /* Small devices (landscape phones, 576px and up) */
+
 @media (min-width:426px) and (max-width: 767px) {
     .dropdownSelector{
         left:1.25rem;
@@ -24,6 +31,7 @@ html {
 }
 
 /* Medium devices (tablets, 768px and up) */
+
 @media (min-width: 768px) {
     html{font-size:26px;}
     #versusText {
@@ -37,14 +45,13 @@ html {
 }
 
 /* Large devices (desktops, 992px and up */
+
 @media (min-width: 992px) {
     html{font-size:30px;}
-    #versusText {
-        font-size:6rem;
-    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
+
 @media (min-width: 1200px) {
     html{font-size:32px;}
     #randomButton {
@@ -56,8 +63,10 @@ html {
 }
 
 @media (min-width: 2000px) {
-    html{font-size:55px;}
+    html{font-size:45px;}
 }
+
+/* A glowing animation, providing a pulsing contrast between black and white.*/
 
 @keyframes contrast-pulse {
     0% {
@@ -71,27 +80,36 @@ html {
      }
 }
 
+/* Setting the main font and background image to be used to cover the whole page.*/
+
 body {
     font-family: 'Teko', sans-serif;
-    background-color: #141414;
     background-image: url(../images/Ice-Background.jpg);
     background-color: #0e0e0e;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+/* A class defined to ensure an element fills the viewheight of the target display. */
+
+.singlePageContainer {
+    height:100vh;
+}
+
+/* Central alignment and spacing of team selection content. */
+
 #selectTeams .row {
     text-align:center;
     align-content: space-around;
 }
 
+/* Ensures team logo width consistency across all resolutions. */
+
  .teamLogo {
     max-width:100%;
 }
 
-.singlePageContainer {
-    height:100vh;
-}
+/* Styling of the team selector dropdowns; sizes, colour and background texture. */
 
 .dropdownSelector {
     cursor: pointer;
@@ -116,6 +134,8 @@ body {
     /*CREDIT: https://www.filamentgroup.com/lab/select-css.html */
   }
 
+/* The random/shuffle button displayed in the top-left of the page, ensuring always on top of other elements if overlapped. */
+
 #randomButton {
     color:#000000;
     font-size:2rem;
@@ -129,6 +149,9 @@ body {
     top:1rem;
     left: 0.5rem;
 }
+
+/* The information button that triggers the welcome instruction modal. */
+
 #infoButton {
     font-size:2.3rem;
     color:#ffffff;
@@ -139,11 +162,7 @@ body {
     right: 0.7rem;
 }
 
-.btn:hover {
-    cursor:pointer;
-    background-image: linear-gradient(to bottom, #ffffff 0%,#c7c7c7 100%);
-    border-color: #808080;
-}
+/* The trigger for the comparison function, hidden by default and made visible when selection conditions are met. */
 
 #compareButton {
     visibility:hidden;
@@ -151,17 +170,25 @@ body {
     width:100%;
 }
 
+/* Even horizontal spacing of statistic components. */
+
 #statistics .row {
     align-content:space-around;
 }
 
+#statistics .row div ul {
+    padding:0rem;
+}
 
+/* Required for triggered reveal of the statistics section with an animation. */
 
 #statisticsContainer {
     overflow:hidden;
     transition:height 0.3s ease-out;
     height:auto;
 }
+
+/* Styling of statistics with a semi-transparent background for a floating effect, components are also made central. */
 
 .statList > li {
     margin: 0.1rem;
@@ -172,6 +199,8 @@ body {
     text-align: center;
 }
 
+/* Spacing provided between text and tooltip icons for better legibility and use of space. */
+
 .statList > li > i {
     padding-left:0.3rem;
 }
@@ -179,18 +208,24 @@ body {
 #statistics > .row > div {
     padding: 0rem;
 }
+
+/* Central alignment of the Play Again button with parent filling full width available. */
+
 #resetContainer {
     text-align: center;
     width:100%;
-    font-size: 1.2rem;
 }
 
+/* Compare and Play Again buttons denoted a pulsing animation with defined size, colour and coloured shadow. */
+
 .buttonStyle {
-    font-size:1.7rem;
+    font-size:3rem;
     animation: contrast-pulse 1.5s infinite;
     color: #000000;
     text-shadow: 0 0 0.1rem #fff, 0 0 0.4rem #fff, 0 0 1rem #e65400e8, 0 0 1.5rem #e65400e8, 0 0 2rem #e65400e8, 0 0 2.5rem #e65400e8, 0 0 3rem #e65400e8;
 }
+
+/* Styling of the Compare and Play Again buttons on user hovering, animation is paused on hover, with a font-colour and background change for user feedback. */
 
 .buttonStyle:hover {
     animation: none;
@@ -198,9 +233,13 @@ body {
     text-shadow: 0 0 0.3rem #fff, 0 0 0.5rem #fff, 0 0 1rem #e60000, 0 0 1.5rem #e60000, 0 0 2rem #e60000, 0 0 2.5rem #e60000, 0 0 3rem #e60000, 0 0 3rem #e60000, 0 0 3rem #e60000, 0 0 3rem #e60000;
 }
 
+/* Removes the default styling for links.*/
+
 .removeLinkDecoration, .removeLinkDecoration:hover {
     text-decoration: none;
 }
+
+/* Fills the height of the element container. */
 
 .fillHeight {
     height:100%;
