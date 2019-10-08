@@ -341,6 +341,17 @@ function randomiseSelection() {
     if (firstRandomOption == secondRandomOption) {
         firstRandomOption = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     }
+
+    $(".firstTeamLogo").each(function(i, obj) {
+        obj.alt = `${dropdownOptions[firstRandomOption].value} team logo.`
+        console.log(i, obj);
+    });
+
+    $(".secondTeamLogo").each(function(i, obj) {
+        obj.alt = `${dropdownOptions[secondRandomOption].value} team logo.`
+        console.log(i, obj);
+    });
+
     document.getElementById(`${teamDescriptorId[0]}Select`).value = dropdownOptions[firstRandomOption].value;
     document.getElementById(`${teamDescriptorId[1]}Select`).value = dropdownOptions[secondRandomOption].value;
     $(".dropdownSelector").change()
