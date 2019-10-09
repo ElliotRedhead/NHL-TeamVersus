@@ -131,7 +131,6 @@ body {
     background-repeat: no-repeat, repeat;
 	background-position: right .35rem top 50%, 0 0;
     background-size: 0.65rem auto, 100%;
-    /*CREDIT: https://www.filamentgroup.com/lab/select-css.html */
   }
 
 /* The random/shuffle button displayed in the top-left of the page, ensuring always on top of other elements if overlapped. */
