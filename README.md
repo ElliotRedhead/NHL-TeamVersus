@@ -16,8 +16,8 @@ This recreational/educational tool is designed to easily allow comparison of key
 
 ## User Stories
 
-1. A user wanting to conduct a statistics comparison between two specific different teams.
-2. A user interested in comparing two random teams.
+1. A user conducting a statistics comparison between two specific teams.
+2. A user conducting a statistics comparison between two random teams.
 
 ### User Story Fulfilment
 
@@ -129,32 +129,36 @@ Addition of a mini-game wherein the user was provided with two teams and they we
 
 ## Testing
 
-1. Navigation (Larger Resolution)
-
-2. Navigation (Smaller Resolution)
-
-3. Team Selection Functionality
+1. Team Selection Functionality
 
 The dropdown selector successfully only allows selection of two teams that are different from one another and does not allow selection of the "Select Team" disabled option. Upon satisfying this criteria, a button to trigger the comparison appears.
 
-4. The "Shuffle" Button
+2. The "Shuffle" Button
 
 Upon clicking the shuffle/randomize button: two teams are randomly selected from the list but these teams must also not be identical to each other as identical teams cannot be compared.
 If the initial randomization results in identical teams then one is re-randomized until the teams are different from one another.
 This feature was extensively tested at [this commit](https://github.com/ElliotRedhead/NHL-TeamVersus/tree/6c4c3e2ce69c132fc0e55879e70b26478a0d8447) with a console message displayed each time the re-randomization was required and triggered.
 
-5. Calculating the Winner
+3. Calculating the Winner
 
 Comparison of the two teams "Philadelphia Flyers" and "New Jersey Devils" correctly announces that Philadelphia Flyers has won the statistics comparison in a modal. Greater/lesser statistics are correctly highlighted in the appropriate column with the tied save percentage statistic highlighted yellow for both teams. Reversing the team positions in the dropdown order yields the same correct result.
 Comparison of the two teams "Toronto Maple Leafs" and "Pittsburgh Penguins" correctly announces that the teams have tied, the statistics correctly colours the greater/lesser statistics with an even spread of won statistics for both teams with a single tie.
 
-6. Statistics Tooltips
+4. Statistics Tooltips
 
-7. The "Play Again" Button
+For laptop/desktop use: Hovering over each tooltip successfully displays the text that corresponds to that statistic. The same is true for mobile/tablet use upon selection.
 
-Open the completed website across multiple devices and platforms, including Windows (Chrome), Linux (Chromium), Apple Mac (Safari), Apple iPhone (Safari) and Android Galaxy (Samsung Internet). Does the page load correctly and as was designed across target resolutions?
+5. The "Play Again" Button
 
-Use the [W3C](https://www.w3.org/) validators at the project's end and make adjustments if required, in accordance with the results.
+The site is effectively reset to its default state upon activation of the "Play Again" button, the welcome modal purposely does not display again upon resetting in this way.
+
+6. Multi-platform Testing
+The completed website has been viewed across multiple devices and platforms, including Windows (Chrome), Linux (Chromium), Apple Mac (Safari), Apple iPhone (Safari) and Android Galaxy (Samsung Internet). The page loads and functions correctly and as was designed across target resolutions.
+
+7. Code Validators
+[W3C](https://www.w3.org/) validators were used for both HTML and CSS checking.
+Results of the HTML validator were acceptable given changes that are made by javascript, use of headings were not relevant to this project so changes were not required.
+Results of the CSS validator were also acceptable and did not require changes to the project.
 
 ### Known Bugs & Limitations
 
@@ -192,10 +196,12 @@ At the time of submission are both the deployed and development versions of this
 
 ## Credits
 
-### Media
+### Additional Resources
 The photos used in this site were obtained from the following sources:
 1. Helmet favicon: From [flaticon](https://www.flaticon.com/) from the [smashicon authors](https://www.flaticon.com/authors/smashicons).
 2. Background image: Scratched ice background sourced from [pixabay](https://pixabay.com/photos/ice-ice-hockey-scratch-color-4285443/).
+3. Textured background of dropdown selectors: Sourced from [filament group](https://www.filamentgroup.com/lab/select-css.html).
+4. Team logos: All sourced from [NHL](https://www.nhl.com).
 
 ### Acknowledgements
 
