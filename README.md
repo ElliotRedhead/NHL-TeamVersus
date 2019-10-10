@@ -152,10 +152,12 @@ For laptop/desktop use: Hovering over each tooltip successfully displays the tex
 
 The site is effectively reset to its default state upon activation of the "Play Again" button, the welcome modal purposely does not display again upon resetting in this way.
 
-6. Multi-platform Testing
+6. Multi-platform Testing 
+
 The completed website has been viewed across multiple devices and platforms, including Windows (Chrome), Linux (Chromium), Apple Mac (Safari), Apple iPhone (Safari) and Android Galaxy (Samsung Internet). The page loads and functions correctly and as was designed across target resolutions.
 
-7. Code Validators
+7. Code Validators  
+
 [W3C](https://www.w3.org/) validators were used for both HTML and CSS checking.
 Results of the HTML validator were acceptable given changes that are made by javascript, use of headings were not relevant to this project so changes were not required.
 Results of the CSS validator were also acceptable and did not require changes to the project.
