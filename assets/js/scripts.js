@@ -10,7 +10,7 @@ const fetchOptions = {
     handleStatistics: false,
     firstWriteCompletion: false,
     secondWriteCompletion: false,
-}
+};
 
 // The default parameters used for the handling of the teams' statistics.
 const teamStatistics = {
@@ -21,14 +21,14 @@ const teamStatistics = {
     secondTeam: "",
     elementId: ["WinLossRatio", "Points", "FaceOffWinPercentage", "SavePercentage", "GoalsPerGame"],
     statisticShorthand: ["winLossRatio", "pts", "faceOffWinPercentage", "savePctg", "goalsPerGame"],
-}
+};
 
 const teamDescriptorId = ["firstTeam", "secondTeam"];
 
 const statisticsSection = document.getElementById("statisticsContainer");
 
 // jQuery triggers the initial functions when the page has loaded.
-$(document).ready(function() {
+$(document).ready(function () {
     welcomeModal();
     dataFetch(fetchOptions);
     sectionCollapse(statisticsSection);
@@ -42,14 +42,15 @@ $(document).ready(function() {
 function welcomeModal() {
     Swal.fire({
         title: "Welcome to NHL Showdown 2018-2019!",
-        html:"Select two teams to compare from the dropdowns or click the shuffle button to have two teams randomly selected!<br>Click 'Compare!' to see who wins with a comparison of the teams' statistics!",
-      })
-    welcomeModalDisplay = false;}
+        html: "Select two teams to compare from the dropdowns or click the shuffle button to have two teams randomly selected!<br>Click 'Compare!' to see who wins with a comparison of the teams' statistics!",
+    });
+    welcomeModalDisplay = false;
+}
 
-$("#infoButton").click(function(){
+$("#infoButton").click(function () {
     welcomeModal();
-})
-    
+});
+
 
 /**
  * Fetches data from the NHL API, with different if statements filtering how the data is manipulated and triggers a function to write the statistics to the DOM.
@@ -91,7 +92,7 @@ function dataFetch(fetchOptions) {
                 manipulateStats(teamStat);
                 writeStats(teamOrder, teamStat);
             }
-        })
+        });
 }
 
 /**
@@ -102,9 +103,9 @@ function appendTeamNames(sortedData) {
     teamDescriptorId.forEach(teamDescriptorId => {
         sortedData.forEach(sortedData => {
             document.getElementById(`${teamDescriptorId}Select`).innerHTML +=
-                `<option>${sortedData.name}</option>`
-        })
-    })
+                `<option>${sortedData.name}</option>`;
+        });
+    });
 }
 
 /** 
@@ -119,7 +120,7 @@ $(".dropdownSelector").change(function () {
     const teamName = $(this).val();
     compareButtonVisibility();
     getTeamLogo(dropdownOrder, teamName);
-})
+});
 
 /**
  * Displays the corresponding team logo to the selected team, calling the animation upon display.
@@ -132,7 +133,7 @@ function getTeamLogo(order, teamName) {
     var i;
     for (i = 0; i < 2; i++) {
         teamLogo[i].src = `assets/images/teamlogos/${shortenedTeamName}.png`;
-        teamLogo[i].setAttribute("alt", `${teamName} team logo.`)
+        teamLogo[i].setAttribute("alt", `${teamName} team logo.`);
     }
 
     animationHandler(teamLogo[0]);
@@ -173,9 +174,9 @@ function getTeamId(data, teamName) {
 }
 
 
-$("#compareButton").click(function(){
+$("#compareButton").click(function () {
     optionsEnableStats(fetchOptions);
-})
+});
 
 /**
  * Triggers the statistics fetch and displays the statistics section.
@@ -209,7 +210,7 @@ function writeStats(teamOrder, teamStat) {
     if (teamOrder == 1) {
         teamDivSelect = teamDescriptorId[1];
         teamStatistics.secondTeam = teamStat;
-    };
+    }
 
     let i = 0;
     teamStatistics.elementId.forEach(function (elementId) {
@@ -219,7 +220,7 @@ function writeStats(teamOrder, teamStat) {
         }
         document.getElementById(teamDivSelect + elementId).textContent = statisticValue;
         i = i + 1;
-    })
+    });
 
     teamOrder === 0 ? fetchOptions.firstWriteCompletion = true : fetchOptions.secondWriteCompletion = true;
     if (fetchOptions.firstWriteCompletion && fetchOptions.secondWriteCompletion) {
@@ -238,17 +239,17 @@ function writeStats(teamOrder, teamStat) {
 function appendStatisticsList() {
     teamStatistics.elementId.forEach(function (elementId) {
         teamDescriptorId.forEach(function (descriptorValue) {
-            document.getElementById(`${descriptorValue}StatList`).innerHTML += `<li id=${descriptorValue}${elementId}></li>`
-        })
-
-    })
+            document.getElementById(`${descriptorValue}StatList`).innerHTML += `<li id=${descriptorValue}${elementId}></li>`;
+        });
+    });
 }
 
 /**
  * Scrolls to the results section of the page.
  */
 function scrollToResults() {
-    window.scrollTo({top:1500,behavior: 'smooth'})}
+    window.scrollTo({ top: 1500, behavior: 'smooth' });
+}
 
 /**
  * Calculates whether the first or second team attributes are greater, highlighting the winning statistic.
@@ -276,7 +277,7 @@ function highlightWins() {
         }
         i = i + 1;
 
-    })
+    });
 }
 
 /**
@@ -302,9 +303,9 @@ function winnerModal(modalText) {
     Swal.fire({
         title: modalText,
         confirmButtonText: 'View Statistics',
-    }).then(function () { 
+    }).then(function () {
         scrollToResults();
-     })
+    });
 }
 
 /**
@@ -324,10 +325,10 @@ function defaultOptions() {
     fetchOptions.firstWriteCompletion = false;
     fetchOptions.secondWriteCompletion = false;
     teamStatistics.scoreCounter = "";
-};
+}
 
 
-$("#randomButton").click(function() {
+$("#randomButton").click(function () {
     randomiseSelection();
 });
 
@@ -339,9 +340,9 @@ function randomiseSelection() {
     const randomOptions = {
         firstRandomNumber: "",
         secondRandomNumber: "",
-    }
+    };
 
-    $.each(randomOptions, function(iteration){
+    $.each(randomOptions, function (iteration) {
         randomOptions[iteration] = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     });
 
@@ -349,14 +350,14 @@ function randomiseSelection() {
         randomOptions.firstRandomNumber = Math.floor((Math.random() * (dropdownOptions.length - 1) + 1));
     }
 
-    $(teamDescriptorId).each(function(iteration,teamOrderIdentifier){
-        specificRandomNumber = teamOrderIdentifier.replace("Team","RandomNumber");
+    $(teamDescriptorId).each(function (iteration, teamOrderIdentifier) {
+        specificRandomNumber = teamOrderIdentifier.replace("Team", "RandomNumber");
         selectedTeam = dropdownOptions[randomOptions[`${specificRandomNumber}`]]["value"];
         $(`#${teamOrderIdentifier}Select`).val(selectedTeam);
-    })
+    });
 
-    $(".dropdownSelector").change()
-};
+    $(".dropdownSelector").change();
+}
 
 /**
  * Sets the team logos shown in the statistic section to a height equal to the descriptors for uniformity.
@@ -369,25 +370,27 @@ function resizeTeamLogo() {
 /**
  * Collapses the statistics section to effectively hide when not suitable to be shown i.e. statistics not yet fetched, team selections changed.
  */
-function sectionCollapse(){
-        requestAnimationFrame(function() {
-            statisticsSection.style.height = 0 + 'px';
-        });
-      };
+function sectionCollapse() {
+    requestAnimationFrame(function () {
+        statisticsSection.style.height = 0 + 'px';
+    });
+}
 
 /**
  * Expands the statistics section to reveal the statistics data provided for both of the selected teams.
  */
-function sectionExpand(){
+function sectionExpand() {
     let sectionHeight = statisticsSection.scrollHeight;
     let elementTransition = statisticsSection.style.transition;
-    requestAnimationFrame(function() {
+    requestAnimationFrame(function () {
         statisticsSection.style.height = sectionHeight + 'px';
         statisticsSection.style.transition = elementTransition;
-    })}
+    });
+}
 
-$( "#resetButton" ).click(function () {
-    resetPage();});
+$("#resetButton").click(function () {
+    resetPage();
+});
 /**
  * Resets the fetch parameters, selected dropdown values and team logos to default.
  * Collapses the statistics section and scrolls to the top of the page.
@@ -396,20 +399,20 @@ function resetPage() {
     defaultDropdownValue = "Select Team";
     ($(".dropdownSelector").each(function () {
         ($(this).val(defaultDropdownValue));
-    }))
+    }));
     defaultOptions();
-    let order = ["first","second"];
+    let order = ["first", "second"];
     order.forEach(order => {
         getTeamLogo(order, defaultDropdownValue);
-    })
+    });
     sectionCollapse(statisticsSection);
     compareButtonVisibility();
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
 }
 
 /**
  * Required function to use the statistic descriptor tooltips.
  */
-function initialiseTooltips () {
-    $('[data-toggle="tooltip"]').tooltip()
-  }
+function initialiseTooltips() {
+    $('[data-toggle="tooltip"]').tooltip();
+}
