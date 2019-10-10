@@ -51,7 +51,6 @@ $("#infoButton").click(function () {
     welcomeModal();
 });
 
-
 /**
  * Fetches data from the NHL API, with different if statements filtering how the data is manipulated and triggers a function to write the statistics to the DOM.
  *
@@ -135,9 +134,9 @@ function getTeamLogo(order, teamName) {
         teamLogo[i].src = `assets/images/teamlogos/${shortenedTeamName}.png`;
         teamLogo[i].setAttribute("alt", `${teamName} team logo.`);
     }
-
     animationHandler(teamLogo[0]);
 }
+
 /**
  * Adds an animation to the team logo images.
  * @param {Object} teamLogo The HTML image item displaying the team logo.
@@ -313,7 +312,6 @@ function winnerModal(modalText) {
  * Resets the fetch options used to their default values.
  */
 
-
 function defaultOptions() {
     fetchOptions.statsUrl = "";
     fetchOptions.teamIdArray = [];
@@ -326,7 +324,6 @@ function defaultOptions() {
     fetchOptions.secondWriteCompletion = false;
     teamStatistics.scoreCounter = "";
 }
-
 
 $("#randomButton").click(function () {
     randomiseSelection();
