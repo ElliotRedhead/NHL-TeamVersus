@@ -1,5 +1,5 @@
 # NHL Team Showdown
-View the live deployment [here](https://elliotredhead.github.io/NHL-TeamVersus/)
+View the live deployment [here](https://elliotredhead.github.io/NHLTeamShowdown/)
 -----
 Submission for Code Institute's Interactive Frontend Development Milestone Project, a one-page site to compare National Hockey League statistics between two teams.
 This recreational/educational tool is designed to easily allow comparison of key statistics for the 2018/2019 season with a breakdown of these in a fun game-like format.
