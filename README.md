@@ -182,7 +182,7 @@ The setup for the GitHub Pages deployment was as follows:
 - Under "Source" click the drop-down that is set to "None" and select "Master Branch".
 - The link to the website is now displayed under the "Github Pages" section.
 
-At the time of submission are both the deployed and development versions of this project identical?
+At the time of submission both the deployed and development versions of this project are identical.
 
 ## Run this Project Locally:
 
