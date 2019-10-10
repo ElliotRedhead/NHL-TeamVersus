@@ -162,6 +162,8 @@ The completed website has been viewed across multiple devices and platforms, inc
 Results of the HTML validator were acceptable given changes that are made by javascript, use of headings were not relevant to this project so changes were not required.
 Results of the CSS validator were also acceptable and did not require changes to the project.
 
+[JSHint](https://jshint.com/) was used by recommendation of The Code Institute to validate the Javascript. The changes required to satisfy this (addition/removal of semicolons) were made as a result.
+
 ### Known Bugs & Limitations
 
 1. With the statistics list already generated, if using a browser compatibility tool to check layout across resolutions the team logos in the statistics list will be an incorrect size. This is fixed by re-comparing the teams at the chosen test resolution. This layout bug does not affect standard use of the site, and is known to be present across other popular websites i.e. Facebook.
